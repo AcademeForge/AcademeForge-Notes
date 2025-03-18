@@ -79,7 +79,10 @@
 
 <div id="extraSections" class="hidden">  
     <h2>Extra Study Materials</h2>  
-    <p> https://academeforge.pages.dev/ </p>  
+    <p> <a href="https://academeforge.pages.dev/" target="_blank">Extra Study Materials</a>
+    </div>
+</div>
+
     <h2>Timetable</h2>
 
 <html lang="en">  
@@ -250,8 +253,7 @@
         document.getElementById('aboutUsSection').style.display = 'none';  
         document.getElementById('mainSection').style.display = 'block';  
     }  
-</script>  </body>  
-</html>  <script>  
+</script
     function login() {  
         document.getElementById('container').style.display = 'none';  
         document.getElementById('classSelection').classList.remove('hidden');  
