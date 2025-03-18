@@ -133,9 +133,6 @@
 </head>
 <body>
 
-<!-- Main Section -->
-<div id="mainSection">
-    <h1>Welcome to AcademeForge</h1>
     <p>Your one-stop platform for study materials and more!</p>
 
     <!-- About Us Button -->
