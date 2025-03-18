@@ -239,7 +239,7 @@
 
 <!-- About Us Section (Hidden Initially) -->  <div id="aboutUsSection" class="hidden">  
     <h2>About Us</h2>  
-    <p>AcademeForge was founded on January 2024 by
+    <p>AcademeForge was founded on January 2024 by :
 
 Devraj kumar – Founder & CEO
 
