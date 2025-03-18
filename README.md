@@ -78,8 +78,7 @@
 </div>  
 
 <div id="extraSections" class="hidden">  
-    <h2>Extra Study Materials</h2>  
-    <p> <a href="https://academeforge.pages.dev/" target="_blank">Extra Study Materials</a>
+    <a href="https://academeforge.pages.dev/" target="_blank">Extra Study Materials</a>
     </div>
 </div>
 
