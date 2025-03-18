@@ -79,7 +79,7 @@
 
 <div id="extraSections" class="hidden">  
     <h2>Extra Study Materials</h2>  
-    <a href="https://academeforge.pages.dev/" target="_blank">Visit AcademeForge</a> 
+    <a href="https://academeforge.pages.dev/" target="_blank">Visit AcademeForge for free study items</a> 
 
     <h2>Timetable</h2>
 
