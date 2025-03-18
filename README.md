@@ -84,8 +84,177 @@
         <h2>Extra Study Materials</h2>
         <p>Coming soon...</p>
         <h2>Timetable</h2>
-        <p>Will be updated...</p>
-    </div>
+        
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Study Timetable</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .hidden {
+            display: none;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            margin: 10px;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid #ccc;
+            text-align: center;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Main Timetable Section -->
+<div id="mainTimetableSection">
+    <h1>Select Your Timetable</h1>
+    <button onclick="showTimetable('regular')">Regular</button>
+    <button onclick="showTimetable('dummy')">Dummy</button>
+</div>
+
+<!-- Regular Timetable Section -->
+<div id="regularTimetableSection" class="hidden">
+    <h2>Regular Student Timetable</h2>
+    <table>
+        <tr>
+            <th>Time</th>
+            <th>Activity</th>
+        </tr>
+        <tr>
+            <td>8:00 AM - 2:00 PM</td>
+            <td>School Time</td>
+        </tr>
+        <tr>
+            <td>2:30 PM - 3:30 PM</td>
+            <td>Lunch + Rest</td>
+        </tr>
+        <tr>
+            <td>3:30 PM - 5:30 PM</td>
+            <td>Self Study (Math/Physics/Chemistry)</td>
+        </tr>
+        <tr>
+            <td>5:30 PM - 6:30 PM</td>
+            <td>Break/Exercise</td>
+        </tr>
+        <tr>
+            <td>6:30 PM - 8:30 PM</td>
+            <td>Self Study (Biology/English/Hindi)</td>
+        </tr>
+        <tr>
+            <td>8:30 PM - 9:30 PM</td>
+            <td>Dinner + Family Time</td>
+        </tr>
+        <tr>
+            <td>9:30 PM - 10:30 PM</td>
+            <td>Revision + Planning for Next Day</td>
+        </tr>
+    </table>
+    <button onclick="backToMain()">Back</button>
+</div>
+
+<!-- Dummy Timetable Section -->
+<div id="dummyTimetableSection" class="hidden">
+    <h2>Dummy Student Timetable</h2>
+    <table>
+        <tr>
+            <th>Time</th>
+            <th>Activity</th>
+        </tr>
+        <tr>
+            <td>8:00 AM - 9:00 AM</td>
+            <td>Exercise + Freshen Up</td>
+        </tr>
+        <tr>
+            <td>9:00 AM - 10:30 AM</td>
+            <td>Math/Physics Study</td>
+        </tr>
+        <tr>
+            <td>10:30 AM - 11:00 AM</td>
+            <td>Short Break</td>
+        </tr>
+        <tr>
+            <td>11:00 AM - 12:30 PM</td>
+            <td>Chemistry/Biology Study</td>
+        </tr>
+        <tr>
+            <td>12:30 PM - 1:30 PM</td>
+            <td>Lunch + Rest</td>
+        </tr>
+        <tr>
+            <td>1:30 PM - 3:00 PM</td>
+            <td>English/Hindi Study</td>
+        </tr>
+        <tr>
+            <td>3:00 PM - 4:00 PM</td>
+            <td>Short Break + Refresh</td>
+        </tr>
+        <tr>
+            <td>4:00 PM - 6:00 PM</td>
+            <td>Revision + Problem Solving</td>
+        </tr>
+        <tr>
+            <td>6:00 PM - 7:00 PM</td>
+            <td>Break/Exercise</td>
+        </tr>
+        <tr>
+            <td>7:00 PM - 9:00 PM</td>
+            <td>Subject-Wise Study + Homework</td>
+        </tr>
+        <tr>
+            <td>9:00 PM - 10:00 PM</td>
+            <td>Dinner + Relax</td>
+        </tr>
+        <tr>
+            <td>10:00 PM - 11:00 PM</td>
+            <td>Light Reading + Planning</td>
+        </tr>
+    </table>
+    <button onclick="backToMain()">Back</button>
+</div>
+
+<!-- JavaScript to Handle View Switching -->
+<script>
+    function showTimetable(type) {
+        document.getElementById('mainTimetableSection').style.display = 'none';
+        if (type === 'regular') {
+            document.getElementById('regularTimetableSection').style.display = 'block';
+        } else {
+            document.getElementById('dummyTimetableSection').style.display = 'block';
+        }
+    }
+
+    function backToMain() {
+        document.getElementById('regularTimetableSection').style.display = 'none';
+        document.getElementById('dummyTimetableSection').style.display = 'none';
+        document.getElementById('mainTimetableSection').style.display = 'block';
+    }
+</script>
+
+</body>
+</html>
 
     <div id="reviewsSection" class="hidden">
         <h2>Student Reviews</h2>
