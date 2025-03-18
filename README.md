@@ -308,6 +308,5 @@
         document.getElementById('subjectContainer').classList.add('hidden');  
         document.getElementById('classSelection').classList.remove('hidden');  
     }  
-</script>  </body>  
-</html>  Fix this correctly remove all the bugs
+
 
