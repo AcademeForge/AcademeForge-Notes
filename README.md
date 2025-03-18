@@ -78,11 +78,8 @@
 </div>  
 
 <div id="extraSections" class="hidden">  
-    <a href="https://academeforge.pages.dev/" target="_blank">Extra Study Materials</a>
-    </div>
-</div>
-
-
+    <h2>Extra Study Materials</h2>  
+    <p>Coming soon...</p>  
     <h2>Timetable</h2>
 
 <html lang="en">  
@@ -127,10 +124,18 @@
     </style>  
 </head>  
 <body>  
-
+<!-- Class Selection Section -->  
+<div id="classSelectionSection">  
+    <h1>Select Your Class</h1>  
+    <button onclick="selectClass(9)">Class 9</button>  
+    <button onclick="selectClass(10)">Class 10</button>  
+    <button onclick="selectClass(11)">Class 11</button>  
+    <button onclick="selectClass(12)">Class 12</button>  
+</div>  <!-- Main Options (Visible All the Time) -->  <div id="mainOptionsSection">  
     <button onclick="showTimetable()">Timetable</button>  
-    
-      <!-- Timetable Section (Hidden by Default) -->  <div id="mainTimetableSection" style="display: none;">  
+    <button onclick="showNotes()">Access Notes</button>  
+    <button onclick="showExtraMaterials()">Extra Study Materials</button>  
+</div>  <!-- Timetable Section (Hidden by Default) -->  <div id="mainTimetableSection" style="display: none;">  
     <h1>Select Your Timetable</h1>  
     <button onclick="showTimetableDetails('regular')">Regular</button>  
     <button onclick="showTimetableDetails('dummy')">Dummy</button>  
@@ -200,6 +205,7 @@
     <p>"This website helped me so much in my studies!" - Newton</p>  
     <p>"AcademeForge is amazing for study materials!" - Einstein</p>
 
+lang="en">
 
 <head>  
     <meta charset="UTF-8" />  
@@ -253,7 +259,8 @@
         document.getElementById('aboutUsSection').style.display = 'none';  
         document.getElementById('mainSection').style.display = 'block';  
     }  
-</script
+</script>  </body>  
+</html>  <script>  
     function login() {  
         document.getElementById('container').style.display = 'none';  
         document.getElementById('classSelection').classList.remove('hidden');  
@@ -310,5 +317,5 @@
         document.getElementById('classSelection').classList.remove('hidden');  
     }  
 </script>  </body>  
-</html>
+</html>  Fix this correctly remove all the bugs
 
