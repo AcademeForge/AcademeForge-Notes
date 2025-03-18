@@ -124,14 +124,7 @@
     </style>  
 </head>  
 <body>  
-<!-- Class Selection Section -->  
-<div id="classSelectionSection">  
-    <h1>Select Your Class</h1>  
-    <button onclick="selectClass(9)">Class 9</button>  
-    <button onclick="selectClass(10)">Class 10</button>  
-    <button onclick="selectClass(11)">Class 11</button>  
-    <button onclick="selectClass(12)">Class 12</button>  
-</div>  <!-- Main Options (Visible All the Time) -->  <div id="mainOptionsSection">  
+
     <button onclick="showTimetable()">Timetable</button>  
     <button onclick="showNotes()">Access Notes</button>  
     <button onclick="showExtraMaterials()">Extra Study Materials</button>  
