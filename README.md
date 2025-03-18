@@ -126,9 +126,8 @@
 <body>  
 
     <button onclick="showTimetable()">Timetable</button>  
-    <button onclick="showNotes()">Access Notes</button>  
-    <button onclick="showExtraMaterials()">Extra Study Materials</button>  
-</div>  <!-- Timetable Section (Hidden by Default) -->  <div id="mainTimetableSection" style="display: none;">  
+    
+      <!-- Timetable Section (Hidden by Default) -->  <div id="mainTimetableSection" style="display: none;">  
     <h1>Select Your Timetable</h1>  
     <button onclick="showTimetableDetails('regular')">Regular</button>  
     <button onclick="showTimetableDetails('dummy')">Dummy</button>  
