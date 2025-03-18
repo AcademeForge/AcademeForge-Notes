@@ -79,7 +79,7 @@
 
 <div id="extraSections" class="hidden">  
     <h2>Extra Study Materials</h2>  
-    <p> Check : https://academeforge.pages.dev/</p>  
+    <p>https://academeforge.pages.dev/</p>  
     <h2>Timetable</h2>
 
 <html lang="en">  
@@ -126,8 +126,7 @@
 <body>  
 
     <button onclick="showTimetable()">Timetable</button>  
-    <button onclick="showNotes()">Access Notes</button>  
-    <button onclick="showExtraMaterials()">Extra Study Materials</button>  
+    
 </div>  <!-- Timetable Section (Hidden by Default) -->  <div id="mainTimetableSection" style="display: none;">  
     <h1>Select Your Timetable</h1>  
     <button onclick="showTimetableDetails('regular')">Regular</button>  
@@ -241,7 +240,7 @@
     <h2>About Us</h2>  
     <p>AcademeForge was founded by <b>Devraj Kumar</b> and co-founded by <b>Aadi</b> and <b>Mandeep</b>. Our mission is to provide free study materials to students and help them achieve academic success.</p>  
     <button onclick="hideAboutUs()">Back</button>  
-</div>  <!-- JavaScript (Directly in HTML) -->  <script>  
+<!-- JavaScript (Directly in HTML) -->  <script>  
     function showAboutUs() {  
         document.getElementById('aboutUsSection').style.display = 'block';  
         document.getElementById('mainSection').style.display = 'none';  
