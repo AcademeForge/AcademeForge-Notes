@@ -83,21 +83,19 @@
     <div id="extraSections" class="hidden">
         <h2>Extra Study Materials</h2>
         <p>Coming soon...</p>
-        <h2>Notes</h2>
-        <p>Available soon...</p>
         <h2>Timetable</h2>
         <p>Will be updated...</p>
     </div>
 
     <div id="reviewsSection" class="hidden">
         <h2>Student Reviews</h2>
-        <p>"This website helped me so much in my studies!" - Student A</p>
-        <p>"AcademeForge is amazing for study materials!" - Student B</p>
+        <p>"This website helped me so much in my studies!" - Newton</p>
+        <p>"AcademeForge is amazing for study materials!" - Einstein</p>
     </div>
 
     <div id="founderSection" class="hidden">
         <h2>About Us</h2>
-        <p>AcademeForge was founded by [Founder Name] and co-founded by [Co-founder Name]. Our mission is to provide free study materials to students.</p>
+        <p>AcademeForge was founded by Devraj Kumar and co-founded by Aadi & Mandeep. Our mission is to provide free study materials to students.</p>
     </div>
 
 <script>
