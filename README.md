@@ -93,13 +93,77 @@
         <p>"AcademeForge is amazing for study materials!" - Einstein</p>
     </div>
 
-  <button onclick="showAboutUs()">About Me</button>
 
-    <div id="founderSection" class="hidden">
-        <h2>About Us</h2>
-        <p>AcademeForge was founded by Devraj Kumar and co-founded by Aadi & Mandeep. Our mission is to provide free study materials to students.</p>
-<button onclick="hideAboutUs()">Back</button>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AcademeForge</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .hidden {
+            display: none;
+        }
+        #aboutUsSection {
+            transition: opacity 0.3s ease;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+            margin-top: 10px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 10px;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Main Section -->
+<div id="mainSection">
+    <h1>Welcome to AcademeForge</h1>
+    <p>Your one-stop platform for study materials and more!</p>
+
+    <!-- About Us Button -->
+    <button onclick="showAboutUs()">About Us</button>
 </div>
+
+<!-- About Us Section (Hidden Initially) -->
+<div id="aboutUsSection" class="hidden">
+    <h2>About Us</h2>
+    <p>AcademeForge was founded by <b>Devraj Kumar</b> and co-founded by <b>Aadi</b> and <b>Mandeep</b>. Our mission is to provide free study materials to students and help them achieve academic success.</p>
+    <button onclick="hideAboutUs()">Back</button>
+</div>
+
+<!-- JavaScript (Directly in HTML) -->
+<script>
+    function showAboutUs() {
+        document.getElementById('aboutUsSection').style.display = 'block';
+        document.getElementById('mainSection').style.display = 'none';
+    }
+
+    function hideAboutUs() {
+        document.getElementById('aboutUsSection').style.display = 'none';
+        document.getElementById('mainSection').style.display = 'block';
+    }
+</script>
+
+</body>
+</html>
 
 <script>
     function login() {
@@ -161,4 +225,3 @@
 
 </body>
 </html>
-
