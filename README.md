@@ -225,11 +225,10 @@
         <h2>Student Reviews</h2>
         <p>"This website helped me so much in my studies!" - Newton</p>
         <p>"AcademeForge is amazing for study materials!" - Einstein</p>
-    </div>
+    
 
 
-
-<html lang="en">
+ lang="en">
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
