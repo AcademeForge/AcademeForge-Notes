@@ -1,193 +1,163 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AcademeForge</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #121212;
-            color: white;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
-        .login-container, .class-container, .stream-container, .subject-container {
-            background: #1e1e1e;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 15px rgba(0,255,255,0.5);
+            background-color: #f4f4f4;
             text-align: center;
-            width: 300px;
-            transition: transform 0.3s ease;
+            padding: 20px;
         }
-        h2 {
-            color: #ff4081;
+        #container {
+            max-width: 500px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
         }
-        input, button {
-            width: 90%;
+        input, button, select {
+            width: 100%;
             padding: 10px;
             margin: 10px 0;
-            border: none;
             border-radius: 5px;
-            font-size: 16px;
-            outline: none;
-        }
-        input {
-            background: #292929;
-            color: white;
+            border: 1px solid #ddd;
         }
         button {
-            background: #00e5ff;
-            color: black;
+            background-color: #007BFF;
+            color: white;
             cursor: pointer;
-            transition: background 0.3s ease;
         }
         button:hover {
-            background: #00bcd4;
+            background-color: #0056b3;
+        }
+        #subjectList img {
+            width: 50px;
+            height: 50px;
+            margin-right: 10px;
         }
         .hidden {
             display: none;
-        }
-        .class-option, .stream-option {
-            margin: 10px;
-            padding: 15px;
-            background-color: #292929;
-            cursor: pointer;
-            border-radius: 5px;
-            transition: background 0.3s ease;
-        }
-        .class-option:hover, .stream-option:hover {
-            background-color: #00e5ff;
-            color: black;
-        }
-        .subject-card {
-            background-color: #292929;
-            margin: 10px 0;
-            padding: 10px;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
-            transition: transform 0.3s ease;
-        }
-        .subject-card img {
-            width: 100%;
-            border-radius: 5px;
-            margin-bottom: 10px;
-        }
-        .access-button {
-            background: #ff4081;
-            color: white;
-            padding: 10px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background 0.3s ease;
-        }
-        .access-button:hover {
-            background: #e91e63;
         }
     </style>
 </head>
 <body>
 
-<!-- Login Page -->
-<div class="login-container" id="loginContainer">
-    <h2>LOGIN</h2>
-    <input type="text" id="username" placeholder="Username" />
-    <input type="password" id="password" placeholder="Password" />
-    <button onclick="login()">Sign In</button>
-</div>
+    <div id="container">
+        <h2>Login</h2>
+        <input type="text" id="username" placeholder="Username">
+        <input type="password" id="password" placeholder="Password">
+        <button onclick="login()">Sign In</button>
+    </div>
 
-<!-- Class Selection Page -->
-<div class="class-container hidden" id="classContainer">
-    <h2>Select Your Class</h2>
-    <div class="class-option" onclick="selectClass(9)">Class 9</div>
-    <div class="class-option" onclick="selectClass(10)">Class 10</div>
-    <div class="class-option" onclick="selectClass(11)">Class 11</div>
-    <div class="class-option" onclick="selectClass(12)">Class 12</div>
-</div>
+    <div id="classSelection" class="hidden">
+        <h2>Select Your Class</h2>
+        <select id="classSelect" onchange="selectClass()">
+            <option value="">--Select Class--</option>
+            <option value="9">Class 9</option>
+            <option value="10">Class 10</option>
+            <option value="11">Class 11</option>
+            <option value="12">Class 12</option>
+        </select>
+    </div>
 
-<!-- Stream Selection Page -->
-<div class="stream-container hidden" id="streamContainer">
-    <h2>Select Your Stream</h2>
-    <div class="stream-option" onclick="selectStream('Science')">Science</div>
-    <div class="stream-option" onclick="selectStream('Commerce')">Commerce</div>
-    <div class="stream-option" onclick="selectStream('Arts')">Arts</div>
-</div>
+    <div id="streamSelection" class="hidden">
+        <h2>Select Your Stream</h2>
+        <select id="streamSelect" onchange="selectStream()">
+            <option value="">--Select Stream--</option>
+            <option value="Science">Science</option>
+            <option value="Commerce">Commerce</option>
+            <option value="Arts">Arts</option>
+        </select>
+    </div>
 
-<!-- Subjects Page -->
-<div class="subject-container hidden" id="subjectContainer">
-    <h2>Subjects</h2>
-    <div id="subjectsList"></div>
-</div>
+    <div id="subjectContainer" class="hidden">
+        <h2>Subjects</h2>
+        <ul id="subjectList"></ul>
+        <button onclick="goBack()">Back</button>
+    </div>
+
+    <div id="extraSections" class="hidden">
+        <h2>Extra Study Materials</h2>
+        <p>Coming soon...</p>
+        <h2>Notes</h2>
+        <p>Available soon...</p>
+        <h2>Timetable</h2>
+        <p>Will be updated...</p>
+    </div>
+
+    <div id="reviewsSection" class="hidden">
+        <h2>Student Reviews</h2>
+        <p>"This website helped me so much in my studies!" - Student A</p>
+        <p>"AcademeForge is amazing for study materials!" - Student B</p>
+    </div>
+
+    <div id="founderSection" class="hidden">
+        <h2>About Us</h2>
+        <p>AcademeForge was founded by [Founder Name] and co-founded by [Co-founder Name]. Our mission is to provide free study materials to students.</p>
+    </div>
 
 <script>
     function login() {
-        // Allow any login and proceed
-        document.getElementById('loginContainer').classList.add('hidden');
-        document.getElementById('classContainer').classList.remove('hidden');
+        document.getElementById('container').style.display = 'none';
+        document.getElementById('classSelection').classList.remove('hidden');
     }
 
-    function selectClass(classNumber) {
-        if (classNumber === 11 || classNumber === 12) {
-            document.getElementById('classContainer').classList.add('hidden');
-            document.getElementById('streamContainer').classList.remove('hidden');
-        } else {
-            loadSubjects(classNumber);
+    function selectClass() {
+        const selectedClass = document.getElementById('classSelect').value;
+
+        if (selectedClass === '11' || selectedClass === '12') {
+            document.getElementById('classSelection').classList.add('hidden');
+            document.getElementById('streamSelection').classList.remove('hidden');
+        } else if (selectedClass === '9' || selectedClass === '10') {
+            displaySubjects(selectedClass, null);
         }
     }
 
-    function selectStream(stream) {
-        loadSubjects(stream);
+    function selectStream() {
+        const selectedClass = document.getElementById('classSelect').value;
+        const selectedStream = document.getElementById('streamSelect').value;
+        displaySubjects(selectedClass, selectedStream);
     }
 
-    function loadSubjects(selection) {
-        document.getElementById('streamContainer').classList.add('hidden');
-        document.getElementById('classContainer').classList.add('hidden');
-        document.getElementById('subjectContainer').classList.remove('hidden');
+    function displaySubjects(selectedClass, selectedStream) {
+        const subjects = {
+            '9': ['Mathematics', 'Science', 'Social Science', 'English', 'Hindi'],
+            '10': ['Mathematics', 'Science', 'Social Science', 'English', 'Hindi'],
+            '11-Science': ['Physics', 'Chemistry', 'Biology', 'Mathematics', 'English'],
+            '11-Commerce': ['Accountancy', 'Business Studies', 'Economics', 'Mathematics', 'English'],
+            '11-Arts': ['History', 'Geography', 'Political Science', 'Sociology', 'English'],
+            '12-Science': ['Physics', 'Chemistry', 'Biology', 'Mathematics', 'English'],
+            '12-Commerce': ['Accountancy', 'Business Studies', 'Economics', 'Mathematics', 'English'],
+            '12-Arts': ['History', 'Geography', 'Political Science', 'Sociology', 'English']
+        };
 
-        let subjects = [];
-        if (selection === 9 || selection === 10) {
-            subjects = ["Science", "Math", "Social Science", "English", "Hindi"];
-        } else if (selection === "Science") {
-            subjects = ["Physics", "Chemistry", "Math", "Biology", "Computer Science"];
-        } else if (selection === "Commerce") {
-            subjects = ["Business Studies", "Accountancy", "Economics", "Math", "English"];
-        } else if (selection === "Arts") {
-            subjects = ["History", "Political Science", "Geography", "Economics", "Psychology"];
-        }
+        const key = selectedStream ? `${selectedClass}-${selectedStream}` : selectedClass;
+        const subjectList = subjects[key] || [];
+        const listContainer = document.getElementById('subjectList');
 
-        let subjectsList = document.getElementById('subjectsList');
-        subjectsList.innerHTML = "";
-
-        subjects.forEach(subject => {
-            let card = document.createElement('div');
-            card.classList.add('subject-card');
-
-            let img = document.createElement('img');
-            img.src = `https://source.unsplash.com/300x200/?${subject}`; // AI-like generated image
-            img.alt = subject;
-
-            let title = document.createElement('h3');
-            title.innerText = subject;
-
-            let button = document.createElement('button');
-            button.classList.add('access-button');
-            button.innerText = 'Access to Notes';
-            button.onclick = () => alert(`Link for ${subject} coming soon!`);
-
-            card.appendChild(img);
-            card.appendChild(title);
-            card.appendChild(button);
-
-            subjectsList.appendChild(card);
+        listContainer.innerHTML = '';
+        subjectList.forEach(subject => {
+            listContainer.innerHTML += `<li><img src="https://via.placeholder.com/50" alt="subject"> ${subject} <button onclick="alert('Google link coming soon')">Access to Notes</button></li>`;
         });
+
+        document.getElementById('streamSelection').classList.add('hidden');
+        document.getElementById('classSelection').classList.add('hidden');
+        document.getElementById('subjectContainer').classList.remove('hidden');
+        document.getElementById('extraSections').classList.remove('hidden');
+        document.getElementById('reviewsSection').classList.remove('hidden');
+        document.getElementById('founderSection').classList.remove('hidden');
+    }
+
+    function goBack() {
+        document.getElementById('subjectContainer').classList.add('hidden');
+        document.getElementById('classSelection').classList.remove('hidden');
     }
 </script>
 
 </body>
 </html>
+
