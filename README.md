@@ -133,11 +133,11 @@
 </head>
 <body>
 
-    <p>Your one-stop platform for study materials and more!</p>
+    
 
     <!-- About Us Button -->
     <button onclick="showAboutUs()">About Us</button>
-</div>
+
 
 <!-- About Us Section (Hidden Initially) -->
 <div id="aboutUsSection" class="hidden">
