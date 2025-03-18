@@ -239,7 +239,18 @@
 
 <!-- About Us Section (Hidden Initially) -->  <div id="aboutUsSection" class="hidden">  
     <h2>About Us</h2>  
-    <p>AcademeForge was founded by <b>Devraj Kumar</b> and co-founded by <b>Aadi</b> and <b>Mandeep</b>. Our mission is to provide free study materials to students and help them achieve academic success.</p>  
+    <p>AcademeForge was founded on January 2024 by
+
+Devraj kumar – Founder & CEO
+
+Mandeep Boot Jolakiya – Co-Founder & CEO
+
+Aadhar Bhattacharya – Co-Founder & Lead Educator
+
+Special Thanks:
+
+We extend our heartfelt gratitude to Ujjwal, Amrit, Palak, and Bhuvam for their invaluable support in managing our community. Your contributions have made a significant impact!.</p>  
+
     <button onclick="hideAboutUs()">Back</button>  
 <!-- JavaScript (Directly in HTML) -->  <script>  
     function showAboutUs() {  
