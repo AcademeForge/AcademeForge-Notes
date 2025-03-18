@@ -93,10 +93,13 @@
         <p>"AcademeForge is amazing for study materials!" - Einstein</p>
     </div>
 
+  <button onclick="showAboutUs()">About Me</button>
+
     <div id="founderSection" class="hidden">
         <h2>About Us</h2>
         <p>AcademeForge was founded by Devraj Kumar and co-founded by Aadi & Mandeep. Our mission is to provide free study materials to students.</p>
-    </div>
+<button onclick="hideAboutUs()">Back</button>
+</div>
 
 <script>
     function login() {
