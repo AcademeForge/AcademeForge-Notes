@@ -198,7 +198,6 @@
     <p>"This website helped me so much in my studies!" - Newton</p>  
     <p>"AcademeForge is amazing for study materials!" - Einstein</p>
 
-lang="en">
 
 <head>  
     <meta charset="UTF-8" />  
