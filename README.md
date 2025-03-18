@@ -240,16 +240,12 @@
 <!-- About Us Section (Hidden Initially) -->  <div id="aboutUsSection" class="hidden">  
     <h2>About Us</h2>  
     <p>AcademeForge was founded on January 2024 by :
+<p><b>Devraj Kumar</b> – Founder & CEO</p>
+<p><b>Mandeep Boot Jolakiya</b> – Co-Founder & CEO</p>
+<p><b>Aadhar Bhattacharya</b> – Co-Founder & Lead Educator</p>
 
-Devraj kumar – Founder & CEO
-
-Mandeep Boot Jolakiya – Co-Founder & CEO
-
-Aadhar Bhattacharya – Co-Founder & Lead Educator
-
-Special Thanks:
-
-We extend our heartfelt gratitude to Ujjwal, Amrit, Palak, and Bhuvam for their invaluable support in managing our community. Your contributions have made a significant impact!.</p>  
+<h3>Special Thanks:</h3>
+<p>We extend our heartfelt gratitude to <b>Ujjwal</b>, <b>Amrit</b>, <b>Palak</b>, and <b>Bhuvam</b> for their invaluable support in managing our community. Your contributions have made a significant impact!</p>
 
     <button onclick="hideAboutUs()">Back</button>  
 <!-- JavaScript (Directly in HTML) -->  <script>  
