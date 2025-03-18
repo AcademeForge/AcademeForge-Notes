@@ -1,126 +1,192 @@
-<!DOCTYPE html>
-<html lang="en">
+html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AcademeForge</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f4f4f9;
-            color: #333;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            overflow-y: auto;
-            animation: fadeIn 0.5s ease-in-out;
-        }
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-        .container {
-            width: 90%;
-            max-width: 400px;
-            padding: 20px;
-            background-color: #ffffff;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            background-color: #f4f4f4;
             text-align: center;
-            animation: slideIn 0.5s ease-in-out;
+            padding: 20px;
         }
-        @keyframes slideIn {
-            from { transform: translateY(-20px); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
+        #container, #classSelection, #streamSelection, #subjectContainer, #extraSections, #reviewsSection, #aboutUsSection {
+            max-width: 500px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            margin-bottom: 20px;
+            display: none;
         }
         h2 {
-            color: #4CAF50;
-            font-size: 24px;
+            margin-top: 0;
+        }
+        input, button, select {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            box-sizing: border-box;
         }
         button {
-            background-color: #4CAF50;
+            background-color: #007BFF;
             color: white;
-            border: none;
-            padding: 12px;
-            margin-top: 10px;
-            border-radius: 5px;
             cursor: pointer;
-            transition: background-color 0.3s ease, transform 0.2s ease;
-            width: 100%;
-            font-size: 16px;
+            border: none;
+            transition: background-color 0.3s;
         }
         button:hover {
-            background-color: #45a049;
-            transform: scale(1.05);
+            background-color: #0056b3;
+        }
+        #subjectList img {
+            width: 40px;
+            height: 40px;
+            margin-right: 10px;
+            vertical-align: middle;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            display: flex;
+            align-items: center;
+            margin: 10px 0;
         }
         .hidden {
             display: none;
-            animation: fadeIn 0.3s ease;
-        }
-        .extra-materials {
-            margin-top: 20px;
-            text-align: center;
-        }
-        .extra-materials a {
-            display: inline-block;
-            background-color: #2196F3;
-            color: white;
-            padding: 12px;
-            border-radius: 5px;
-            text-decoration: none;
-            font-size: 16px;
-            transition: background-color 0.3s ease, transform 0.2s ease;
-        }
-        .extra-materials a:hover {
-            background-color: #1976D2;
-            transform: scale(1.05);
         }
     </style>
 </head>
 <body>
 
-<div class="container">
-    <h2>Welcome to AcademeForge</h2>
-    <button onclick="showClasses()">Access Study Materials</button>
-    <div id="class-selection" class="hidden">
-        <button onclick="showStreams('11')">Class 11</button>
-        <button onclick="showStreams('12')">Class 12</button>
-    </div>
-
-    <div id="stream-selection" class="hidden">
-        <button onclick="showSubjects('Science')">Science</button>
-        <button onclick="showSubjects('Commerce')">Commerce</button>
-        <button onclick="showSubjects('Arts')">Arts</button>
-    </div>
-
-    <div id="subject-selection" class="hidden">
-        <button>Physics</button>
-        <button>Chemistry</button>
-        <button>Math</button>
-        <button>Biology</button>
-        <button>English</button>
-        <button>Hindi</button>
-    </div>
-
-    <div class="extra-materials">
-        <a href="https://academeforge.pages.dev/" target="_blank">Extra Study Materials</a>
-    </div>
+<!-- Login Section -->
+<div id="container">
+    <h2>Login</h2>
+    <input type="text" id="username" placeholder="Username">
+    <input type="password" id="password" placeholder="Password">
+    <button onclick="login()">Sign In</button>
 </div>
 
+<!-- Class Selection Section -->
+<div id="classSelection">
+    <h2>Select Your Class</h2>
+    <select id="classSelect" onchange="selectClass()">
+        <option value="">--Select Class--</option>
+        <option value="9">Class 9</option>
+        <option value="10">Class 10</option>
+        <option value="11">Class 11</option>
+        <option value="12">Class 12</option>
+    </select>
+</div>
+
+<!-- Stream Selection Section -->
+<div id="streamSelection">
+    <h2>Select Your Stream</h2>
+    <select id="streamSelect" onchange="selectStream()">
+        <option value="">--Select Stream--</option>
+        <option value="Science">Science</option>
+        <option value="Commerce">Commerce</option>
+        <option value="Arts">Arts</option>
+    </select>
+</div>
+
+<!-- Subject List Section -->
+<div id="subjectContainer">
+    <h2>Subjects</h2>
+    <ul id="subjectList"></ul>
+    <button onclick="goBack()">Back</button>
+</div>
+
+<!-- Extra Study Materials Section -->
+<div id="extraSections">
+    <h2>Extra Study Materials</h2>
+    <p>Coming soon...</p>
+    <h2>Timetable</h2>
+    <p>Timetable feature coming soon...</p>
+</div>
+
+<!-- Reviews Section -->
+<div id="reviewsSection">
+    <h2>Student Reviews</h2>
+    <p>"This website helped me so much in my studies!" - Newton</p>
+    <p>"AcademeForge is amazing for study materials!" - Einstein</p>
+</div>
+
+<!-- About Us Section -->
+<div id="aboutUsSection">
+    <h2>About Us</h2>
+    <p>AcademeForge was founded by <b>Devraj Kumar</b> and co-founded by <b>Aadi</b> and <b>Mandeep</b>. Our mission is to provide free study materials to students and help them achieve academic success.</p>
+    <button onclick="hideAboutUs()">Back</button>
+</div>
+
+<button onclick="showAboutUs()">About Us</button>
+
+<!-- JavaScript -->
 <script>
-    function showClasses() {
-        document.getElementById('class-selection').classList.remove('hidden');
+    function login() {
+        document.getElementById('container').style.display = 'none';
+        document.getElementById('classSelection').style.display = 'block';
     }
 
-    function showStreams(classNum) {
-        document.getElementById('stream-selection').classList.remove('hidden');
+    function selectClass() {
+        const selectedClass = document.getElementById('classSelect').value;
+
+        if (selectedClass === '11' || selectedClass === '12') {
+            document.getElementById('classSelection').style.display = 'none';
+            document.getElementById('streamSelection').style.display = 'block';
+        } else if (selectedClass === '9' || selectedClass === '10') {
+            displaySubjects(selectedClass, null);
+        }
     }
 
-    function showSubjects(stream) {
-        document.getElementById('subject-selection').classList.remove('hidden');
+    function selectStream() {
+        const selectedClass = document.getElementById('classSelect').value;
+        const selectedStream = document.getElementById('streamSelect').value;
+        displaySubjects(selectedClass, selectedStream);
+    }
+
+    function displaySubjects(selectedClass, selectedStream) {
+        const subjects = {
+            '9': ['Mathematics', 'Science', 'Social Science', 'English', 'Hindi'],
+            '10': ['Mathematics', 'Science', 'Social Science', 'English', 'Hindi'],
+            '11-Science': ['Physics', 'Chemistry', 'Biology', 'Mathematics', 'English'],
+            '11-Commerce': ['Accountancy', 'Business Studies', 'Economics', 'Mathematics', 'English'],
+            '11-Arts': ['History', 'Geography', 'Political Science', 'Sociology', 'English'],
+            '12-Science': ['Physics', 'Chemistry', 'Biology', 'Mathematics', 'English'],
+            '12-Commerce': ['Accountancy', 'Business Studies', 'Economics', 'Mathematics', 'English'],
+            '12-Arts': ['History', 'Geography', 'Political Science', 'Sociology', 'English']
+        };
+
+        const key = selectedStream ? `${selectedClass}-${selectedStream}` : selectedClass;
+        const subjectList = subjects[key] || [];
+        const listContainer = document.getElementById('subjectList');
+
+        listContainer.innerHTML = '';
+        subjectList.forEach(subject => {
+            listContainer.innerHTML += `<li><img src="https://via.placeholder.com/40" alt="subject"> ${subject} <button onclick="alert('Google link coming soon')">Access to Notes</button></li>`;
+        });
+
+        document.getElementById('streamSelection').style.display = 'none';
+        document.getElementById('subjectContainer').style.display = 'block';
+        document.getElementById('extraSections').style.display = 'block';
+        document.getElementById('reviewsSection').style.display = 'block';
+    }
+
+    function goBack() {
+        document.getElementById('subjectContainer').style.display = 'none';
+        document.getElementById('classSelection').style.display = 'block';
+    }
+
+    function showAboutUs() {
+        document.getElementById('aboutUsSection').style.display = 'block';
+    }
+
+    function hideAboutUs() {
+        document.getElementById('aboutUsSection').style.display = 'none';
     }
 </script>
 
