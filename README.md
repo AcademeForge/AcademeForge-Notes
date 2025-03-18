@@ -79,7 +79,7 @@
 
 <div id="extraSections" class="hidden">  
     <h2>Extra Study Materials</h2>  
-    <p>Coming soon...</p>  
+    <p> https://academeforge.pages.dev/ </p>  
     <h2>Timetable</h2>
 
 <html lang="en">  
