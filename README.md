@@ -54,16 +54,6 @@
             z-index: 10;
             display: none;
         }
-        .error {
-            color: #ff4081;
-            font-size: 14px;
-            margin-top: 10px;
-        }
-        .countdown {
-            color: #00e5ff;
-            font-size: 16px;
-            margin-top: 10px;
-        }
     </style>
 </head>
 <body>
@@ -77,8 +67,6 @@
     <input type="text" id="username" placeholder="Username" />
     <input type="password" id="password" placeholder="Password" />
     <button onclick="login()">Sign In</button>
-    <div class="error" id="errorMessage"></div>
-    <div class="countdown" id="countdownTimer"></div>
 </div>
 
 <!-- Class Selection Page -->
@@ -109,21 +97,61 @@
     let selectedClass = null;
     let selectedStream = null;
 
-    const validCode = "1234"; // Example valid code
-    let countdownTime = 5;
-
+    // Define subject links for all classes and streams (PLACEHOLDERS)
     const subjectLinks = {
-        9: { "Science": "#", "Math": "#", "Social Science": "#", "English": "#", "Hindi": "#" },
-        10: { "Science": "#", "Math": "#", "Social Science": "#", "English": "#", "Hindi": "#" },
+        9: {
+            "Science": "#", 
+            "Math": "#", 
+            "Social Science": "#", 
+            "English": "#", 
+            "Hindi": "#" 
+        },
+        10: {
+            "Science": "#", 
+            "Math": "#", 
+            "Social Science": "#", 
+            "English": "#", 
+            "Hindi": "#" 
+        },
         11: {
-            "Science": { "Physics": "#", "Chemistry": "#", "Math": "#", "Biology": "#" },
-            "Commerce": { "Business Studies": "#", "Accountancy": "#", "Economics": "#" },
-            "Arts": { "History": "#", "Political Science": "#", "Economics": "#", "Psychology": "#", "Geography": "#" }
+            "Science": {
+                "Physics": "#", 
+                "Chemistry": "#", 
+                "Math": "#", 
+                "Biology": "#" 
+            },
+            "Commerce": {
+                "Business Studies": "#", 
+                "Accountancy": "#", 
+                "Economics": "#" 
+            },
+            "Arts": {
+                "History": "#", 
+                "Political Science": "#", 
+                "Economics": "#", 
+                "Psychology": "#", 
+                "Geography": "#"
+            }
         },
         12: {
-            "Science": { "Physics": "#", "Chemistry": "#", "Math": "#", "Biology": "#" },
-            "Commerce": { "Business Studies": "#", "Accountancy": "#", "Economics": "#" },
-            "Arts": { "History": "#", "Political Science": "#", "Economics": "#", "Psychology": "#", "Geography": "#" }
+            "Science": {
+                "Physics": "#", 
+                "Chemistry": "#", 
+                "Math": "#", 
+                "Biology": "#" 
+            },
+            "Commerce": {
+                "Business Studies": "#", 
+                "Accountancy": "#", 
+                "Economics": "#" 
+            },
+            "Arts": {
+                "History": "#", 
+                "Political Science": "#", 
+                "Economics": "#", 
+                "Psychology": "https://drive.google.com/drive/folders/11Y7G9_79zt197nQFMYgKpsKcAb99Ge7c", 
+                "Geography": "#"
+            }
         }
     };
 
@@ -134,33 +162,8 @@
         currentPage = page;
     }
 
-     function login() {
-    const username = document.getElementById('username').value.trim();
-    const password = document.getElementById('password').value.trim();
-
-    if (username === 'AF' && password === '2024') {
+    function login() {
         showPage('class');
-    } else if (!username || !password) {
-        alert('Please enter both username and password.');
-    } else {
-        alert('Invalid username or password.');
-    }
-}
-
-        errorMessage.textContent = "";
-        countdownTimer.textContent = `Redirecting in ${countdownTime} seconds...`;
-
-        const countdownInterval = setInterval(() => {
-            countdownTime--;
-            countdownTimer.textContent = `Redirecting in ${countdownTime} seconds...`;
-
-            if (countdownTime === 0) {
-                clearInterval(countdownInterval);
-                showPage('class');
-                countdownTimer.textContent = "";
-                countdownTime = 5; // Reset for next login
-            }
-        }, 1000);
     }
 
     function selectClass(cls) {
@@ -181,15 +184,24 @@
         const subjectsList = document.getElementById('subjectsList');
         subjectsList.innerHTML = '';
 
-        const subjects = cls <= 10 ? subjectLinks[cls] : subjectLinks[cls][selectedStream];
-
-        for (const [subject, link] of Object.entries(subjects)) {
-            subjectsList.innerHTML += `
-                <div class="option">
-                    ${subject}
-                    <button class="access-button" onclick="window.open('${link}', '_blank')">Access to Notes</button>
-                </div>
-            `;
+        if (cls <= 10) {
+            for (const [subject, link] of Object.entries(subjectLinks[cls])) {
+                subjectsList.innerHTML += `
+                    <div class="option">
+                        ${subject}
+                        <button class="access-button" onclick="window.open('${link}', '_blank')">Access to Notes</button>
+                    </div>
+                `;
+            }
+        } else {
+            for (const [subject, link] of Object.entries(subjectLinks[cls][selectedStream])) {
+                subjectsList.innerHTML += `
+                    <div class="option">
+                        ${subject}
+                        <button class="access-button" onclick="window.open('${link}', '_blank')">Access to Notes</button>
+                    </div>
+                `;
+            }
         }
         showPage('subject');
     }
