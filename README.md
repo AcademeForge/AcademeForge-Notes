@@ -212,22 +212,8 @@
         else if (currentPage === 'class') showPage('login');
     }
 </script>
- <!-- About Us Container -->
-<div id="aboutUsContainer" style="display: none; text-align: center; margin-top: 20px;">
-    <button onclick="openAboutUs()" style="
-        background-color: #ff4081;
-        color: white;
-        padding: 10px 20px;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-        font-size: 16px;
-    ">
-        About Us
-    </button>
-</div>
 
-<!-- About Us Pop-up -->
+!-- About Us Pop-up -->
 <div id="aboutUsPopup" style="
     display: none;
     position: fixed;
