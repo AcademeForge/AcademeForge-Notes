@@ -142,7 +142,7 @@
     <div id="subjectsList"></div>
 </div>
 
-<script>
+    <script>
     function login() {
         document.getElementById('loginContainer').classList.add('hidden');
         document.getElementById('classContainer').classList.remove('hidden');
@@ -173,7 +173,7 @@
         } else if (selection === "Science") {
             subjects = ["Physics", "Chemistry", "Math", "Biology", "Computer Science"];
         } else if (selection === "Commerce") {
-            subjects = ["Business Studies", "Accountancy", "Economics", "Math", "English"];
+            subjects = ["Business Studies", "Accountancy", "Economics", "Math"];
         } else if (selection === "Arts") {
             subjects = ["History", "Political Science", "Geography", "Economics", "Psychology"];
         }
@@ -205,6 +205,3 @@
         document.getElementById('classContainer').classList.remove('hidden');
     }
 </script>
-
-</body>
-</html>
