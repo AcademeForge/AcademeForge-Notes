@@ -78,8 +78,6 @@
     <div class="option" onclick="selectClass(12)">Class 12</div>
 </div>
 
-</div>
-
 <!-- Timetable Selection (Appears after class selection) -->
 <div class="container hidden" id="timetableSelectionContainer">
     <h2>Select Timetable</h2>
