@@ -114,7 +114,7 @@
     </style>    
 </head>    
 <body>    
-</div>  <!-- Main Options (Visible All the Time) -->  <div id="mainOptionsSection">    
+  <!-- Main Options (Visible All the Time) -->  <div id="mainOptionsSection">    
     <button onclick="showTimetable()">Timetable</button>       
   <!-- Timetable Section (Hidden by Default) -->  <div id="mainTimetableSection" style="display: none;">    
     <h1>Select Your Timetable</h1>    
