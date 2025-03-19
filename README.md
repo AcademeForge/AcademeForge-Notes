@@ -217,28 +217,36 @@
     About Us
 </button>
 
-<!-- About Us Pop-up -->
-<div id="aboutUsPopup" class="hidden" style="
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: #1e1e1e;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 15px rgba(0, 255, 255, 0.5);
-    z-index: 1000;
-    width: 90%;
-    max-width: 400px;
-    text-align: center;
-">
-    <h2 style="color: #ff4081;">About the Team</h2>
-    <p><strong>Devraj Kumar</strong> – Founder & CEO</p>
-    <p><strong>Mandeep Boot Jolakiya</strong> – Co-Founder & CEO</p>
-    <p><strong>Aadhar Bhattacharya</strong> – Co-Founder & Lead Educator</p>
-    <h3 style="color: #00e5ff;">Special Thanks:</h3>
-    <p>We extend our heartfelt gratitude to <strong>Ujjwal</strong>, <strong>Amrit</strong>, <strong>Palak</strong>, and <strong>Bhuvam</strong> for their invaluable support in managing our community. Your contributions have made a significant impact!</p>
-    <button onclick="closeAboutUs()" class="option" style="background-color: #ff4081; color: white; margin-top: 10px;">Close</button>
+<!-- About Us Container -->
+<div id="aboutUsContainer" class="hidden">
+    <!-- About Us Button -->
+    <button onclick="openAboutUs()" class="option" style="background-color: #ff4081; color: white; width: 90%; margin-top: 20px;">
+        About Us
+    </button>
+
+    <!-- About Us Pop-up -->
+    <div id="aboutUsPopup" class="hidden" style="
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: #1e1e1e;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 15px rgba(0, 255, 255, 0.5);
+        z-index: 1000;
+        width: 90%;
+        max-width: 400px;
+        text-align: center;
+    ">
+        <h2 style="color: #ff4081;">About the Team</h2>
+        <p><strong>Devraj Kumar</strong> – Founder & CEO</p>
+        <p><strong>Mandeep Boot Jolakiya</strong> – Co-Founder & CEO</p>
+        <p><strong>Aadhar Bhattacharya</strong> – Co-Founder & Lead Educator</p>
+        <h3 style="color: #00e5ff;">Special Thanks:</h3>
+        <p>We extend our heartfelt gratitude to <strong>Ujjwal</strong>, <strong>Amrit</strong>, <strong>Palak</strong>, and <strong>Bhuvam</strong> for their invaluable support in managing our community. Your contributions have made a significant impact!</p>
+        <button onclick="closeAboutUs()" class="option" style="background-color: #ff4081; color: white; margin-top: 10px;">Close</button>
+    </div>
 </div>
 
 <!-- JavaScript to Open and Close Pop-up -->
@@ -249,6 +257,21 @@
 
     function closeAboutUs() {
         document.getElementById('aboutUsPopup').classList.add('hidden');
+    }
+
+    function showPage(page) {
+        document.getElementById(`${currentPage}Container`).classList.add('hidden');
+        document.getElementById(`${page}Container`).classList.remove('hidden');
+        document.getElementById('backButton').style.display = (page !== 'login') ? 'block' : 'none';
+
+        // Show "About Us" button only on login page
+        if (page === 'login') {
+            document.getElementById('aboutUsContainer').classList.remove('hidden');
+        } else {
+            document.getElementById('aboutUsContainer').classList.add('hidden');
+        }
+
+        currentPage = page;
     }
 </script>
 
