@@ -3,107 +3,102 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>AcademeForge</title>
+    <title>AcademeForge - Login</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f4f4f9;
+            background: linear-gradient(135deg, #ff9a9e, #fad0c4);
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
         }
-        .container {
-            width: 90%;
-            max-width: 400px;
-            margin: 20px auto;
-            background-color: #ffffff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-        }
-        h2 {
-            text-align: center;
-            color: #333;
-        }
-        select, button {
-            width: 100%;
-            padding: 10px;
-            margin-top: 10px;
-            border-radius: 4px;
-            border: 1px solid #ccc;
-            box-sizing: border-box;
-        }
-        button {
-            background-color: #5cb85c;
-            color: white;
-            border: none;
-            cursor: pointer;
-            transition: background 0.3s ease;
-        }
-        button:hover {
-            background-color: #4cae4c;
-        }
-        .subjects {
-            margin-top: 20px;
-            display: none;
-        }
-        .subject-btn {
-            background-color: #337ab7;
-            color: white;
-            padding: 10px;
-            margin: 5px 0;
-            border: none;
-            border-radius: 4px;
-            width: 100%;
-            cursor: pointer;
-            transition: background 0.3s ease;
-        }
-        .subject-btn:hover {
-            background-color: #286090;
-        }
-        /* Animated Login */
         .login-container {
             text-align: center;
-            margin-top: 30px;
+            background: rgba(0,0,0,0.6);
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            animation: fadeIn 1.2s ease;
+        }
+        h1 {
+            font-size: 28px;
+            margin-bottom: 20px;
         }
         .login-input {
             padding: 12px;
             width: 80%;
             margin-bottom: 10px;
-            border: 2px solid #5cb85c;
-            border-radius: 20px;
+            border: 2px solid #ff9a9e;
+            border-radius: 25px;
             outline: none;
-            transition: 0.3s ease;
+            transition: 0.3s;
+            background: #fff;
+            color: #333;
         }
         .login-input:focus {
-            border-color: #4cae4c;
-            box-shadow: 0 0 10px rgba(92, 184, 92, 0.5);
+            border-color: #fad0c4;
+            box-shadow: 0 0 10px rgba(255, 154, 158, 0.6);
         }
         .login-btn {
             padding: 12px;
             width: 80%;
-            background-color: #5cb85c;
+            background-color: #ff9a9e;
             color: white;
             border: none;
-            border-radius: 20px;
+            border-radius: 25px;
             cursor: pointer;
-            transition: background 0.3s ease;
+            font-size: 16px;
+            transition: background 0.3s;
         }
         .login-btn:hover {
-            background-color: #4cae4c;
+            background-color: #fad0c4;
+        }
+        .countdown {
+            display: none;
+            font-size: 24px;
+            font-weight: bold;
+            margin-top: 20px;
+            color: #ffcccb;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
     </style>
 </head>
 <body>
 
-<div class="container">
-    <h2>AcademeForge</h2>
+<div class="login-container">
+    <h1>Welcome to AcademeForge</h1>
+    <input type="text" class="login-input" placeholder="Enter Code" />
+    <button class="login-btn" onclick="startCountdown()">Login</button>
+    <div class="countdown" id="countdown"></div>
+</div>
 
-    <!-- Animated Login Section -->
-    <div class="login-container">
-        <input type="text" class="login-input" placeholder="Enter Code" />
-        <button class="login-btn" onclick="login()">Login</button>
-    </div>
+<script>
+    function startCountdown() {
+        const countdownElement = document.getElementById('countdown');
+        let count = 3;
+        countdownElement.style.display = 'block';
+        countdownElement.innerHTML = count;
+
+        const timer = setInterval(() => {
+            count--;
+            countdownElement.innerHTML = count;
+            if (count === 0) {
+                clearInterval(timer);
+                window.location.href = "class-selection.html";
+            }
+        }, 1000);
+    }
+</script>
+
+</body>
+</html>
 
     <div>
         <select id="class" onchange="showStreams()">
