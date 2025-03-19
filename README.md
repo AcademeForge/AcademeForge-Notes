@@ -20,7 +20,7 @@
             background: #1e1e1e;
             padding: 20px;
             border-radius: 10px;
-            box-shadow: 0 0 15px rgba(0,255,255,0.5);
+            box-shadow: 0 0 15px rgba(0, 255, 255, 0.5);
             text-align: center;
             width: 300px;
             transition: transform 0.3s ease;
@@ -98,37 +98,59 @@
     let selectedClass = null;
     let selectedStream = null;
 
-    // Define subject links for all classes and streams
+    // Define subject links for all classes and streams (PLACEHOLDERS)
     const subjectLinks = {
         9: {
-            "Science": "https://drive.google.com/drive/folders/1-CtgsAx1kXo67-UUf6HsBunPIgm8FgUl",
-            "Math": "https://drive.google.com/drive/folders/1-DH3yoNSnF0iFSIH2CsGGf5RobYwYKyp",
-            "Social Science": "https://drive.google.com/drive/folders/1-Dm4Tg6UIlYBiNqGYOYAWZvJExikh7my",
-            "English": "https://drive.google.com/drive/folders/1-Gd2i8_7ylzy-gM_sFQMGrtDbiE70vRr",
-            "Hindi": "https://drive.google.com/drive/folders/1-EHtC6OQMkNE3qEU5JgPggm5I4ggUWf9"
+            "Science": "#", 
+            "Math": "#", 
+            "Social Science": "#", 
+            "English": "#", 
+            "Hindi": "#" 
         },
         10: {
-            "Science": "https://drive.google.com/drive/folders/1-bVnCZbCabVmNGCxJ0gY4-FP4BwN9F02",
-            "Math": "https://drive.google.com/drive/folders/1-Z7LCbOvKhHvMxqXS3W4qVcAukPVmhXK",
-            "Social Science": "https://drive.google.com/drive/folders/1-c9q3sV8BCZjtch0WqWnXnJWSE1il5uS",
-            "English": "https://drive.google.com/drive/folders/1-VKypMW3rybYR_0dPrro1JscD8eGtj9u",
-            "Hindi": "https://drive.google.com/drive/folders/1-Ud6Gv65aE25yPcul3cbprGvXZrXX2O0"
+            "Science": "#", 
+            "Math": "#", 
+            "Social Science": "#", 
+            "English": "#", 
+            "Hindi": "#" 
         },
         11: {
             "Science": {
-                "Physics": "https://drive.google.com/drive/folders/100rYQz_YiMNnT7zK_dxW-t8PUYj7GABP",
-                "Chemistry": "https://drive.google.com/drive/folders/1-lL_2Z5_4cvklYRMSv2vTWorip9w-RWx",
-                "Math": "https://drive.google.com/drive/folders/1-yiJhKx6TVLZQ9DlHyvQLZli8N8Qd6TB",
-                "Biology": "https://drive.google.com/drive/folders/1-lL_2Z5_4cvklYRMSv2vTWorip9w-RWx"
+                "Physics": "#", 
+                "Chemistry": "#", 
+                "Math": "#", 
+                "Biology": "#" 
             },
             "Commerce": {
-                "Business Studies": "#",
-                "Accountancy": "#",
-                "Economics": "#"
+                "Business Studies": "#", 
+                "Accountancy": "#", 
+                "Economics": "#" 
             },
             "Arts": {
-                "History": "#",
-                "Political Science": "#",
+                "History": "#", 
+                "Political Science": "#", 
+                "Economics": "#", 
+                "Psychology": "#", 
+                "Geography": "#"
+            }
+        },
+        12: {
+            "Science": {
+                "Physics": "#", 
+                "Chemistry": "#", 
+                "Math": "#", 
+                "Biology": "#" 
+            },
+            "Commerce": {
+                "Business Studies": "#", 
+                "Accountancy": "#", 
+                "Economics": "#" 
+            },
+            "Arts": {
+                "History": "#", 
+                "Political Science": "#", 
+                "Economics": "#", 
+                "Psychology": "#", 
                 "Geography": "#"
             }
         }
@@ -163,7 +185,16 @@
         const subjectsList = document.getElementById('subjectsList');
         subjectsList.innerHTML = '';
 
-        if (cls > 10 && subjectLinks[cls][selectedStream]) {
+        if (cls <= 10) {
+            for (const [subject, link] of Object.entries(subjectLinks[cls])) {
+                subjectsList.innerHTML += `
+                    <div class="option">
+                        ${subject}
+                        <button class="access-button" onclick="window.open('${link}', '_blank')">Access to Notes</button>
+                    </div>
+                `;
+            }
+        } else {
             for (const [subject, link] of Object.entries(subjectLinks[cls][selectedStream])) {
                 subjectsList.innerHTML += `
                     <div class="option">
@@ -172,8 +203,8 @@
                     </div>
                 `;
             }
-            showPage('subject');
         }
+        showPage('subject');
     }
 
     function goBack() {
