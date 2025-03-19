@@ -195,7 +195,6 @@
         document.getElementById('dummyTimetableSection').style.display = 'none';  
     }
 
-
   <div id="reviewsSection" class="hidden">  
     <h2>Student Reviews</h2>  
     <p>"This website helped me so much in my studies!" - Newton</p>  
