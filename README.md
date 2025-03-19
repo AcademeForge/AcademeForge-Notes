@@ -81,7 +81,8 @@
     <h2>Extra Study Materials</h2>  
     <a href="https://academeforge.pages.dev/" target="_blank">Visit AcademeForge for free study items</a> 
 
-    <h2>Timetable</h2>
+<div id="class-section">
+ <h2>Timetable</h2>
 
 <html lang="en">  
 <head>  
