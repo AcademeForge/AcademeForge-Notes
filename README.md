@@ -212,7 +212,87 @@
         else if (currentPage === 'class') showPage('login');
     }
 </script>
- 
+ <!-- About Us Container -->
+<div id="aboutUsContainer" style="display: none; text-align: center; margin-top: 20px;">
+    <button onclick="openAboutUs()" style="
+        background-color: #ff4081;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+    ">
+        About Us
+    </button>
+</div>
+
+<!-- About Us Pop-up -->
+<div id="aboutUsPopup" style="
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #1e1e1e;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.5);
+    z-index: 1000;
+    width: 90%;
+    max-width: 400px;
+    text-align: center;
+">
+    <h2 style="color: #ff4081;">About the Team</h2>
+    <p><strong>Devraj Kumar</strong> – Founder & CEO</p>
+    <p><strong>Mandeep Boot Jolakiya</strong> – Co-Founder & CEO</p>
+    <p><strong>Aadhar Bhattacharya</strong> – Co-Founder & Lead Educator</p>
+    <h3 style="color: #00e5ff;">Special Thanks:</h3>
+    <p>We extend our heartfelt gratitude to <strong>Ujjwal</strong>, <strong>Amrit</strong>, <strong>Palak</strong>, and <strong>Bhuvam</strong> for their invaluable support in managing our community. Your contributions have made a significant impact!</p>
+    <button onclick="closeAboutUs()" style="
+        background-color: #ff4081;
+        color: white;
+        padding: 8px 16px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-top: 10px;
+    ">Close</button>
+</div>
+
+<script>
+    // Function to open the About Us pop-up
+    function openAboutUs() {
+        document.getElementById('aboutUsPopup').style.display = 'block';
+    }
+
+    // Function to close the About Us pop-up
+    function closeAboutUs() {
+        document.getElementById('aboutUsPopup').style.display = 'none';
+    }
+
+    // Function to handle page display and show/hide About Us button
+    function showPage(page) {
+        // Hide the current page
+        document.getElementById(currentPage + 'Container').style.display = 'none';
+        // Show the new page
+        document.getElementById(page + 'Container').style.display = 'block';
+        // Show the back button on all pages except login
+        document.getElementById('backButton').style.display = (page !== 'login') ? 'block' : 'none';
+        // Show About Us button only on login page
+        document.getElementById('aboutUsContainer').style.display = (page === 'login') ? 'block' : 'none';
+
+        currentPage = page;
+    }
+
+    // Initialize currentPage to 'login'
+    let currentPage = 'login';
+
+    // Show the login page on load
+    window.onload = function() {
+        showPage('login');
+    };
+</script>
 
 </body>
 </html>
