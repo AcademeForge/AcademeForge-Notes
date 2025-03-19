@@ -77,6 +77,70 @@
     <div class="option" onclick="selectClass(11)">Class 11</div>
     <div class="option" onclick="selectClass(12)">Class 12</div>
 </div>
+<!-- Class Selection Page -->
+<div class="container">
+    <h2>Select Your Class</h2>
+    <div class="option" onclick="showTimetableSelection()">Class 9</div>
+    <div class="option" onclick="showTimetableSelection()">Class 10</div>
+    <div class="option" onclick="showTimetableSelection()">Class 11</div>
+    <div class="option" onclick="showTimetableSelection()">Class 12</div>
+</div>
+
+<!-- Timetable Selection (Appears after class selection) -->
+<div class="container hidden" id="timetableSelectionContainer">
+    <h2>Select Timetable</h2>
+    <div class="option" onclick="showTimetable('regular')">Regular Timetable</div>
+    <div class="option" onclick="showTimetable('dummy')">Dummy Timetable</div>
+</div>
+
+<!-- Regular Timetable Section -->
+<div id="regularTimetable" class="container hidden">
+    <h2>Regular Timetable</h2>
+    <p><strong>8:00 AM - 2:00 PM: School</strong></p>
+    <p><strong>2:00 PM - 3:00 PM: Break</strong></p>
+    <p><strong>3:00 PM - 6:00 PM: Study (Subject 1)</strong></p>
+    <p><strong>6:00 PM - 7:00 PM: Break</strong></p>
+    <p><strong>7:00 PM - 9:00 PM: Study (Subject 2)</strong></p>
+    <button class="back-button" onclick="backToTimetableSelection()">Back</button>
+</div>
+
+<!-- Dummy Timetable Section -->
+<div id="dummyTimetable" class="container hidden">
+    <h2>Dummy Timetable</h2>
+    <p><strong>9:00 AM - 11:00 AM: Study (Subject 1)</strong></p>
+    <p><strong>11:00 AM - 1:00 PM: Study (Subject 2)</strong></p>
+    <p><strong>1:00 PM - 2:00 PM: Break</strong></p>
+    <p><strong>2:00 PM - 4:00 PM: Study (Subject 3)</strong></p>
+    <p><strong>4:00 PM - 6:00 PM: Study (Subject 4)</strong></p>
+    <button class="back-button" onclick="backToTimetableSelection()">Back</button>
+</div>
+
+<script>
+    // Function to show timetable selection after class is selected
+    function showTimetableSelection() {
+        // Hide class selection and show timetable selection
+        document.querySelector('.container').classList.add('hidden');
+        document.getElementById('timetableSelectionContainer').classList.remove('hidden');
+    }
+
+    // Function to show the correct timetable (Regular or Dummy)
+    function showTimetable(type) {
+        if (type === 'regular') {
+            document.getElementById('regularTimetable').classList.remove('hidden');
+            document.getElementById('dummyTimetable').classList.add('hidden');
+        } else if (type === 'dummy') {
+            document.getElementById('dummyTimetable').classList.remove('hidden');
+            document.getElementById('regularTimetable').classList.add('hidden');
+        }
+    }
+
+    // Function to go back to timetable selection
+    function backToTimetableSelection() {
+        document.getElementById('regularTimetable').classList.add('hidden');
+        document.getElementById('dummyTimetable').classList.add('hidden');
+        document.getElementById('timetableSelectionContainer').classList.remove('hidden');
+    }
+</script>
 
 <!-- Stream Selection Page -->
 <div class="container hidden" id="streamContainer">
