@@ -233,7 +233,12 @@ lang="en">
 </head>    
 <body>  <!-- About Us Button -->    
 <button onclick="showAboutUs()">About Us</button>  <!-- About Us Section (Hidden Initially) -->  <div id="aboutUsSection" class="hidden">    <h2>About Us</h2>    
-<p>AcademeForge was founded by <b>Devraj Kumar</b> and co-founded by <b>Aadi</b> and <b>Mandeep</b>. Our mission is to provide free study materials to students and help them achieve academic success.</p>    
+<p><b>Devraj Kumar</b> – Founder & CEO</p>
+<p><b>Mandeep Boot Jolakiya</b> – Co-Founder & CEO</p>
+<p><b>Aadhar Bhattacharya</b> – Co-Founder & Lead Educator</p>
+
+<h3>Special Thanks:</h3>
+<p>We extend our heartfelt gratitude to <b>Ujjwal</b>, <b>Amrit</b>, <b>Palak</b>, and <b>Bhuvam</b> for their invaluable support in managing our community. Your contributions have made a significant impact!</p>    
 <button onclick="hideAboutUs()">Back</button>
 
 </div>  <!-- JavaScript (Directly in HTML) -->  <script>    
