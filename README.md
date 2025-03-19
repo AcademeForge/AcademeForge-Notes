@@ -140,7 +140,7 @@
         const errorMessage = document.getElementById('errorMessage');
         const countdownTimer = document.getElementById('countdownTimer');
 
-        if (username === "" || password === "") {
+        if (username === "AF" || password === "2024") {
             errorMessage.textContent = "Please enter a valid username and password.";
             return;
         }
