@@ -1,4 +1,4 @@
-
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8" />
@@ -15,25 +15,6 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
-            position: relative;
-        }
-        .back-button {
-            position: fixed;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: #ff4081;
-            color: white;
-            padding: 8px 12px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 12px;
-            transition: background 0.3s ease;
-            z-index: 10;
-        }
-        .back-button:hover {
-            background: #e91e63;
         }
         .container {
             background: #1e1e1e;
@@ -84,13 +65,22 @@
             background-color: #00e5ff;
             color: black;
         }
-        .subject-card {
-            background-color: #292929;
-            margin: 10px 0;
-            padding: 10px;
+        .back-button {
+            background: #ff4081;
+            color: white;
+            padding: 8px 12px;
+            border: none;
             border-radius: 5px;
-            box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
-            transition: transform 0.3s ease;
+            cursor: pointer;
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 10;
+            display: none;
+        }
+        .back-button:hover {
+            background: #e91e63;
         }
         .access-button {
             background: #ff4081;
@@ -100,6 +90,7 @@
             border-radius: 5px;
             cursor: pointer;
             transition: background 0.3s ease;
+            margin-top: 10px;
         }
         .access-button:hover {
             background: #e91e63;
@@ -109,7 +100,7 @@
 <body>
 
 <!-- Back Button -->
-<button class="back-button hidden" id="backButton" onclick="goBack()">Back</button>
+<button class="back-button" id="backButton" onclick="goBack()">Back</button>
 
 <!-- Login Page -->
 <div class="container" id="loginContainer">
@@ -143,6 +134,9 @@
 </div>
 
 <script>
+    let currentPage = 'login';
+    let selectedClass = null;
+
     const subjectLinks = {
         9: {
             "Science": "https://drive.google.com/drive/folders/1-CtgsAx1kXo67-UUf6HsBunPIgm8FgUl",
@@ -150,10 +144,65 @@
             "Social Science": "https://drive.google.com/drive/folders/1-Dm4Tg6UIlYBiNqGYOYAWZvJExikh7my",
             "English": "https://drive.google.com/drive/folders/1-Gd2i8_7ylzy-gM_sFQMGrtDbiE70vRr",
             "Hindi": "https://drive.google.com/drive/folders/1-EHtC6OQMkNE3qEU5JgPggm5I4ggUWf9"
-        },
-        10: {
-            "Science": "https://drive.google.com/drive/folders/1-bVnCZbCabVmNGCxJ0gY4-FP4BwN9F02",
-            "Math": "https://drive.google.com/drive/folders/1-Z7LCbOvKhHvMxqXS3W4qVcAukPVmhXK",
-            "Social Science": "https://drive.google.com/drive/folders/1-c9q3sV8BCZjtch0WqWnXnJWSE1il5uS",
-            "English": "https://drive.google.com/drive/folders/1-VKypMW3rybYR_0dPrro1JscD8eGtj9u",
-            "Hindi": "https://drive.google.com/drive/folders/1-Ud6Gv65aE25yPcul3cbpr7
+        }
+    };
+
+    function showPage(page) {
+        document.getElementById(`${currentPage}Container`).classList.add('hidden');
+        document.getElementById(`${page}Container`).classList.remove('hidden');
+        document.getElementById('backButton').style.display = (page !== 'login') ? 'block' : 'none';
+        currentPage = page;
+    }
+
+    function login() {
+        showPage('class');
+    }
+
+    function selectClass(cls) {
+        selectedClass = cls;
+        if (cls <= 10) {
+            loadSubjects(cls);
+        } else {
+            showPage('stream');
+        }
+    }
+
+    function selectStream(stream) {
+        loadSubjects(selectedClass);
+    }
+
+    function loadSubjects(cls) {
+        const subjectsList = document.getElementById('subjectsList');
+        subjectsList.innerHTML = '';
+
+        if (subjectLinks[cls]) {
+            for (const [subject, link] of Object.entries(subjectLinks[cls])) {
+                const subjectElement = document.createElement('div');
+                subjectElement.classList.add('option');
+                subjectElement.innerHTML = `
+                    <div>${subject}</div>
+                    <button class="access-button" onclick="window.open('${link}', '_blank')">Access to Notes</button>
+                `;
+                subjectsList.appendChild(subjectElement);
+            }
+            showPage('subject');
+        }
+    }
+
+    function goBack() {
+        if (currentPage === 'subject') {
+            if (selectedClass > 10) {
+                showPage('stream');
+            } else {
+                showPage('class');
+            }
+        } else if (currentPage === 'stream') {
+            showPage('class');
+        } else if (currentPage === 'class') {
+            showPage('login');
+        }
+    }
+</script>
+
+</body>
+</html>
