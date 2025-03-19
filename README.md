@@ -134,21 +134,18 @@
         currentPage = page;
     }
 
-    function login() {
-        const username = document.getElementById('username').value.trim();
-        const password = document.getElementById('password').value.trim();
-        const errorMessage = document.getElementById('errorMessage');
-        const countdownTimer = document.getElementById('countdownTimer');
+     function login() {
+    const username = document.getElementById('username').value.trim();
+    const password = document.getElementById('password').value.trim();
 
-        if (username === "AF" || password === "2024") {
-            errorMessage.textContent = "Please enter a valid username and password.";
-            return;
-        }
-
-        if (password !== validCode) {
-            errorMessage.textContent = "Invalid code!";
-            return;
-        }
+    if (username === 'AF' && password === '2024') {
+        showPage('class');
+    } else if (!username || !password) {
+        alert('Please enter both username and password.');
+    } else {
+        alert('Invalid username or password.');
+    }
+}
 
         errorMessage.textContent = "";
         countdownTimer.textContent = `Redirecting in ${countdownTime} seconds...`;
