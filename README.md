@@ -3,222 +3,214 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>AcademeForge - Login</title>
+    <title>AcademeForge</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+            background-color: #121212;
+            color: white;
             margin: 0;
             padding: 0;
-            height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
-            color: #fff;
+            height: 100vh;
         }
-        .login-container {
+        .container {
+            background: #1e1e1e;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 255, 255, 0.5);
             text-align: center;
-            background: rgba(0,0,0,0.6);
-            padding: 30px;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-            animation: fadeIn 1.2s ease;
+            width: 300px;
+            transition: transform 0.3s ease;
         }
-        h1 {
-            font-size: 28px;
-            margin-bottom: 20px;
+        h2 {
+            color: #ff4081;
         }
-        .login-input {
-            padding: 12px;
-            width: 80%;
-            margin-bottom: 10px;
-            border: 2px solid #ff9a9e;
-            border-radius: 25px;
-            outline: none;
-            transition: 0.3s;
-            background: #fff;
-            color: #333;
-        }
-        .login-input:focus {
-            border-color: #fad0c4;
-            box-shadow: 0 0 10px rgba(255, 154, 158, 0.6);
-        }
-        .login-btn {
-            padding: 12px;
-            width: 80%;
-            background-color: #ff9a9e;
+        .option, .access-button, .back-button {
+            background-color: #292929;
             color: white;
+            padding: 12px;
+            margin: 8px;
             border: none;
-            border-radius: 25px;
+            border-radius: 5px;
             cursor: pointer;
-            font-size: 16px;
-            transition: background 0.3s;
+            transition: background 0.3s ease;
+            width: 90%;
+            display: inline-block;
         }
-        .login-btn:hover {
-            background-color: #fad0c4;
+        .option:hover, .access-button:hover, .back-button:hover {
+            background-color: #00e5ff;
+            color: black;
         }
-        .countdown {
+        .hidden {
             display: none;
-            font-size: 24px;
-            font-weight: bold;
-            margin-top: 20px;
-            color: #ffcccb;
         }
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+        .back-button {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 10;
+            display: none;
         }
     </style>
 </head>
 <body>
 
-<div class="login-container">
-    <h1>Welcome to AcademeForge</h1>
-    <input type="text" class="login-input" placeholder="Enter Code" />
-    <button class="login-btn" onclick="startCountdown()">Login</button>
-    <div class="countdown" id="countdown"></div>
+<!-- Back Button -->
+<button class="back-button" id="backButton" onclick="goBack()">Back</button>
+
+<!-- Login Page -->
+<div class="container" id="loginContainer">
+    <h2>LOGIN</h2>
+    <input type="text" id="username" placeholder="Username" />
+    <input type="password" id="password" placeholder="Password" />
+    <button onclick="login()">Sign In</button>
+</div>
+
+<!-- Class Selection Page -->
+<div class="container hidden" id="classContainer">
+    <h2>Select Your Class</h2>
+    <div class="option" onclick="selectClass(9)">Class 9</div>
+    <div class="option" onclick="selectClass(10)">Class 10</div>
+    <div class="option" onclick="selectClass(11)">Class 11</div>
+    <div class="option" onclick="selectClass(12)">Class 12</div>
+</div>
+
+<!-- Stream Selection Page -->
+<div class="container hidden" id="streamContainer">
+    <h2>Select Your Stream</h2>
+    <div class="option" onclick="selectStream('Science')">Science</div>
+    <div class="option" onclick="selectStream('Commerce')">Commerce</div>
+    <div class="option" onclick="selectStream('Arts')">Arts</div>
+</div>
+
+<!-- Subjects Page -->
+<div class="container hidden" id="subjectContainer">
+    <h2>Subjects</h2>
+    <div id="subjectsList"></div>
 </div>
 
 <script>
-    function startCountdown() {
-        const countdownElement = document.getElementById('countdown');
-        let count = 3;
-        countdownElement.style.display = 'block';
-        countdownElement.innerHTML = count;
+    let currentPage = 'login';
+    let selectedClass = null;
+    let selectedStream = null;
 
-        const timer = setInterval(() => {
-            count--;
-            countdownElement.innerHTML = count;
-            if (count === 0) {
-                clearInterval(timer);
-                window.location.href = "class-selection.html";
-            }
-        }, 1000);
-    }
-</script>
-
-</body>
-</html>
-
-    <div>
-        <select id="class" onchange="showStreams()">
-            <option value="">Select Class</option>
-            <option value="9">Class 9</option>
-            <option value="10">Class 10</option>
-            <option value="11">Class 11</option>
-            <option value="12">Class 12</option>
-        </select>
-
-        <div id="stream-section" style="display:none;">
-            <select id="stream" onchange="showSubjects()">
-                <option value="">Select Stream</option>
-                <option value="science">Science</option>
-                <option value="commerce">Commerce</option>
-                <option value="arts">Arts</option>
-            </select>
-        </div>
-
-        <div id="subjects-section" class="subjects"></div>
-    </div>
-</div>
-
-<script>
+    // Define subject links for all classes and streams (PLACEHOLDERS)
     const subjectLinks = {
-        "9": {
-            "English": "#",
-            "Hindi": "#",
-            "Math": "#",
-            "Science": "#",
-            "Social Science": "#"
+        9: {
+            "Science": "#", 
+            "Math": "#", 
+            "Social Science": "#", 
+            "English": "#", 
+            "Hindi": "#" 
         },
-        "10": {
-            "English": "#",
-            "Hindi": "#",
-            "Math": "#",
-            "Science": "#",
-            "Social Science": "#"
+        10: {
+            "Science": "#", 
+            "Math": "#", 
+            "Social Science": "#", 
+            "English": "#", 
+            "Hindi": "#" 
         },
-        "11": {
-            "science": {
-                "Biology": "#",
-                "Math": "#",
-                "Physics": "#",
-                "Chemistry": "#"
+        11: {
+            "Science": {
+                "Physics": "#", 
+                "Chemistry": "#", 
+                "Math": "#", 
+                "Biology": "#" 
             },
-            "commerce": {
-                "Business Studies": "#",
-                "Accountancy": "#",
-                "Economics": "#"
+            "Commerce": {
+                "Business Studies": "#", 
+                "Accountancy": "#", 
+                "Economics": "#" 
             },
-            "arts": {
-                "History": "#",
-                "Political Science": "#",
-                "Economics": "#",
-                "Psychology": "#",
+            "Arts": {
+                "History": "#", 
+                "Political Science": "#", 
+                "Economics": "#", 
+                "Psychology": "#", 
                 "Geography": "#"
             }
         },
-        "12": {
-            "science": {
-                "Biology": "#",
-                "Math": "#",
-                "Physics": "#",
-                "Chemistry": "#"
+        12: {
+            "Science": {
+                "Physics": "#", 
+                "Chemistry": "#", 
+                "Math": "#", 
+                "Biology": "#" 
             },
-            "commerce": {
-                "Business Studies": "#",
-                "Accountancy": "#",
-                "Economics": "#"
+            "Commerce": {
+                "Business Studies": "#", 
+                "Accountancy": "#", 
+                "Economics": "#" 
             },
-            "arts": {
-                "History": "#",
-                "Political Science": "#",
-                "Economics": "#",
-                "Psychology": "https://drive.google.com/drive/folders/11Y7G9_79zt197nQFMYgKpsKcAb99Ge7c",
+            "Arts": {
+                "History": "#", 
+                "Political Science": "#", 
+                "Economics": "#", 
+                "Psychology": "https://drive.google.com/drive/folders/11Y7G9_79zt197nQFMYgKpsKcAb99Ge7c", 
                 "Geography": "#"
             }
         }
     };
 
+    function showPage(page) {
+        document.getElementById(`${currentPage}Container`).classList.add('hidden');
+        document.getElementById(`${page}Container`).classList.remove('hidden');
+        document.getElementById('backButton').style.display = (page !== 'login') ? 'block' : 'none';
+        currentPage = page;
+    }
+
     function login() {
-        alert("Login Successful");
+        showPage('class');
     }
 
-    function showStreams() {
-        const selectedClass = document.getElementById("class").value;
-        const streamSection = document.getElementById("stream-section");
-        const subjectsSection = document.getElementById("subjects-section");
-
-        streamSection.style.display = selectedClass === "11" || selectedClass === "12" ? "block" : "none";
-        subjectsSection.style.display = selectedClass === "9" || selectedClass === "10" ? "block" : "none";
-
-        if (selectedClass === "9" || selectedClass === "10") {
-            displaySubjects(subjectLinks[selectedClass]);
+    function selectClass(cls) {
+        selectedClass = cls;
+        if (cls <= 10) {
+            loadSubjects(cls);
+        } else {
+            showPage('stream');
         }
     }
 
-    function showSubjects() {
-        const selectedClass = document.getElementById("class").value;
-        const selectedStream = document.getElementById("stream").value;
-        if (selectedClass === "11" || selectedClass === "12") {
-            displaySubjects(subjectLinks[selectedClass][selectedStream]);
-        }
+    function selectStream(stream) {
+        selectedStream = stream;
+        loadSubjects(selectedClass);
     }
 
-    function displaySubjects(subjects) {
-        const subjectsSection = document.getElementById("subjects-section");
-        subjectsSection.innerHTML = "";
+    function loadSubjects(cls) {
+        const subjectsList = document.getElementById('subjectsList');
+        subjectsList.innerHTML = '';
 
-        if (subjects) {
-            for (const subject in subjects) {
-                const btn = document.createElement("button");
-                btn.textContent = subject;
-                btn.classList.add("subject-btn");
-                btn.onclick = () => window.open(subjects[subject], "_blank");
-                subjectsSection.appendChild(btn);
+        if (cls <= 10) {
+            for (const [subject, link] of Object.entries(subjectLinks[cls])) {
+                subjectsList.innerHTML += `
+                    <div class="option">
+                        ${subject}
+                        <button class="access-button" onclick="window.open('${link}', '_blank')">Access to Notes</button>
+                    </div>
+                `;
             }
-            subjectsSection.style.display = "block";
+        } else {
+            for (const [subject, link] of Object.entries(subjectLinks[cls][selectedStream])) {
+                subjectsList.innerHTML += `
+                    <div class="option">
+                        ${subject}
+                        <button class="access-button" onclick="window.open('${link}', '_blank')">Access to Notes</button>
+                    </div>
+                `;
+            }
         }
+        showPage('subject');
+    }
+
+    function goBack() {
+        if (currentPage === 'subject') showPage(selectedClass > 10 ? 'stream' : 'class');
+        else if (currentPage === 'stream') showPage('class');
+        else if (currentPage === 'class') showPage('login');
     }
 </script>
 
