@@ -136,6 +136,7 @@
 <script>
     let currentPage = 'login';
     let selectedClass = null;
+    let selectedStream = null;
 
     const subjectLinks = {
         9: {
@@ -144,6 +145,13 @@
             "Social Science": "https://drive.google.com/drive/folders/1-Dm4Tg6UIlYBiNqGYOYAWZvJExikh7my",
             "English": "https://drive.google.com/drive/folders/1-Gd2i8_7ylzy-gM_sFQMGrtDbiE70vRr",
             "Hindi": "https://drive.google.com/drive/folders/1-EHtC6OQMkNE3qEU5JgPggm5I4ggUWf9"
+        },
+        10: {
+            "Science": "https://drive.google.com/drive/folders/1-bVnCZbCabVmNGCxJ0gY4-FP4BwN9F02",
+            "Math": "https://drive.google.com/drive/folders/1-Z7LCbOvKhHvMxqXS3W4qVcAukPVmhXK",
+            "Social Science": "https://drive.google.com/drive/folders/1-c9q3sV8BCZjtch0WqWnXnJWSE1il5uS",
+            "English": "https://drive.google.com/drive/folders/1-VKypMW3rybYR_0dPrro1JscD8eGtj9u",
+            "Hindi": "https://drive.google.com/drive/folders/1-Ud6Gv65aE25yPcul3cbprGvXZrXX2O0"
         }
     };
 
@@ -168,6 +176,7 @@
     }
 
     function selectStream(stream) {
+        selectedStream = stream;
         loadSubjects(selectedClass);
     }
 
@@ -177,30 +186,21 @@
 
         if (subjectLinks[cls]) {
             for (const [subject, link] of Object.entries(subjectLinks[cls])) {
-                const subjectElement = document.createElement('div');
-                subjectElement.classList.add('option');
-                subjectElement.innerHTML = `
-                    <div>${subject}</div>
-                    <button class="access-button" onclick="window.open('${link}', '_blank')">Access to Notes</button>
+                subjectsList.innerHTML += `
+                    <div class="option">
+                        <div>${subject}</div>
+                        <button class="access-button" onclick="window.open('${link}', '_blank')">Access to Notes</button>
+                    </div>
                 `;
-                subjectsList.appendChild(subjectElement);
             }
             showPage('subject');
         }
     }
 
     function goBack() {
-        if (currentPage === 'subject') {
-            if (selectedClass > 10) {
-                showPage('stream');
-            } else {
-                showPage('class');
-            }
-        } else if (currentPage === 'stream') {
-            showPage('class');
-        } else if (currentPage === 'class') {
-            showPage('login');
-        }
+        if (currentPage === 'subject') showPage(selectedClass > 10 ? 'stream' : 'class');
+        else if (currentPage === 'stream') showPage('class');
+        else if (currentPage === 'class') showPage('login');
     }
 </script>
 
