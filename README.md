@@ -3,57 +3,91 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>AcademeForge</title>
+    <title>AcademeForge - Login</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #121212;
-            color: white;
+            background: linear-gradient(135deg, #87CEEB, #4682B4);
             margin: 0;
             padding: 0;
+            height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
+            color: #fff;
         }
         .container {
-            background: #1e1e1e;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 15px rgba(0, 255, 255, 0.5);
+            background: rgba(0, 0, 0, 0.7);
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
             text-align: center;
-            width: 300px;
-            transition: transform 0.3s ease;
-        }
-        h2 {
-            color: #ff4081;
-        }
-        .option, .access-button, .back-button {
-            background-color: #292929;
-            color: white;
-            padding: 12px;
-            margin: 8px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background 0.3s ease;
             width: 90%;
-            display: inline-block;
-        }
-        .option:hover, .access-button:hover, .back-button:hover {
-            background-color: #00e5ff;
-            color: black;
+            max-width: 400px;
+            animation: fadeIn 1.2s ease;
         }
         .hidden {
             display: none;
         }
+        h2 {
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+        input, button {
+            padding: 12px;
+            width: 80%;
+            margin-bottom: 12px;
+            border: none;
+            border-radius: 25px;
+            font-size: 16px;
+            outline: none;
+        }
+        input {
+            background: #fff;
+            color: #333;
+            border: 2px solid #4682B4;
+            transition: border-color 0.3s;
+        }
+        input:focus {
+            border-color: #ff4500;
+            box-shadow: 0 0 10px rgba(255, 69, 0, 0.5);
+        }
+        button {
+            background-color: #4682B4;
+            color: white;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        button:hover {
+            background-color: #ff4500;
+        }
+        .option {
+            padding: 12px;
+            background-color: #4682B4;
+            color: white;
+            border-radius: 25px;
+            margin: 5px 0;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .option:hover {
+            background-color: #ff4500;
+        }
         .back-button {
-            position: fixed;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 10;
+            padding: 10px;
+            background-color: #ff4500;
+            color: white;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            position: absolute;
+            top: 20px;
+            left: 20px;
             display: none;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
     </style>
 </head>
@@ -65,9 +99,9 @@
 <!-- Login Page -->
 <div class="container" id="loginContainer">
     <h2>LOGIN</h2>
-    <input type="text" id="username" placeholder="Username" />
-    <input type="password" id="password" placeholder="Password" />
-    <button onclick="login()">Sign In</button>
+    <input type="text" id="login-code" placeholder="Enter Code" />
+    <button onclick="startCountdown()">Sign In</button>
+    <div class="countdown" id="countdown" style="display: none;"></div>
 </div>
 
 <!-- Class Selection Page -->
@@ -98,63 +132,46 @@
     let selectedClass = null;
     let selectedStream = null;
 
-    // Define subject links for all classes and streams (PLACEHOLDERS)
     const subjectLinks = {
         9: {
-            "Science": "#", 
-            "Math": "#", 
-            "Social Science": "#", 
-            "English": "#", 
-            "Hindi": "#" 
+            "Science": "#", "Math": "#", "Social Science": "#", "English": "#", "Hindi": "#"
         },
         10: {
-            "Science": "#", 
-            "Math": "#", 
-            "Social Science": "#", 
-            "English": "#", 
-            "Hindi": "#" 
+            "Science": "#", "Math": "#", "Social Science": "#", "English": "#", "Hindi": "#"
         },
         11: {
-            "Science": {
-                "Physics": "#", 
-                "Chemistry": "#", 
-                "Math": "#", 
-                "Biology": "#" 
-            },
-            "Commerce": {
-                "Business Studies": "#", 
-                "Accountancy": "#", 
-                "Economics": "#" 
-            },
-            "Arts": {
-                "History": "#", 
-                "Political Science": "#", 
-                "Economics": "#", 
-                "Psychology": "#", 
-                "Geography": "#"
-            }
+            "Science": { "Physics": "#", "Chemistry": "#", "Math": "#", "Biology": "#" },
+            "Commerce": { "Business Studies": "#", "Accountancy": "#", "Economics": "#" },
+            "Arts": { "History": "#", "Political Science": "#", "Economics": "#", "Psychology": "#", "Geography": "#" }
         },
         12: {
-            "Science": {
-                "Physics": "#", 
-                "Chemistry": "#", 
-                "Math": "#", 
-                "Biology": "#" 
-            },
-            "Commerce": {
-                "Business Studies": "#", 
-                "Accountancy": "#", 
-                "Economics": "#" 
-            },
-            "Arts": {
-                "History": "#", 
-                "Political Science": "#", 
-                "Economics": "#", 
-                "Psychology": "https://drive.google.com/drive/folders/11Y7G9_79zt197nQFMYgKpsKcAb99Ge7c", 
-                "Geography": "#"
-            }
+            "Science": { "Physics": "#", "Chemistry": "#", "Math": "#", "Biology": "#" },
+            "Commerce": { "Business Studies": "#", "Accountancy": "#", "Economics": "#" },
+            "Arts": { "History": "#", "Political Science": "#", "Economics": "#", "Psychology": "#", "Geography": "#" }
         }
     };
+
+    function startCountdown() {
+        const code = document.getElementById('login-code').value;
+        if (code !== '2024') {
+            alert('Invalid Code!');
+            return;
+        }
+
+        let count = 3;
+        const countdown = document.getElementById('countdown');
+        countdown.style.display = 'block';
+        countdown.innerText = count;
+
+        const timer = setInterval(() => {
+            count--;
+            countdown.innerText = count;
+            if (count === 0) {
+                clearInterval(timer);
+                showPage('class');
+            }
+        }, 1000);
+    }
 
     function showPage(page) {
         document.getElementById(`${currentPage}Container`).classList.add('hidden');
@@ -163,17 +180,9 @@
         currentPage = page;
     }
 
-    function login() {
-        showPage('class');
-    }
-
     function selectClass(cls) {
         selectedClass = cls;
-        if (cls <= 10) {
-            loadSubjects(cls);
-        } else {
-            showPage('stream');
-        }
+        cls <= 10 ? loadSubjects(cls) : showPage('stream');
     }
 
     function selectStream(stream) {
@@ -184,33 +193,17 @@
     function loadSubjects(cls) {
         const subjectsList = document.getElementById('subjectsList');
         subjectsList.innerHTML = '';
-
-        if (cls <= 10) {
-            for (const [subject, link] of Object.entries(subjectLinks[cls])) {
-                subjectsList.innerHTML += `
-                    <div class="option">
-                        ${subject}
-                        <button class="access-button" onclick="window.open('${link}', '_blank')">Access to Notes</button>
-                    </div>
-                `;
-            }
-        } else {
-            for (const [subject, link] of Object.entries(subjectLinks[cls][selectedStream])) {
-                subjectsList.innerHTML += `
-                    <div class="option">
-                        ${subject}
-                        <button class="access-button" onclick="window.open('${link}', '_blank')">Access to Notes</button>
-                    </div>
-                `;
-            }
+        const subjects = cls <= 10 ? subjectLinks[cls] : subjectLinks[cls][selectedStream];
+        for (const [subject, link] of Object.entries(subjects)) {
+            subjectsList.innerHTML += `<div class="option">${subject}
+                <button onclick="window.open('${link}', '_blank')">Access Notes</button></div>`;
         }
         showPage('subject');
     }
 
     function goBack() {
-        if (currentPage === 'subject') showPage(selectedClass > 10 ? 'stream' : 'class');
-        else if (currentPage === 'stream') showPage('class');
-        else if (currentPage === 'class') showPage('login');
+        currentPage === 'subject' ? (selectedClass > 10 ? showPage('stream') : showPage('class')) :
+        currentPage === 'stream' ? showPage('class') : showPage('login');
     }
 </script>
 
