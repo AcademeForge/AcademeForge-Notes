@@ -1,63 +1,112 @@
-
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>AcademeForge</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AcademeForge - Login</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #121212;
-            color: white;
+            background: linear-gradient(135deg, #87CEEB, #4682B4);
             margin: 0;
             padding: 0;
+            height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
+            color: #fff;
         }
-        .container {
-            background: #1e1e1e;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 15px rgba(0, 255, 255, 0.5);
+        .login-container {
+            background: rgba(0, 0, 0, 0.7);
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
             text-align: center;
-            width: 300px;
-            transition: transform 0.3s ease;
-        }
-        h2 {
-            color: #ff4081;
-        }
-        .option, .access-button, .back-button {
-            background-color: #292929;
-            color: white;
-            padding: 12px;
-            margin: 8px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background 0.3s ease;
+            animation: fadeIn 1.2s ease;
             width: 90%;
-            display: inline-block;
+            max-width: 400px;
         }
-        .option:hover, .access-button:hover, .back-button:hover {
-            background-color: #00e5ff;
-            color: black;
+        h1 {
+            font-size: 28px;
+            margin-bottom: 20px;
         }
-        .hidden {
+        .login-input {
+            padding: 12px;
+            width: 80%;
+            margin-bottom: 10px;
+            border: 2px solid #4682B4;
+            border-radius: 25px;
+            background: #fff;
+            color: #333;
+            font-size: 16px;
+            outline: none;
+            transition: 0.3s;
+        }
+        .login-input:focus {
+            border-color: #ff4500;
+            box-shadow: 0 0 10px rgba(255, 69, 0, 0.5);
+        }
+        .login-btn {
+            padding: 12px;
+            width: 80%;
+            background-color: #4682B4;
+            color: white;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background 0.3s;
+        }
+        .login-btn:hover {
+            background-color: #ff4500;
+        }
+        .countdown {
             display: none;
+            font-size: 24px;
+            font-weight: bold;
+            margin-top: 20px;
+            color: #ff4500;
         }
-        .back-button {
-            position: fixed;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 10;
-            display: none;
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
     </style>
 </head>
 <body>
+
+<div class="login-container">
+    <h1>Welcome to AcademeForge</h1>
+    <input type="text" id="login-code" class="login-input" placeholder="Enter Code" />
+    <button class="login-btn" onclick="startCountdown()">Login</button>
+    <div class="countdown" id="countdown"></div>
+</div>
+
+<script>
+    function startCountdown() {
+        const code = document.getElementById('login-code').value;
+        if (code !== '2024') {
+            alert('Invalid Code!');
+            return;
+        }
+
+        const countdownElement = document.getElementById('countdown');
+        let count = 3;
+        countdownElement.style.display = 'block';
+        countdownElement.innerHTML = count;
+
+        const timer = setInterval(() => {
+            count--;
+            countdownElement.innerHTML = count;
+            if (count === 0) {
+                clearInterval(timer);
+                window.location.href = "class-selection.html";
+            }
+        }, 1000);
+    }
+</script>
+
+</body>
+
 
 <!-- Back Button -->
 <button class="back-button" id="backButton" onclick="goBack()">Back</button>
