@@ -28,72 +28,32 @@
         h2 {
             color: #ff4081;
         }
-        input, button {
-            width: 90%;
-            padding: 10px;
-            margin: 10px 0;
+        .option, .access-button, .back-button {
+            background-color: #292929;
+            color: white;
+            padding: 12px;
+            margin: 8px;
             border: none;
             border-radius: 5px;
-            font-size: 16px;
-            outline: none;
-        }
-        input {
-            background: #292929;
-            color: white;
-        }
-        button {
-            background: #00e5ff;
-            color: black;
             cursor: pointer;
             transition: background 0.3s ease;
+            width: 90%;
+            display: inline-block;
         }
-        button:hover {
-            background: #00bcd4;
+        .option:hover, .access-button:hover, .back-button:hover {
+            background-color: #00e5ff;
+            color: black;
         }
         .hidden {
             display: none;
         }
-        .option {
-            margin: 10px;
-            padding: 15px;
-            background-color: #292929;
-            cursor: pointer;
-            border-radius: 5px;
-            transition: background 0.3s ease;
-        }
-        .option:hover {
-            background-color: #00e5ff;
-            color: black;
-        }
         .back-button {
-            background: #ff4081;
-            color: white;
-            padding: 8px 12px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
             position: fixed;
             bottom: 20px;
             left: 50%;
             transform: translateX(-50%);
             z-index: 10;
             display: none;
-        }
-        .back-button:hover {
-            background: #e91e63;
-        }
-        .access-button {
-            background: #ff4081;
-            color: white;
-            padding: 10px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background 0.3s ease;
-            margin-top: 10px;
-        }
-        .access-button:hover {
-            background: #e91e63;
         }
     </style>
 </head>
@@ -138,6 +98,7 @@
     let selectedClass = null;
     let selectedStream = null;
 
+    // Define subject links for all classes and streams
     const subjectLinks = {
         9: {
             "Science": "https://drive.google.com/drive/folders/1-CtgsAx1kXo67-UUf6HsBunPIgm8FgUl",
@@ -152,6 +113,24 @@
             "Social Science": "https://drive.google.com/drive/folders/1-c9q3sV8BCZjtch0WqWnXnJWSE1il5uS",
             "English": "https://drive.google.com/drive/folders/1-VKypMW3rybYR_0dPrro1JscD8eGtj9u",
             "Hindi": "https://drive.google.com/drive/folders/1-Ud6Gv65aE25yPcul3cbprGvXZrXX2O0"
+        },
+        11: {
+            "Science": {
+                "Physics": "https://drive.google.com/drive/folders/100rYQz_YiMNnT7zK_dxW-t8PUYj7GABP",
+                "Chemistry": "https://drive.google.com/drive/folders/1-lL_2Z5_4cvklYRMSv2vTWorip9w-RWx",
+                "Math": "https://drive.google.com/drive/folders/1-yiJhKx6TVLZQ9DlHyvQLZli8N8Qd6TB",
+                "Biology": "https://drive.google.com/drive/folders/1-lL_2Z5_4cvklYRMSv2vTWorip9w-RWx"
+            },
+            "Commerce": {
+                "Business Studies": "#",
+                "Accountancy": "#",
+                "Economics": "#"
+            },
+            "Arts": {
+                "History": "#",
+                "Political Science": "#",
+                "Geography": "#"
+            }
         }
     };
 
@@ -184,11 +163,11 @@
         const subjectsList = document.getElementById('subjectsList');
         subjectsList.innerHTML = '';
 
-        if (subjectLinks[cls]) {
-            for (const [subject, link] of Object.entries(subjectLinks[cls])) {
+        if (cls > 10 && subjectLinks[cls][selectedStream]) {
+            for (const [subject, link] of Object.entries(subjectLinks[cls][selectedStream])) {
                 subjectsList.innerHTML += `
                     <div class="option">
-                        <div>${subject}</div>
+                        ${subject}
                         <button class="access-button" onclick="window.open('${link}', '_blank')">Access to Notes</button>
                     </div>
                 `;
