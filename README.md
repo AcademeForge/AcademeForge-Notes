@@ -233,7 +233,7 @@ function backToTimetable() {
 <p>We extend our heartfelt gratitude to <b>Ujjwal</b>, <b>Amrit</b>, <b>Palak</b>, and <b>Bhuvam</b> for their invaluable support in managing our community. Your contributions have made a significant impact!</p>    
 <button onclick="hideAboutUs()">Back</button>
 
-</div>  <!-- JavaScript (Directly in HTML) -->  <script>    
+</div> <script>    
     function showAboutUs() {    
         document.getElementById('aboutUsSection').style.display = 'block';    
         document.getElementById('mainSection').style.display = 'none';    
