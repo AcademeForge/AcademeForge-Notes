@@ -144,7 +144,7 @@
         document.getElementById('streamContainer').classList.add('hidden');  
         document.getElementById('classContainer').classList.add('hidden');  
         document.getElementById('subjectContainer').classList.remove('hidden');  
-  
+
         let subjects = [];  
         if (selection === 9 || selection === 10) {  
             subjects = ["Science", "Math", "Social Science", "English", "Hindi"];  
@@ -155,25 +155,25 @@
         } else if (selection === "Arts") {  
             subjects = ["History", "Political Science", "Geography", "Economics", "Psychology"];  
         }  
-  
+
         let subjectsList = document.getElementById('subjectsList');  
         subjectsList.innerHTML = "";  
-  
+
         subjects.forEach(subject => {  
             let card = document.createElement('div');  
             card.classList.add('subject-card');  
-  
+
             let title = document.createElement('h3');  
             title.innerText = subject;  
-  
+
             let button = document.createElement('button');  
             button.classList.add('access-button');  
             button.innerText = 'Access to Notes';  
-            button.onclick = () => alert(`Link for ${subject} coming soon!`);  
-  
+            button.onclick = () => window.location.href = `https://academeforge.pages.dev`;  
+
             card.appendChild(title);  
             card.appendChild(button);  
-  
+
             subjectsList.appendChild(card);  
         });  
     }  
