@@ -77,13 +77,7 @@
     <div class="option" onclick="selectClass(11)">Class 11</div>
     <div class="option" onclick="selectClass(12)">Class 12</div>
 </div>
-<!-- Class Selection Page -->
-<div class="container">
-    <h2>Select Your Class</h2>
-    <div class="option" onclick="showTimetableSelection()">Class 9</div>
-    <div class="option" onclick="showTimetableSelection()">Class 10</div>
-    <div class="option" onclick="showTimetableSelection()">Class 11</div>
-    <div class="option" onclick="showTimetableSelection()">Class 12</div>
+
 </div>
 
 <!-- Timetable Selection (Appears after class selection) -->
