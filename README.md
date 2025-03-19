@@ -77,7 +77,6 @@
     <div class="option" onclick="selectClass(11)">Class 11</div>
     <div class="option" onclick="selectClass(12)">Class 12</div>
 </div>
-
 <!-- Timetable Selection (Appears after class selection) -->
 <div class="container hidden" id="timetableSelectionContainer">
     <h2>Select Timetable</h2>
@@ -132,7 +131,7 @@
         document.getElementById('dummyTimetable').classList.add('hidden');
         document.getElementById('timetableSelectionContainer').classList.remove('hidden');
     }
-</script>
+
 
 <!-- Stream Selection Page -->
 <div class="container hidden" id="streamContainer">
