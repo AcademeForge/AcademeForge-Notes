@@ -268,6 +268,11 @@
 
         currentPage = page;
     }
+// Show About Us button when the page initially loads
+window.onload = () => {
+    showPage('login'); // Ensure the login page is set as default
+    document.getElementById('aboutUsButton').style.display = 'block'; // Show About Us button
+};
 </script>
 </body>
 </html>
