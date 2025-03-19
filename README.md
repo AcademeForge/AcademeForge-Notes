@@ -239,7 +239,9 @@ function backToTimetable() {
     document.getElementById('aboutUsSection').style.display = 'none';    
     document.getElementById('mainSection').style.display = 'block';    
 }
+</script>  </body>
 
+</html
   <script>    
     function login() {    
         document.getElementById('container').style.display = 'none';    
