@@ -1,4 +1,3 @@
-
 <html lang="en">
 <head>
     <meta charset="UTF-8" />
@@ -55,6 +54,16 @@
             z-index: 10;
             display: none;
         }
+        .error {
+            color: #ff4081;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+        .countdown {
+            color: #00e5ff;
+            font-size: 16px;
+            margin-top: 10px;
+        }
     </style>
 </head>
 <body>
@@ -68,6 +77,8 @@
     <input type="text" id="username" placeholder="Username" />
     <input type="password" id="password" placeholder="Password" />
     <button onclick="login()">Sign In</button>
+    <div class="error" id="errorMessage"></div>
+    <div class="countdown" id="countdownTimer"></div>
 </div>
 
 <!-- Class Selection Page -->
@@ -98,61 +109,21 @@
     let selectedClass = null;
     let selectedStream = null;
 
-    // Define subject links for all classes and streams (PLACEHOLDERS)
+    const validCode = "1234"; // Example valid code
+    let countdownTime = 5;
+
     const subjectLinks = {
-        9: {
-            "Science": "#", 
-            "Math": "#", 
-            "Social Science": "#", 
-            "English": "#", 
-            "Hindi": "#" 
-        },
-        10: {
-            "Science": "#", 
-            "Math": "#", 
-            "Social Science": "#", 
-            "English": "#", 
-            "Hindi": "#" 
-        },
+        9: { "Science": "#", "Math": "#", "Social Science": "#", "English": "#", "Hindi": "#" },
+        10: { "Science": "#", "Math": "#", "Social Science": "#", "English": "#", "Hindi": "#" },
         11: {
-            "Science": {
-                "Physics": "#", 
-                "Chemistry": "#", 
-                "Math": "#", 
-                "Biology": "#" 
-            },
-            "Commerce": {
-                "Business Studies": "#", 
-                "Accountancy": "#", 
-                "Economics": "#" 
-            },
-            "Arts": {
-                "History": "#", 
-                "Political Science": "#", 
-                "Economics": "#", 
-                "Psychology": "#", 
-                "Geography": "#"
-            }
+            "Science": { "Physics": "#", "Chemistry": "#", "Math": "#", "Biology": "#" },
+            "Commerce": { "Business Studies": "#", "Accountancy": "#", "Economics": "#" },
+            "Arts": { "History": "#", "Political Science": "#", "Economics": "#", "Psychology": "#", "Geography": "#" }
         },
         12: {
-            "Science": {
-                "Physics": "#", 
-                "Chemistry": "#", 
-                "Math": "#", 
-                "Biology": "#" 
-            },
-            "Commerce": {
-                "Business Studies": "#", 
-                "Accountancy": "#", 
-                "Economics": "#" 
-            },
-            "Arts": {
-                "History": "#", 
-                "Political Science": "#", 
-                "Economics": "#", 
-                "Psychology": "https://drive.google.com/drive/folders/11Y7G9_79zt197nQFMYgKpsKcAb99Ge7c", 
-                "Geography": "#"
-            }
+            "Science": { "Physics": "#", "Chemistry": "#", "Math": "#", "Biology": "#" },
+            "Commerce": { "Business Studies": "#", "Accountancy": "#", "Economics": "#" },
+            "Arts": { "History": "#", "Political Science": "#", "Economics": "#", "Psychology": "#", "Geography": "#" }
         }
     };
 
@@ -164,7 +135,35 @@
     }
 
     function login() {
-        showPage('class');
+        const username = document.getElementById('username').value.trim();
+        const password = document.getElementById('password').value.trim();
+        const errorMessage = document.getElementById('errorMessage');
+        const countdownTimer = document.getElementById('countdownTimer');
+
+        if (username === "" || password === "") {
+            errorMessage.textContent = "Please enter a valid username and password.";
+            return;
+        }
+
+        if (password !== validCode) {
+            errorMessage.textContent = "Invalid code!";
+            return;
+        }
+
+        errorMessage.textContent = "";
+        countdownTimer.textContent = `Redirecting in ${countdownTime} seconds...`;
+
+        const countdownInterval = setInterval(() => {
+            countdownTime--;
+            countdownTimer.textContent = `Redirecting in ${countdownTime} seconds...`;
+
+            if (countdownTime === 0) {
+                clearInterval(countdownInterval);
+                showPage('class');
+                countdownTimer.textContent = "";
+                countdownTime = 5; // Reset for next login
+            }
+        }, 1000);
     }
 
     function selectClass(cls) {
@@ -185,24 +184,15 @@
         const subjectsList = document.getElementById('subjectsList');
         subjectsList.innerHTML = '';
 
-        if (cls <= 10) {
-            for (const [subject, link] of Object.entries(subjectLinks[cls])) {
-                subjectsList.innerHTML += `
-                    <div class="option">
-                        ${subject}
-                        <button class="access-button" onclick="window.open('${link}', '_blank')">Access to Notes</button>
-                    </div>
-                `;
-            }
-        } else {
-            for (const [subject, link] of Object.entries(subjectLinks[cls][selectedStream])) {
-                subjectsList.innerHTML += `
-                    <div class="option">
-                        ${subject}
-                        <button class="access-button" onclick="window.open('${link}', '_blank')">Access to Notes</button>
-                    </div>
-                `;
-            }
+        const subjects = cls <= 10 ? subjectLinks[cls] : subjectLinks[cls][selectedStream];
+
+        for (const [subject, link] of Object.entries(subjects)) {
+            subjectsList.innerHTML += `
+                <div class="option">
+                    ${subject}
+                    <button class="access-button" onclick="window.open('${link}', '_blank')">Access to Notes</button>
+                </div>
+            `;
         }
         showPage('subject');
     }
