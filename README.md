@@ -78,8 +78,6 @@
     <div class="option" onclick="selectClass(12)">Class 12</div>
 </div>
 
-
-
 <!-- Stream Selection Page -->
 <div class="container hidden" id="streamContainer">
     <h2>Select Your Stream</h2>
