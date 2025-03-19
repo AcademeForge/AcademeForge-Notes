@@ -171,9 +171,9 @@
         if (selection === 9 || selection === 10) {
             subjects = ["Science", "Math", "Social Science", "English", "Hindi"];
         } else if (selection === "Science") {
-            subjects = ["Physics", "Chemistry", "Math", "Biology", "Computer Science"];
+            subjects = ["Physics", "Chemistry", "Math", "Biology"];
         } else if (selection === "Commerce") {
-            subjects = ["Business Studies", "Accountancy", "Economics", "Math"];
+            subjects = ["Business Studies", "Accountancy", "Economics"];
         } else if (selection === "Arts") {
             subjects = ["History", "Political Science", "Geography", "Economics", "Psychology"];
         }
