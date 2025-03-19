@@ -240,9 +240,7 @@ function backToTimetable() {
     document.getElementById('mainSection').style.display = 'block';    
 }
 
-</script>  </body>
-
-</html>  <script>    
+  <script>    
     function login() {    
         document.getElementById('container').style.display = 'none';    
         document.getElementById('classSelection').classList.remove('hidden');    
