@@ -191,7 +191,138 @@
             let button = document.createElement('button');
             button.classList.add('access-button');
             button.innerText = 'Access to Notes';
-            button.onclick = () => window.location.href = `https://academeforge.pages.dev`;
+            butto
+
+            card.appendChild(title);
+            card.appendChild(button);
+            subjectsList.appendChild(card);
+        });
+    } <script>
+    // Define subject links for each class and stream
+    const subjectLinks = {
+        9: {
+            "Science": "https://drive.google.com/drive/folders/1-CtgsAx1kXo67-UUf6HsBunPIgm8FgUl",
+            "Math": "https://drive.google.com/drive/folders/1-DH3yoNSnF0iFSIH2CsGGf5RobYwYKyp",
+            "Social Science": "https://drive.google.com/drive/folders/1-Dm4Tg6UIlYBiNqGYOYAWZvJExikh7my",
+            "English": "https://drive.google.com/drive/folders/1-Gd2i8_7ylzy-gM_sFQMGrtDbiE70vRr",
+            "Hindi": "https://drive.google.com/drive/folders/1-EHtC6OQMkNE3qEU5JgPggm5I4ggUWf9"
+        },
+        10: {
+            "Science": "https://drive.google.com/drive/folders/1-bVnCZbCabVmNGCxJ0gY4-FP4BwN9F02",
+            "Math": "https://drive.google.com/drive/folders/1-Z7LCbOvKhHvMxqXS3W4qVcAukPVmhXK",
+            "Social Science": "https://drive.google.com/drive/folders/1-c9q3sV8BCZjtch0WqWnXnJWSE1il5uS",
+            "English": "https://drive.google.com/drive/folders/1-VKypMW3rybYR_0dPrro1JscD8eGtj9u",
+            "Hindi": "https://drive.google.com/drive/folders/1-Ud6Gv65aE25yPcul3cbprGvXZrXX2O0"
+        },
+        "Science": {
+            11: {
+                "Physics": "https://drive.google.com/drive/folders/100rYQz_YiMNnT7zK_dxW-t8PUYj7GABP",
+                "Chemistry": "https://drive.google.com/drive/folders/1-lL_2Z5_4cvklYRMSv2vTWorip9w-RWx",
+                "Math": "https://drive.google.com/drive/folders/1-yiJhKx6TVLZQ9DlHyvQLZli8N8Qd6TB",
+                "Biology": "https://drive.google.com/drive/folders/1-lL_2Z5_4cvklYRMSv2vTWorip9w-RWx",
+                "Computer Science": "#" // Add actual link if available
+            },
+            12: {
+                "Physics": "#", 
+                "Chemistry": "#", 
+                "Math": "#", 
+                "Biology": "#", 
+                "Computer Science": "#"
+            }
+        },
+        "Commerce": {
+            11: {
+                "Business Studies": "https://drive.google.com/drive/folders/114ncGbXaaDS_Uq_jFZ6S8XvUPxGqUomy",
+                "Accountancy": "https://drive.google.com/drive/folders/1133qJ8A91II5MwG9dJMeyQxgF88GEJe6",
+                "Economics": "https://drive.google.com/drive/folders/10zTfWiTZEjnip9jQ4_NQ5D-iKdgC2I8z",
+                "Math": "#"
+            },
+            12: {
+                "Business Studies": "#", 
+                "Accountancy": "#", 
+                "Economics": "#", 
+                "Math": "#"
+            }
+        },
+        "Arts": {
+            11: {
+                "History": "https://drive.google.com/drive/folders/11gfrxRKkwZg9yEREvyS06N6zNGH4QFRi",
+                "Political Science": "https://drive.google.com/drive/folders/11c9BDCtzO6OjZumMYlXhklSfwJud5D9z",
+                "Geography": "https://drive.google.com/drive/folders/11XmaUWcoB2JPes05FONuxLtFbDIfSln0",
+                "Economics": "https://drive.google.com/drive/folders/11jMqr1owMcbXsVci7CgYbyyfWrb3zgtd",
+                "Psychology": "https://drive.google.com/drive/folders/11Y7G9_79zt197nQFMYgKpsKcAb99Ge7c"
+            },
+            12: {
+                "History": "#", 
+                "Political Science": "#", 
+                "Geography": "#", 
+                "Economics": "#", 
+                "Psychology": "#"
+            }
+        }
+    };
+
+    let selectedClass = null;
+    let selectedStream = null;
+
+    function login() {
+        document.getElementById('loginContainer').classList.add('hidden');
+        document.getElementById('classContainer').classList.remove('hidden');
+        document.getElementById('backButton').classList.remove('hidden');
+    }
+
+    function selectClass(classNumber) {
+        selectedClass = classNumber;
+        if (classNumber === 11 || classNumber === 12) {
+            document.getElementById('classContainer').classList.add('hidden');
+            document.getElementById('streamContainer').classList.remove('hidden');
+        } else {
+            loadSubjects(classNumber);
+        }
+    }
+
+    function selectStream(stream) {
+        selectedStream = stream;
+        loadSubjects(stream);
+    }
+
+    function loadSubjects(selection) {
+        document.getElementById('streamContainer').classList.add('hidden');
+        document.getElementById('subjectContainer').classList.remove('hidden');
+
+        let subjects = [];
+        if (selection === 9 || selection === 10) {
+            subjects = Object.keys(subjectLinks[selection]);
+        } else if (selection === "Science" || selection === "Commerce" || selection === "Arts") {
+            subjects = Object.keys(subjectLinks[selection][selectedClass]);
+        }
+
+        let subjectsList = document.getElementById('subjectsList');
+        subjectsList.innerHTML = "";
+
+        subjects.forEach(subject => {
+            let card = document.createElement('div');
+            card.classList.add('subject-card');
+
+            let title = document.createElement('h3');
+            title.innerText = subject;
+
+            let button = document.createElement('button');
+            button.classList.add('access-button');
+            button.innerText = 'Access to Notes';
+
+            // Link based on class and stream
+            button.onclick = () => {
+                let link = (selection === "Science" || selection === "Commerce" || selection === "Arts") 
+                    ? subjectLinks[selection][selectedClass][subject] 
+                    : subjectLinks[selection][subject];
+
+                if (link !== "#") {
+                    window.open(link, '_blank');
+                } else {
+                    alert('No link available for this subject.');
+                }
+            };
 
             card.appendChild(title);
             card.appendChild(button);
@@ -203,5 +334,11 @@
         document.getElementById('subjectContainer').classList.add('hidden');
         document.getElementById('streamContainer').classList.add('hidden');
         document.getElementById('classContainer').classList.remove('hidden');
+    }
+</script>
+
+    function goBack() {
+        document.getElementById('subjectContainer').classList.add('hidden');
+        document.getElementById('streamContainer').classList.add('hidden');     document.getElementById('classContainer').classList.remove('hidden');
     }
 </script>
