@@ -195,7 +195,7 @@
         document.getElementById('dummyTimetableSection').style.display = 'none';  
     }
 
-</script>  <div id="reviewsSection" class="hidden">  
+  <div id="reviewsSection" class="hidden">  
     <h2>Student Reviews</h2>  
     <p>"This website helped me so much in my studies!" - Newton</p>  
     <p>"AcademeForge is amazing for study materials!" - Einstein</p>
