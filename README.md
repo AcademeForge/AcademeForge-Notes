@@ -195,6 +195,14 @@
         document.getElementById('dummyTimetableSection').style.display = 'none';  
     }
 
+<button onclick="redirectToUPI()">Donate Now</button>
+
+<script>
+    function redirectToUPI() {
+        window.location.href = 'upi://pay?pa=devrajkumar01@ybl&pn=Devraj%20Kumar&mc=&tid=&tr=&tn=Donation&am=&cu=INR';
+    }
+</script>
+
   <div id="reviewsSection" class="hidden">  
     <h2>Student Reviews</h2>  
     <p>"This website helped me so much in my studies!" - Newton</p>  
