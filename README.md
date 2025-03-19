@@ -319,10 +319,3 @@ div id="class-section">
     }  
 
 
-<button onclick="redirectToUPI()">Donate Now</button>
-
-<script>
-    function redirectToUPI() {
-        window.location.href = 'upi://pay?pa=devrajkumar01@ybl&pn=Devraj%20Kumar&mc=&tid=&tr=&tn=Donation&am=&cu=INR';
-    }
-</script>
