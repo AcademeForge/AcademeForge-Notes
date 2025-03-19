@@ -212,9 +212,13 @@
         else if (currentPage === 'class') showPage('login');
     }
 </script>
-!-- About Us Pop-up -->
-<div id="aboutUsPopup" style="
-    display: none;
+<!-- About Us Button -->
+<button onclick="openAboutUs()" class="option" style="background-color: #ff4081; color: white; width: 90%; margin-top: 20px;">
+    About Us
+</button>
+
+<!-- About Us Pop-up -->
+<div id="aboutUsPopup" class="hidden" style="
     position: fixed;
     top: 50%;
     left: 50%;
@@ -234,50 +238,18 @@
     <p><strong>Aadhar Bhattacharya</strong> – Co-Founder & Lead Educator</p>
     <h3 style="color: #00e5ff;">Special Thanks:</h3>
     <p>We extend our heartfelt gratitude to <strong>Ujjwal</strong>, <strong>Amrit</strong>, <strong>Palak</strong>, and <strong>Bhuvam</strong> for their invaluable support in managing our community. Your contributions have made a significant impact!</p>
-    <button onclick="closeAboutUs()" style="
-        background-color: #ff4081;
-        color: white;
-        padding: 8px 16px;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-        margin-top: 10px;
-    ">Close</button>
+    <button onclick="closeAboutUs()" class="option" style="background-color: #ff4081; color: white; margin-top: 10px;">Close</button>
 </div>
 
+<!-- JavaScript to Open and Close Pop-up -->
 <script>
-    // Function to open the About Us pop-up
     function openAboutUs() {
-        document.getElementById('aboutUsPopup').style.display = 'block';
+        document.getElementById('aboutUsPopup').classList.remove('hidden');
     }
 
-    // Function to close the About Us pop-up
     function closeAboutUs() {
-        document.getElementById('aboutUsPopup').style.display = 'none';
+        document.getElementById('aboutUsPopup').classList.add('hidden');
     }
-
-    // Function to handle page display and show/hide About Us button
-    function showPage(page) {
-        // Hide the current page
-        document.getElementById(currentPage + 'Container').style.display = 'none';
-        // Show the new page
-        document.getElementById(page + 'Container').style.display = 'block';
-        // Show the back button on all pages except login
-        document.getElementById('backButton').style.display = (page !== 'login') ? 'block' : 'none';
-        // Show About Us button only on login page
-        document.getElementById('aboutUsContainer').style.display = (page === 'login') ? 'block' : 'none';
-
-        currentPage = page;
-    }
-
-    // Initialize currentPage to 'login'
-    let currentPage = 'login';
-
-    // Show the login page on load
-    window.onload = function() {
-        showPage('login');
-    };
 </script>
-
 </body>
 </html>
