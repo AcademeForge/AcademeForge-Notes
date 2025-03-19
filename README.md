@@ -66,11 +66,6 @@
     <h2>LOGIN</h2>
     <input type="text" id="username" placeholder="username : AF" />
     <input type="password" id="password" placeholder="Password : 2024" />
-if (password !== validCode) {
-            errorMessage.textContent = "Invalid code!";
-            return;
-        }
-
     <button onclick="login()">Sign In</button>
 </div>
 
