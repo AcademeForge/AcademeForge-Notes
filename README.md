@@ -3,108 +3,207 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>AcademeForge Notes</title>
+    <title>AcademeForge</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f4f4f9;
+            background-color: #121212;
+            color: white;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
-        }
-        .container {
-            width: 90%;
-            max-width: 1200px;
-            margin: 20px auto;
-        }
-        h2 {
-            background-color: #007bff;
-            color: white;
-            padding: 10px;
-            text-align: center;
-            border-radius: 5px;
-        }
-        .subject-list {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 15px;
-            margin-top: 20px;
-        }
-        .subject {
-            background-color: #e7e7e7;
-            padding: 15px;
-            border-radius: 5px;
-            text-align: center;
-            transition: background-color 0.3s;
-        }
-        .subject a {
-            text-decoration: none;
-            color: #000;
-            font-weight: bold;
-        }
-        .subject:hover {
-            background-color: #d1d1d1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            position: relative;
         }
         .back-button {
             position: fixed;
-            top: 10px;
-            right: 10px;
-            background-color: #007bff;
+            top: 20px;
+            right: 20px;
+            background: #ff4081;
             color: white;
-            padding: 8px 12px;
+            padding: 10px 15px;
             border: none;
             border-radius: 5px;
             cursor: pointer;
             font-size: 14px;
+            transition: background 0.3s ease;
+            z-index: 10;
         }
         .back-button:hover {
-            background-color: #0056b3;
+            background: #e91e63;
+        }
+        .login-container, .class-container, .stream-container, .subject-container {
+            background: #1e1e1e;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0,255,255,0.5);
+            text-align: center;
+            width: 300px;
+            transition: transform 0.3s ease;
+        }
+        h2 {
+            color: #ff4081;
+        }
+        input, button {
+            width: 90%;
+            padding: 10px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            outline: none;
+        }
+        input {
+            background: #292929;
+            color: white;
+        }
+        button {
+            background: #00e5ff;
+            color: black;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        button:hover {
+            background: #00bcd4;
+        }
+        .hidden {
+            display: none;
+        }
+        .class-option, .stream-option {
+            margin: 10px;
+            padding: 15px;
+            background-color: #292929;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background 0.3s ease;
+        }
+        .class-option:hover, .stream-option:hover {
+            background-color: #00e5ff;
+            color: black;
+        }
+        .subject-card {
+            background-color: #292929;
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+            transition: transform 0.3s ease;
+        }
+        .access-button {
+            background: #ff4081;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        .access-button:hover {
+            background: #e91e63;
         }
     </style>
 </head>
 <body>
 
-<button class="back-button" onclick="history.back()">Back</button>
+<!-- Back Button -->
+<button class="back-button hidden" id="backButton" onclick="goBack()">Back</button>
 
-<div class="container">
-    <!-- Class 9 -->
-    <h2>Class 9</h2>
-    <div class="subject-list">
-        <div class="subject"><a href="https://drive.google.com/drive/folders/1-Gd2i8_7ylzy-gM_sFQMGrtDbiE70vRr" target="_blank">English</a></div>
-        <div class="subject"><a href="https://drive.google.com/drive/folders/1-EHtC6OQMkNE3qEU5JgPggm5I4ggUWf9" target="_blank">Hindi</a></div>
-        <div class="subject"><a href="https://drive.google.com/drive/folders/1-DH3yoNSnF0iFSIH2CsGGf5RobYwYKyp" target="_blank">Math</a></div>
-        <div class="subject"><a href="https://drive.google.com/drive/folders/1-CtgsAx1kXo67-UUf6HsBunPIgm8FgUl" target="_blank">Science</a></div>
-        <div class="subject"><a href="https://drive.google.com/drive/folders/1-Dm4Tg6UIlYBiNqGYOYAWZvJExikh7my" target="_blank">Social Science</a></div>
-    </div>
-
-    <!-- Class 10 -->
-    <h2>Class 10</h2>
-    <div class="subject-list">
-        <div class="subject"><a href="https://drive.google.com/drive/folders/1-VKypMW3rybYR_0dPrro1JscD8eGtj9u" target="_blank">English</a></div>
-        <div class="subject"><a href="https://drive.google.com/drive/folders/1-Ud6Gv65aE25yPcul3cbprGvXZrXX2O0" target="_blank">Hindi</a></div>
-        <div class="subject"><a href="https://drive.google.com/drive/folders/1-Z7LCbOvKhHvMxqXS3W4qVcAukPVmhXK" target="_blank">Math</a></div>
-        <div class="subject"><a href="https://drive.google.com/drive/folders/1-bVnCZbCabVmNGCxJ0gY4-FP4BwN9F02" target="_blank">Science</a></div>
-        <div class="subject"><a href="https://drive.google.com/drive/folders/1-c9q3sV8BCZjtch0WqWnXnJWSE1il5uS" target="_blank">Social Science</a></div>
-    </div>
-
-    <!-- Class 11 Science -->
-    <h2>Class 11 Science</h2>
-    <div class="subject-list">
-        <div class="subject"><a href="https://drive.google.com/drive/folders/1-lL_2Z5_4cvklYRMSv2vTWorip9w-RWx" target="_blank">Biology</a></div>
-        <div class="subject"><a href="https://drive.google.com/drive/folders/1-yiJhKx6TVLZQ9DlHyvQLZli8N8Qd6TB" target="_blank">Math</a></div>
-        <div class="subject"><a href="https://drive.google.com/drive/folders/100rYQz_YiMNnT7zK_dxW-t8PUYj7GABP" target="_blank">Physics</a></div>
-        <div class="subject"><a href="https://drive.google.com/drive/folders/1-lL_2Z5_4cvklYRMSv2vTWorip9w-RWx" target="_blank">Chemistry</a></div>
-    </div>
-
-    <!-- Class 12 Science -->
-    <h2>Class 12 Science</h2>
-    <div class="subject-list">
-        <div class="subject"><a href="https://drive.google.com/drive/folders/10I1sPq0wvSMD8gNtaoFEFFvtQ3fZSDIF" target="_blank">Biology</a></div>
-        <div class="subject"><a href="https://drive.google.com/drive/folders/10TlsfeqLn5PHarO3rclePp5bg6HBq4K4" target="_blank">Chemistry</a></div>
-        <div class="subject"><a href="https://drive.google.com/drive/folders/10OfK1z06vhLqAhPnuYt4w7cN0rZDtbES" target="_blank">Math</a></div>
-        <div class="subject"><a href="https://drive.google.com/drive/folders/10QCZZ78wmLGERWwVoCnQysVOzizeervS" target="_blank">Physics</a></div>
-    </div>
+<!-- Login Page -->
+<div class="login-container" id="loginContainer">
+    <h2>LOGIN</h2>
+    <input type="text" id="username" placeholder="Username" />
+    <input type="password" id="password" placeholder="Password" />
+    <button onclick="login()">Sign In</button>
 </div>
+
+<!-- Class Selection Page -->
+<div class="class-container hidden" id="classContainer">
+    <h2>Select Your Class</h2>
+    <div class="class-option" onclick="selectClass(9)">Class 9</div>
+    <div class="class-option" onclick="selectClass(10)">Class 10</div>
+    <div class="class-option" onclick="selectClass(11)">Class 11</div>
+    <div class="class-option" onclick="selectClass(12)">Class 12</div>
+</div>
+
+<!-- Stream Selection Page -->
+<div class="stream-container hidden" id="streamContainer">
+    <h2>Select Your Stream</h2>
+    <div class="stream-option" onclick="selectStream('Science')">Science</div>
+    <div class="stream-option" onclick="selectStream('Commerce')">Commerce</div>
+    <div class="stream-option" onclick="selectStream('Arts')">Arts</div>
+</div>
+
+<!-- Subjects Page -->
+<div class="subject-container hidden" id="subjectContainer">
+    <h2>Subjects</h2>
+    <div id="subjectsList"></div>
+</div>
+
+<script>
+    function login() {
+        document.getElementById('loginContainer').classList.add('hidden');
+        document.getElementById('classContainer').classList.remove('hidden');
+        document.getElementById('backButton').classList.remove('hidden');
+    }
+
+    function selectClass(classNumber) {
+        if (classNumber === 11 || classNumber === 12) {
+            document.getElementById('classContainer').classList.add('hidden');
+            document.getElementById('streamContainer').classList.remove('hidden');
+        } else {
+            loadSubjects(classNumber);
+        }
+    }
+
+    function selectStream(stream) {
+        loadSubjects(stream);
+    }
+
+    function loadSubjects(selection) {
+        document.getElementById('streamContainer').classList.add('hidden');
+        document.getElementById('classContainer').classList.add('hidden');
+        document.getElementById('subjectContainer').classList.remove('hidden');
+
+        let subjects = [];
+        if (selection === 9 || selection === 10) {
+            subjects = ["Science", "Math", "Social Science", "English", "Hindi"];
+        } else if (selection === "Science") {
+            subjects = ["Physics", "Chemistry", "Math", "Biology", "Computer Science"];
+        } else if (selection === "Commerce") {
+            subjects = ["Business Studies", "Accountancy", "Economics", "Math", "English"];
+        } else if (selection === "Arts") {
+            subjects = ["History", "Political Science", "Geography", "Economics", "Psychology"];
+        }
+
+        let subjectsList = document.getElementById('subjectsList');
+        subjectsList.innerHTML = "";
+
+        subjects.forEach(subject => {
+            let card = document.createElement('div');
+            card.classList.add('subject-card');
+
+            let title = document.createElement('h3');
+            title.innerText = subject;
+
+            let button = document.createElement('button');
+            button.classList.add('access-button');
+            button.innerText = 'Access to Notes';
+            button.onclick = () => window.location.href = `https://academeforge.pages.dev`;
+
+            card.appendChild(title);
+            card.appendChild(button);
+            subjectsList.appendChild(card);
+        });
+    }
+
+    function goBack() {
+        document.getElementById('subjectContainer').classList.add('hidden');
+        document.getElementById('streamContainer').classList.add('hidden');
+        document.getElementById('classContainer').classList.remove('hidden');
+    }
+</script>
 
 </body>
 </html>
