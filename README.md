@@ -212,7 +212,6 @@
         else if (currentPage === 'class') showPage('login');
     }
 </script>
-
 !-- About Us Pop-up -->
 <div id="aboutUsPopup" style="
     display: none;
