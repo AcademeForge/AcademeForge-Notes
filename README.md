@@ -150,7 +150,9 @@
                 "History": "#", 
                 "Political Science": "#", 
                 "Economics": "#", 
-                "Psychology": "#", 
+                "Psychology": "https://drive.google.com/drive/folders/11Y7G9_79zt197nQFMYgKpsKcAb99Ge7c
+
+", 
                 "Geography": "#"
             }
         }
