@@ -71,7 +71,7 @@
     <button onclick="goBack()">Back</button>    
 </div>    <div id="extraSections" class="hidden">    
     <h2>Extra Study Materials</h2>    
-    <p>Coming soon...</p>    
+    <p><a href="https://academeforge.pages.dev/" target="_blank">Visit AcademeForge</a></p>    
     <h2>Timetable</h2>  <html lang="en">    
 <head>    
     <meta charset="UTF-8" />    
