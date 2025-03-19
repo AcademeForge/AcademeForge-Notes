@@ -212,6 +212,24 @@
         else if (currentPage === 'class') showPage('login');
     }
 </script>
+<!-- About Us Pop-up -->
+<div id="aboutUsPopup" class="popup hidden">
+    <div class="popup-content">
+        <span class="close" onclick="closeAboutUs()">&times;</span>
+        <h2>About AcademeForge</h2>
+        <p><strong>About the Team</strong></p>
+        <p><strong style="color: #ff4081;">Devraj Kumar</strong> – Founder & CEO</p>
+        <p><strong style="color: #ff4081;">Mandeep Boot Jolakiya</strong> – Co-Founder & CEO</p>
+        <p><strong style="color: #ff4081;">Aadhar Bhattacharya</strong> – Co-Founder & Lead Educator</p>
+        <br>
+        <p><strong>Special Thanks:</strong></p>
+        <p>We extend our heartfelt gratitude to <strong style="color: #00e5ff;">Ujjwal</strong>, 
+           <strong style="color: #00e5ff;">Amrit</strong>, 
+           <strong style="color: #00e5ff;">Palak</strong>, and 
+           <strong style="color: #00e5ff;">Bhuvam</strong> for their invaluable support in managing our community. 
+           Your contributions have made a significant impact!</p>
+    </div>
+</div>
 
 </body>
 </html>
