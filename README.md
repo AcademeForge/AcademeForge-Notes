@@ -194,7 +194,7 @@
         document.getElementById('regularTimetableSection').style.display = 'none';  
         document.getElementById('dummyTimetableSection').style.display = 'none';  
     }
-</script>
+
 </script>  <div id="reviewsSection" class="hidden">  
     <h2>Student Reviews</h2>  
     <p>"This website helped me so much in my studies!" - Newton</p>  
