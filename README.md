@@ -82,118 +82,58 @@
     <a href="https://academeforge.pages.dev/" target="_blank">Visit AcademeForge for free study items</a> 
 
 <div id="class-section">
- <h2>Timetable</h2>
-
-<html lang="en">  
-<head>  
-    <meta charset="UTF-8" />  
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />  
-    <title>Study Timetable</title>  
-    <style>  
-        body {  
-            font-family: Arial, sans-serif;  
-            margin: 20px;  
-        }  
-        .hidden {  
-            display: none;  
-        }  
-        button {  
-            padding: 10px 20px;  
-            background-color: #4CAF50;  
-            color: white;  
-            border: none;  
-            cursor: pointer;  
-            border-radius: 5px;  
-            margin: 10px;  
-            transition: background-color 0.3s;  
-        }  
-        button:hover {  
-            background-color: #45a049;  
-        }  
-        table {  
-            width: 100%;  
-            border-collapse: collapse;  
-            margin-top: 20px;  
-        }  
-        th, td {  
-            padding: 10px;  
-            border: 1px solid #ccc;  
-            text-align: center;  
-        }  
-        th {  
-            background-color: #f2f2f2;  
-        }  
-    </style>  
-</head>  
-<body>  
-
-    <button onclick="showTimetable()">Timetable</button>  
+    <button onclick="showTimetable()">Timetable</button>
     
- <!-- Timetable Section (Hidden by Default) -->  <div id="mainTimetableSection" style="display: none;">  
-    <h1>Select Your Timetable</h1>  
-    <button onclick="showTimetableDetails('regular')">Regular</button>  
-    <button onclick="showTimetableDetails('dummy')">Dummy</button>  
-</div>  <!-- Regular Timetable Section -->  <div id="regularTimetableSection" style="display: none;">  
-    <h2>Regular Student Timetable</h2>  
-    <table>  
-        <tr><th>Time</th><th>Activity</th></tr>  
-        <tr><td>8:00 AM - 2:00 PM</td><td>School Time</td></tr>  
-        <tr><td>2:30 PM - 3:30 PM</td><td>Lunch + Rest</td></tr>  
-        <tr><td>3:30 PM - 5:30 PM</td><td>Self Study (Math/Physics/Chemistry)</td></tr>  
-        <tr><td>5:30 PM - 6:30 PM</td><td>Break/Exercise</td></tr>  
-        <tr><td>6:30 PM - 8:30 PM</td><td>Self Study (Biology/English/Hindi)</td></tr>  
-        <tr><td>8:30 PM - 9:30 PM</td><td>Dinner + Family Time</td></tr>  
-        <tr><td>9:30 PM - 10:30 PM</td><td>Revision + Planning for Next Day</td></tr>  
-    </table>  
-    <button onclick="backToTimetable()">Back</button>  
-</div>  <!-- Dummy Timetable Section -->  <div id="dummyTimetableSection" style="display: none;">  
-    <h2>Dummy Student Timetable</h2>  
-    <table>  
-        <tr><th>Time</th><th>Activity</th></tr>  
-        <tr><td>8:00 AM - 9:00 AM</td><td>Exercise + Freshen Up</td></tr>  
-        <tr><td>9:00 AM - 10:30 AM</td><td>Math/Physics Study</td></tr>  
-        <tr><td>10:30 AM - 11:00 AM</td><td>Short Break</td></tr>  
-        <tr><td>11:00 AM - 12:30 PM</td><td>Chemistry/Biology Study</td></tr>  
-        <tr><td>12:30 PM - 1:30 PM</td><td>Lunch + Rest</td></tr>  
-        <tr><td>1:30 PM - 3:00 PM</td><td>English/Hindi Study</td></tr>  
-        <tr><td>3:00 PM - 4:00 PM</td><td>Short Break + Refresh</td></tr>  
-        <tr><td>4:00 PM - 6:00 PM</td><td>Revision + Problem Solving</td></tr>  
-        <tr><td>6:00 PM - 7:00 PM</td><td>Break/Exercise</td></tr>  
-        <tr><td>7:00 PM - 9:00 PM</td><td>Subject-Wise Study + Homework</td></tr>  
-        <tr><td>9:00 PM - 10:00 PM</td><td>Dinner + Relax</td></tr>  
-        <tr><td>10:00 PM - 11:00 PM</td><td>Light Reading + Planning</td></tr>  
-    </table>  
-    <button onclick="backToTimetable()">Back</button>  
-</div>  <!-- JavaScript -->  <script>  
-    // Hides only class buttons after selection (keeps other buttons visible)  
-    function selectClass(classNumber) {  
-        const classButtons = document.querySelectorAll('#classSelectionSection button');  
-        classButtons.forEach(button => button.style.display = 'none');  
-    }  
-  
-    // Displays timetable selection  
-    function showTimetable() {  
-        document.getElementById('mainTimetableSection').style.display = 'block';  
-        document.getElementById('regularTimetableSection').style.display = 'none';  
-        document.getElementById('dummyTimetableSection').style.display = 'none';  
-    }  
-  
-    // Displays timetable details  
-    function showTimetableDetails(type) {  
-        document.getElementById('mainTimetableSection').style.display = 'none';  
-        if (type === 'regular') {  
-            document.getElementById('regularTimetableSection').style.display = 'block';  
-        } else {  
-            document.getElementById('dummyTimetableSection').style.display = 'block';  
-        }  
-    }  
-  
-    // Back button for timetable  
-    function backToTimetable() {  
-        document.getElementById('mainTimetableSection').style.display = 'block';  
-        document.getElementById('regularTimetableSection').style.display = 'none';  
-        document.getElementById('dummyTimetableSection').style.display = 'none';  
-    }  
+    <div id="mainTimetableSection" style="display: none;">
+        <h1>Select Your Timetable</h1>
+        <button onclick="showTimetableDetails('regular')">Regular</button>
+        <button onclick="showTimetableDetails('dummy')">Dummy</button>
+    </div>
+
+    <div id="regularTimetableSection" style="display: none;">
+        <h2>Regular Student Timetable</h2>
+        <table>
+            <tr><th>Time</th><th>Activity</th></tr>
+            <tr><td>8:00 AM - 2:00 PM</td><td>School Time</td></tr>
+            <tr><td>2:30 PM - 3:30 PM</td><td>Lunch + Rest</td></tr>
+            <tr><td>3:30 PM - 5:30 PM</td><td>Self Study (Math/Physics/Chemistry)</td></tr>
+        </table>
+        <button onclick="backToTimetable()">Back</button>
+    </div>
+
+    <div id="dummyTimetableSection" style="display: none;">
+        <h2>Dummy Student Timetable</h2>
+        <table>
+            <tr><th>Time</th><th>Activity</th></tr>
+            <tr><td>8:00 AM - 9:00 AM</td><td>Exercise + Freshen Up</td></tr>
+            <tr><td>9:00 AM - 10:30 AM</td><td>Math/Physics Study</td></tr>
+        </table>
+        <button onclick="backToTimetable()">Back</button>
+    </div>
+</div>
+
+<script>
+    function showTimetable() {
+        document.getElementById('mainTimetableSection').style.display = 'block';
+        document.getElementById('regularTimetableSection').style.display = 'none';
+        document.getElementById('dummyTimetableSection').style.display = 'none';
+    }
+
+    function showTimetableDetails(type) {
+        document.getElementById('mainTimetableSection').style.display = 'none';
+        if (type === 'regular') {
+            document.getElementById('regularTimetableSection').style.display = 'block';
+        } else {
+            document.getElementById('dummyTimetableSection').style.display = 'block';
+        }
+    }
+
+    function backToTimetable() {
+        document.getElementById('mainTimetableSection').style.display = 'block';
+        document.getElementById('regularTimetableSection').style.display = 'none';
+        document.getElementById('dummyTimetableSection').style.display = 'none';
+    }
+</script>
 </script>  <div id="reviewsSection" class="hidden">  
     <h2>Student Reviews</h2>  
     <p>"This website helped me so much in my studies!" - Newton</p>  
