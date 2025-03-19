@@ -64,8 +64,8 @@
 <!-- Login Page -->
 <div class="container" id="loginContainer">
     <h2>LOGIN</h2>
-    <input type="text" id="username" placeholder="Username" />
-    <input type="password" id="password" placeholder="Password" />
+    <input type="text" id="AF" placeholder="Username" />
+    <input type="password" id="2024" placeholder="Password" />
     <button onclick="login()">Sign In</button>
 </div>
 
