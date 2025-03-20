@@ -115,10 +115,10 @@
         },
         11: {
             "Science": {
-                "Physics": "#", 
-                "Chemistry": "#", 
-                "Math": "#", 
-                "Biology": "#" 
+                "Physics": "https://drive.google.com/drive/folders/1-yiJhKx6TVLZQ9DlHyvQLZli8N8Qd6TB", 
+                "Chemistry": "https://drive.google.com/drive/folders/100rYQz_YiMNnT7zK_dxW-t8PUYj7GABP", 
+                "Math": "https://drive.google.com/drive/folders/1-lL_2Z5_4cvklYRMSv2vTWorip9w-RWx", 
+                "Biology": "https://drive.google.com/drive/folders/11OHqx9uiW0po8Jb7EqCDOgy_hNpQa8OH" 
             },
             "Commerce": {
                 "Business Studies": "https://drive.google.com/drive/folders/10hbeBCGpwKV8AJlMLN-gkT8ROL-mPJnL", 
