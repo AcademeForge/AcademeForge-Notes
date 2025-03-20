@@ -18,15 +18,15 @@
     /* Logo Styling */
     .logo-container {
         position: fixed;
-        top: 120px; /* Adjust this to position it below the banner */
-        left: 50%;
-        transform: translateX(-50%);
+        top: 120px; /* Adjust this to position it under the banner */
+        right: 10px; /* Positions the logo on the right side */
         z-index: 9997;
     }
 
     .logo-container img {
-        height: 100px; /* Adjust size as needed */
-        border-radius: 10px;
+        height: 40px; /* Reduced size */
+        width: auto; 
+        border-radius: 5px;
     }
 </style>
 
