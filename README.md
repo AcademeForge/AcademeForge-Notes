@@ -314,9 +314,6 @@ window.onload = () => {
     showPage('login'); // Ensure the login page is set as default
     document.getElementById('aboutUsButton').style.display = 'block'; // Show About Us button
 };
-<header>
-    <img src="https://ibb.co/jZrpD2HM" alt="AF Logo" class="logo" />
-</header>
 </script>
 </body>
 </html>
