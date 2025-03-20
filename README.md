@@ -59,7 +59,7 @@
             box-shadow: 0 0 15px rgba(0, 255, 255, 0.5);
             text-align: center;
             width: 300px;
-            transition: transform 0.3s ease;
+            transition: transform 0.1s ease;
         }
         h2 {
             color: #ff4081;
