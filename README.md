@@ -279,9 +279,8 @@
         <h2 style="color: #ff4081;">About the Team</h2>
         <p><strong>Devraj Kumar</strong> – Founder & CEO</p>
         <p><strong>Mandeep Boot Jolakiya</strong> – Co-Founder & CEO</p>
-        <p><strong>Aadhar Bhattacharya</strong> – Co-Founder & Lead Educator</p>
         <h3 style="color: #00e5ff;">Special Thanks:</h3>
-        <p>We extend our heartfelt gratitude to <strong>Ujjwal</strong>, <strong>Amrit</strong>, <strong>Palak</strong>, and <strong>Bhuvam</strong> for their invaluable support in managing our community. Your contributions have made a significant impact!</p>
+        <p>We extend our heartfelt gratitude to <strong>Ujjwal</strong>, <strong>Amrit</strong>, <strong>Palak</strong>, <strong>Aadhar Bhattacharya</strong> and <strong>Bhuvam</strong> for their invaluable support in managing our community. Your contributions have made a significant impact!</p>
         <button onclick="closeAboutUs()" class="option" style="background-color: #ff4081; color: white; margin-top: 10px;">Close</button>
     </div>
 </div>
