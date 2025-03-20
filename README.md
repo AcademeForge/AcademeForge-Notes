@@ -36,57 +36,7 @@
         display: inline-block;
     }
 </style>
-<div class="banner">
-    <div class="banner-track">
-        <a href="https://ibb.co/4ZPwd93g" target="_blank">
-            <img src="https://i.ibb.co/4ZPwd93g/IMG-20250320-142221.jpg" alt="IMG-20250320-142221">
-        </a>
-        <a href="https://ibb.co/mFJm7m09" target="_blank">
-            <img src="https://i.ibb.co/mFJm7m09/IMG-20250320-142131.jpg" alt="IMG-20250320-142131">
-        </a>
-        <a href="https://ibb.co/27FmWz5f" target="_blank">
-            <img src="https://i.ibb.co/Kj5Rbtm3/IMG-20250320-142342.png" alt="IMG-20250320-142342">
-        </a>
-        <a href="https://ibb.co/JjFjsFZp" target="_blank">
-            <img src="https://i.ibb.co/d4J45JZp/IMG-20250320-142508.png" alt="IMG-20250320-142508">
-        </a>
-    </div>
-</div>
 
-<style>
-    .banner {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        background-color: #f9f9f9;
-        padding: 5px 0;
-        overflow: hidden;
-        z-index: 9999;
-    }
-
-    .banner-track {
-        display: inline-block;
-        white-space: nowrap;
-        animation: scroll 10s linear infinite;
-    }
-
-    .banner-track img {
-        height: 80px;
-        margin-right: 20px;
-        border-radius: 5px;
-        cursor: pointer;
-    }
-
-    @keyframes scroll {
-        from {
-            transform: translateX(100%);
-        }
-        to {
-            transform: translateX(-100%);
-        }
-    }
-</style>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>AcademeForge</title>
