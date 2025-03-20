@@ -3,7 +3,7 @@
 <!-- Moving Banner -->
 <div class="banner-container">
     <marquee behavior="scroll" direction="left">
-        🌟 Under Testing period!"
+        🌟 <a href="https://t.me/AcademeForge"
 🌟
     </marquee>
 </div>
