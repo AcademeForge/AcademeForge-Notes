@@ -65,7 +65,7 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #87CEEB;
+            background-color: #121212;
             color: white;
             margin: 0;
             padding: 0;
