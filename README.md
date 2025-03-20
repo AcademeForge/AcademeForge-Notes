@@ -61,10 +61,7 @@
 
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>AcademeForge</title>
-<a href="https://ibb.co/23qH49sJ" target="_blank">
-        <img src="https://i.ibb.co/k2KvC79Z/IMG-20250320-164334-559.jpg" alt="AcademeForge Logo">
-    </a>
+         <title>AcademeForge</title>
     <style>
         body {
             font-family: Arial, sans-serif;
