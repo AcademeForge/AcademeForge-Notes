@@ -126,12 +126,46 @@
     <marquee behavior="scroll" direction="left">
         <a href="https://t.me/AcademeForge" target="_blank" style="color: #00e5ff; text-decoration: underline;">Join our Telegram group</a>
     </marquee>
-</div>
+<div>
     <h2>LOGIN</h2>
     <input type="text" id="username" placeholder="username : AF" />
     <input type="password" id="password" placeholder="Password : 2024" />
     <button onclick="login()">Sign In</button>
 </div>
+
+<!-- Class Selection Page (Already in Code) -->
+<div class="container hidden" id="classContainer">
+    <h2>Select Your Class</h2>
+    <div class="option">
+        <!-- Existing Class Buttons -->
+    </div>
+</div>
+
+<script>
+    function login() {
+        var username = document.getElementById("username").value;
+        var password = document.getElementById("password").value;
+
+        var allowedUsername = "AF";
+        var allowedPassword = "2024";
+
+        if (username === allowedUsername && password === allowedPassword) {
+            alert("Login successful");
+
+            // Hide login form and show existing class selection buttons
+            document.querySelector('div:first-of-type').style.display = 'none';
+            document.getElementById('classContainer').classList.remove('hidden');
+        } else {
+            alert("Invalid username or password");
+        }
+    }
+</script>
+
+<style>
+    .hidden {
+        display: none;
+    }
+</style>
 
 <!-- Class Selection Page -->
 <div class="container hidden" id="classContainer">
