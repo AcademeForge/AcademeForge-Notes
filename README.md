@@ -3,7 +3,7 @@
 <!-- Moving Banner -->
 <div class="banner-container">
     <marquee behavior="scroll" direction="left">
-        🌟 Under Maintenance!"
+        🌟 Under Testing period!"
 🌟
     </marquee>
 </div>
