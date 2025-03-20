@@ -127,7 +127,7 @@
         <a href="https://t.me/AcademeForge" target="_blank" style="color: #00e5ff; text-decoration: underline;">Join our Telegram group</a>
     </marquee>
 <div>
-    </div>
+    
     <h2>LOGIN</h2>
     <input type="text" id="username" placeholder="username : AF" />
     <input type="password" id="password" placeholder="Password : 2024" />
