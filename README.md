@@ -19,7 +19,7 @@
     .logo-container {
         position: fixed;
         top: 120px; /* Adjust this to position it under the banner */
-        right: 10px; /* Positions the logo on the right side */
+        Center: 10px; /* Positions the logo on the center */
         z-index: 9997;
     }
 
