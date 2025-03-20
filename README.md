@@ -122,7 +122,6 @@
 
 <!-- Login Page -->
 <div class="container" id="loginContainer">
-id="banner" style="overflow: hidden; white-space: nowrap; background-color: #ff4081; color: white; padding: 8px;">
         <marquee behavior="scroll" direction="left">
             Welcome to AcademeForge – Building a strong foundation together!
         </marquee>
