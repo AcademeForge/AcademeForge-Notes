@@ -4,7 +4,7 @@
 <div class="banner-container">
     <marquee behavior="scroll" direction="left">
         🌟 📢 We will start sharing study materials from <b>1st April</b>. Stay tuned! 🚀 
-    <a href="https://t.me/AcademeForge" target="_blank" style="color: #00e5ff; text-decoration: underline;">Join our Telegram group</a>
+    <a href="https://t.me/AcademeForge" target="_blank" style="color: #121212; text-decoration: underline;">Join our Telegram group</a>
 🌟
     </marquee>
 </div>
