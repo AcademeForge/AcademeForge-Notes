@@ -314,6 +314,9 @@ window.onload = () => {
     showPage('login'); // Ensure the login page is set as default
     document.getElementById('aboutUsButton').style.display = 'block'; // Show About Us button
 };
+<header>
+    <img src="https://imagekit.io/tools/asset-public-link?detail=%7B%22name%22%3A%221000009457.webp%22%2C%22type%22%3A%22image%2Fwebp%22%2C%22signedurl_expire%22%3A%222028-03-19T11%3A03%3A36.764Z%22%2C%22signedUrl%22%3A%22https%3A%2F%2Fmedia-hosting.imagekit.io%2F%2F71f2326cec3f4e85%2F1000009457.webp%3FExpires%3D1837076617%26Key-Pair-Id%3DK2ZIVPTIP2VGHC%26Signature%3DmkgFTAwzsGDx~JUCSJD4eihdqpOKC~mx8-B~RJZtT2g~6BMA2uhwjd7e8CxAeE0KNKWRBSXakZ2UxxYzrN8yCV6Rm-xWytv7KS6BasGH~YhrSdY6cI~i-l5R0rk8xZ41anbjb3O9QJVJ5~eDLOlgcoJHTnS4-MocYzjWB8iL6gRWJIuXlo9uweqNH~jBoTaQ~1rR15hKUlexHHXwIubp2mzQzxBW8CXgOltKsCb-jvPZuGAI0alPQoZZ74YfPH8-k7gMrj-Et0VTzh6rQG-RALGO-zXQnfKexL5M8-0wXwX4G9MGw2AOvtLvvxmqW~XEcTu2bfrP-BT3Ig6Zr~U2wQ__%22%7D" alt="AF Logo" class="logo" />
+</header>
 </script>
 </body>
 </html>
