@@ -122,7 +122,6 @@
 
 <!-- Login Page -->
 <div class="container" id="loginContainer">
-<div>
     <h2>LOGIN</h2>
     <input type="text" id="username" placeholder="username : AF" />
     <input type="password" id="password" placeholder="Password : 2024" />
