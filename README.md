@@ -98,6 +98,11 @@
 
 <!-- Login Page -->
 <div class="container" id="loginContainer">
+<div id="banner" style="overflow: hidden; white-space: nowrap; background-color: #ff4081; color: white; padding: 8px;">
+    <marquee behavior="scroll" direction="left">
+        Welcome to AcademeForge – Building a strong foundation together!
+    </marquee>
+</div>
     <h2>LOGIN</h2>
     <input type="text" id="username" placeholder="username : AF" />
     <input type="password" id="password" placeholder="Password : 2024" />
