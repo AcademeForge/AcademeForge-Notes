@@ -101,7 +101,7 @@
 <div class="container" id="loginContainer">
 <div id="banner" style="overflow: hidden; white-space: nowrap; background-color: #ff4081; color: white; padding: 8px;">
     <marquee behavior="scroll" direction="left">
-        Welcome to AcademeForge – Building a strong foundation together!
+        <a href="https://t.me/AcademeForge" target="_blank" style="color: #00e5ff; text-decoration: underline;">Join our Telegram group</a>
     </marquee>
 </div>
     <h2>LOGIN</h2>
