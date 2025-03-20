@@ -3,7 +3,7 @@
 <!-- Moving Banner -->
 <div class="banner-container">
     <marquee behavior="scroll" direction="left">
-        🌟 Welcome to AcademeForge! Get ready to access exclusive notes and resources. We will start sharing study materials from 1st April. Stay tuned!"
+        🌟 Under Maintenance!"
 🌟
     </marquee>
 </div>
