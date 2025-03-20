@@ -141,9 +141,9 @@
                 "Biology": "#" 
             },
             "Commerce": {
-                "Business Studies": "#", 
-                "Accountancy": "#", 
-                "Economics": "#" 
+                "Business Studies": "https://drive.google.com/drive/folders/114ncGbXaaDS_Uq_jFZ6S8XvUPxGqUomy", 
+                "Accountancy": "https://drive.google.com/drive/folders/1133qJ8A91II5MwG9dJMeyQxgF88GEJe6", 
+                "Economics": "https://drive.google.com/drive/folders/10zTfWiTZEjnip9jQ4_NQ5D-iKdgC2I8z" 
             },
             "Arts": {
                 "History": "#", 
