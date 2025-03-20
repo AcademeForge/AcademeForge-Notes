@@ -78,7 +78,7 @@
             background: #1e1e1e;
             padding: 20px;
             border-radius: 10px;
-            box-shadow: 0 0 105px rgba(0, 255, 255, 0.5);
+            box-shadow: 0 0 345px rgba(0, 255, 255, 0.5);
             text-align: center;
             width: 300px;
             transition: transform 0.3s ease;
