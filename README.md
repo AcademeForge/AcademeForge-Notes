@@ -417,6 +417,7 @@ window.onload = () => {
             cursor: pointer;
             font-size: 16px;
             box-shadow: 0 0 10px rgba(255, 64, 129, 0.5);
+            display: none; /* Hidden by default */
         }
 
         /* Chatbox Container */
@@ -476,11 +477,15 @@ window.onload = () => {
         .user-message {
             background: #00e5ff;
             align-self: flex-end;
+            color: black; /* Improved visibility */
+            font-weight: bold;
         }
 
         .bot-message {
             background: #ff4081;
             align-self: flex-start;
+            color: white;
+            font-weight: bold;
         }
     </style>
 </head>
@@ -504,11 +509,7 @@ window.onload = () => {
         // Toggle Chatbox
         function toggleChatbox() {
             var chatbox = document.getElementById("chat-container");
-            if (chatbox.style.display === "none" || chatbox.style.display === "") {
-                chatbox.style.display = "flex";
-            } else {
-                chatbox.style.display = "none";
-            }
+            chatbox.style.display = chatbox.style.display === "none" || chatbox.style.display === "" ? "flex" : "none";
         }
 
         // Handle "Enter" Key Press
@@ -554,6 +555,18 @@ window.onload = () => {
                 chatMessages.scrollTop = chatMessages.scrollHeight;
             }, 1000);
         }
+
+        // Show AI Chatbox ONLY on login page
+        function showPage(page) {
+            document.getElementById("chat-toggle").style.display = (page === "login") ? "block" : "none";
+            document.getElementById("chat-container").style.display = "none";
+        }
+
+        // Ensure AI Chatbox is only on the login page when the website loads
+        window.onload = () => {
+            showPage("login"); 
+        };
     </script>
+
 </body>
 </html>
