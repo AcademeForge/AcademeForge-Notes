@@ -428,15 +428,27 @@ window.onload = () => {
         📖 AcademeForge Assistant
     </div>
     <div id="chatbotMessages" style="padding: 10px; height: 200px; overflow-y: auto; color: white;"></div>
-    <input id="chatbotInput" type="text" placeholder="Ask something..." onkeypress="handleChat(event)" style="
-        width: 100%;
-        padding: 8px;
-        border: none;
-        border-radius: 0 0 10px 10px;
-        background-color: #333;
-        color: white;
-    ">
+   <!-- Chat Input & Send Button -->
+    <div style="display: flex; border-radius: 0 0 10px 10px;">
+        <input id="chatbotInput" type="text" placeholder="Ask something..." style="
+            flex: 1;
+            padding: 8px;
+            border: none;
+            background-color: #333;
+            color: white;
+            border-radius: 0 0 0 10px;
+        ">
+        <button onclick="sendMessage()" style="
+            background-color: #6200ea;
+            color: white;
+            border: none;
+            padding: 8px;
+            border-radius: 0 0 10px 0;
+            cursor: pointer;
+        ">📩</button>
+    </div>
 </div>
+
 
 <!-- Chatbot Script -->
 <script>
