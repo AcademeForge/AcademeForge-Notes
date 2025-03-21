@@ -492,8 +492,15 @@ window.onload = () => {
             "how much is the registration fee for ast": "💰 AST registration fees are **₹70 for regular** and **₹100 for late registration**."
         };
 
-        var response = responses[input] || "❓ I'm not sure about that. Try asking about 'Notes', 'Timetable', 'AST', or 'Scholarships'.";
-        
+        // Check if any keyword is present in the input
+        var response = "❓ I'm not sure about that. Try asking about 'Notes', 'Timetable', 'AST', or 'Scholarships'.";
+        for (var key in responses) {
+            if (input.includes(key)) {
+                response = responses[key];
+                break;
+            }
+        }
+
         chatbox.innerHTML += `<p><strong>You:</strong> ${input}</p>`;
         chatbox.innerHTML += `<p><strong>Bot:</strong> ${response}</p>`;
 
