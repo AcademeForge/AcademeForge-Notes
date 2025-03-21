@@ -503,6 +503,7 @@ window.onload = () => {
 
         chatbox.innerHTML += `<p><strong>You:</strong> ${input}</p>`;
         chatbox.inner
+<script>
 
 </body>
 </html>
