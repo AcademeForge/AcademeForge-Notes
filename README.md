@@ -397,7 +397,5 @@ window.onload = () => {
         showPage('login');
     };
 </script>
-
-</head>
 </body>
 </html>
