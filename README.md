@@ -566,6 +566,7 @@ window.onload = () => {
         window.onload = () => {
             showPage("login"); 
         };
-    </script>
+  </script>
+
 </body>
 </html>
