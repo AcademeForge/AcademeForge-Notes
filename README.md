@@ -397,175 +397,79 @@ window.onload = () => {
         showPage('login');
     };
     </script>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Chatbox</title>
-    <style>
-        /* Chatbox Button */
-        #chat-toggle {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background: #ff4081;
-            color: white;
-            border: none;
-            padding: 10px 15px;
-            border-radius: 20px;
-            cursor: pointer;
-            font-size: 16px;
-            box-shadow: 0 0 10px rgba(255, 64, 129, 0.5);
-            display: none; /* Hidden by default */
-        }
+<!-- Chatbox Button -->
+<button id="chatbotButton" onclick="toggleChatbot()" style="
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #6200ea;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    font-size: 20px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+">💬</button>
 
-        /* Chatbox Container */
-        #chat-container {
-            position: fixed;
-            bottom: 70px;
-            right: 20px;
-            width: 300px;
-            background: #1e1e1e;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
-            display: none;
-            flex-direction: column;
-            overflow: hidden;
-        }
-
-        /* Chatbox Messages */
-        #chatbox {
-            display: flex;
-            flex-direction: column;
-            height: 250px;
-            overflow-y: auto;
-            padding: 10px;
-        }
-
-        /* Chat Input */
-        #chat-input-container {
-            display: flex;
-            border-top: 1px solid #ff4081;
-        }
-
-        #user-input {
-            flex: 1;
-            padding: 10px;
-            border: none;
-            outline: none;
-            background: #333;
-            color: white;
-        }
-
-        #chat-input-container button {
-            background: #ff4081;
-            border: none;
-            padding: 10px;
-            cursor: pointer;
-            color: white;
-        }
-
-        /* Chat Messages */
-        .message {
-            margin: 5px 0;
-            padding: 8px;
-            border-radius: 10px;
-            max-width: 80%;
-        }
-
-        .user-message {
-            background: #00e5ff;
-            align-self: flex-end;
-            color: black; /* Improved visibility */
-            font-weight: bold;
-        }
-
-        .bot-message {
-            background: #ff4081;
-            align-self: flex-start;
-            color: white;
-            font-weight: bold;
-        }
-    </style>
-</head>
-<body>
-
-    <!-- AI Chatbox Button -->
-    <button id="chat-toggle" onclick="toggleChatbox()">💬 Chat</button>
-
-    <!-- AI Chatbox -->
-    <div id="chat-container">
-        <div id="chatbox">
-            <div id="chat-messages"></div>
-        </div>
-        <div id="chat-input-container">
-            <input type="text" id="user-input" placeholder="Type a message..." onkeypress="handleKeyPress(event)">
-            <button onclick="sendMessage()">Send</button>
-        </div>
+<!-- Chatbox Window -->
+<div id="chatbotContainer" class="hidden" style="
+    position: fixed;
+    bottom: 80px;
+    right: 20px;
+    background-color: #1e1e1e;
+    width: 300px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    display: none;
+">
+    <div style="background-color: #6200ea; padding: 10px; color: white; text-align: center; border-radius: 10px 10px 0 0;">
+        📖 AcademeForge Assistant
     </div>
+    <div id="chatbotMessages" style="padding: 10px; height: 200px; overflow-y: auto; color: white;"></div>
+    <input id="chatbotInput" type="text" placeholder="Ask something..." onkeypress="handleChat(event)" style="
+        width: 100%;
+        padding: 8px;
+        border: none;
+        border-radius: 0 0 10px 10px;
+        background-color: #333;
+        color: white;
+    ">
+</div>
 
-    <script>
-        // Toggle Chatbox
-        function toggleChatbox() {
-            var chatbox = document.getElementById("chat-container");
-            chatbox.style.display = chatbox.style.display === "none" || chatbox.style.display === "" ? "flex" : "none";
+<!-- Chatbot Script -->
+<script>
+    function toggleChatbot() {
+        var chatbox = document.getElementById('chatbotContainer');
+        chatbox.style.display = (chatbox.style.display === 'none') ? 'block' : 'none';
+    }
+
+    function handleChat(event) {
+        if (event.key === 'Enter') {
+            var input = document.getElementById('chatbotInput').value.toLowerCase();
+            var chatbox = document.getElementById('chatbotMessages');
+
+            var responses = {
+                "notes": "You can find notes in the study material section of your class.",
+                "timetable": "The timetable is available under the 'Timetable' section after selecting your class.",
+                "ast": "AST (AcademeForge Scholars Test) is an exam for students from Class 1 to 10. Visit the AST section for details!",
+                "extra study material": "Extra study materials are available in the 'Extra Material' section.",
+                "about us": "AcademeForge is an educational platform founded by Devraj Kumar and co-founded by Aadi & Mandeep.",
+                "hello": "Hello! How can I assist you today?",
+                "hi": "Hi there! Need help?",
+                "bye": "Goodbye! Happy studying!"
+            };
+
+            var response = responses[input] || "I'm not sure about that. Try asking about 'Notes', 'Timetable', 'AST', or 'Extra Study Material'.";
+            chatbox.innerHTML += "<p><strong>You:</strong> " + input + "</p>";
+            chatbox.innerHTML += "<p><strong>Bot:</strong> " + response + "</p>";
+
+            document.getElementById('chatbotInput').value = "";
+            chatbox.scrollTop = chatbox.scrollHeight;
         }
-
-        // Handle "Enter" Key Press
-        function handleKeyPress(event) {
-            if (event.key === "Enter") {
-                sendMessage();
-            }
-        }
-
-        // AI Chat Responses
-        function sendMessage() {
-            var inputField = document.getElementById("user-input");
-            var message = inputField.value.trim();
-            if (message === "") return;
-
-            var chatMessages = document.getElementById("chat-messages");
-
-            // Display User Message
-            var userMsg = document.createElement("div");
-            userMsg.classList.add("message", "user-message");
-            userMsg.innerText = message;
-            chatMessages.appendChild(userMsg);
-
-            inputField.value = "";
-            chatMessages.scrollTop = chatMessages.scrollHeight;
-
-            // AI Responses
-            setTimeout(() => {
-                var botMsg = document.createElement("div");
-                botMsg.classList.add("message", "bot-message");
-
-                if (message.toLowerCase().includes("notes")) {
-                    botMsg.innerText = "You can find notes under the 'Access to Notes' section in your selected class.";
-                } else if (message.toLowerCase().includes("time table")) {
-                    botMsg.innerText = "The timetable section is available under 'Regular' and 'Dummy' study plans.";
-                } else if (message.toLowerCase().includes("ast")) {
-                    botMsg.innerText = "AcademeForge Scholars Test (AST) details are available in the 'AST' section.";
-                } else {
-                    botMsg.innerText = "I'm here to help! Ask about notes, timetable, AST, and more.";
-                }
-
-                chatMessages.appendChild(botMsg);
-                chatMessages.scrollTop = chatMessages.scrollHeight;
-            }, 1000);
-        }
-
-        // Show AI Chatbox ONLY on login page
-        function showPage(page) {
-            document.getElementById("chat-toggle").style.display = (page === "login") ? "block" : "none";
-            document.getElementById("chat-container").style.display = "none";
-        }
-
-        // Ensure AI Chatbox is only on the login page when the website loads
-        window.onload = () => {
-            showPage("login"); 
-        };
-    </script>
+    }
+</script>
 
 </body>
 </html>
