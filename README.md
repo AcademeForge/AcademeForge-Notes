@@ -466,11 +466,7 @@ window.onload = () => {
         if (input === "") return; // Prevent empty messages
 
         var responses = {
-            "notes": "You can find notes in the study material section of your class.",
-            "timetable": "The timetable is available under the 'Timetable' section after selecting your class.",
-            "ast": "AST (AcademeForge Scholars Test) is an exam for students from Class 1 to 10. Visit the AST section for details!",
-            "extra study material": "Extra study materials are available in the 'Extra Material' section.",
-    "notes": "📚 You can find notes in the study material section of your class. Visit AcademeForge for more details!",
+            "notes": "📚 You can find notes in the study material section of your class. Visit AcademeForge for more details!",
             "timetable": "📅 The timetable is available under the 'Timetable' section after selecting your class.",
             "ast": "🎓 AST (AcademeForge Scholars Test) is an exam for students from Class 1 to 10. Visit the AST section for details!",
             "extra study material": "📖 Extra study materials are available in the 'Extra Material' section.",
@@ -495,14 +491,9 @@ window.onload = () => {
             "who is eligible for ast": "✅ Any student from Class 1 to 10 can appear for AST.",
             "how much is the registration fee for ast": "💰 AST registration fees are **₹70 for regular** and **₹100 for late registration**."
         };
-            "about us": "AcademeForge is an educational platform founded by Devraj Kumar and co-founded by Aadi & Mandeep.",
-            "hello": "Hello! How can I assist you today?",
-            "hi": "Hi there! Need help?",
-            "bye": "Goodbye! Happy studying!"
-        };
 
-        var response = responses[input] || "I'm not sure about that. Try asking about 'Notes', 'Timetable', 'AST', or 'Extra Study Material'.";
-
+        var response = responses[input] || "❓ I'm not sure about that. Try asking about 'Notes', 'Timetable', 'AST', or 'Scholarships'.";
+        
         chatbox.innerHTML += `<p><strong>You:</strong> ${input}</p>`;
         chatbox.innerHTML += `<p><strong>Bot:</strong> ${response}</p>`;
 
@@ -537,5 +528,6 @@ window.onload = () => {
         showPage("login"); 
     };
 </script>
+
 </body>
 </html>
