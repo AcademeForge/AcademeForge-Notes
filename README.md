@@ -3,7 +3,7 @@
 <!-- Moving Banner -->
 <div class="banner-container">
     <marquee behavior="scroll" direction="left">
-        🌟 📢 We will start sharing study materials from <b>1st April</b>. Stay tuned! 🚀 
+        🌟 🚀 New on AcademeForge! | 💬 Chatbox Assistant – Get quick answers on Notes, Timetable, AST & more! | 📢 Announcement Box – Stay updated with the latest news! 🎉
     <a href="https://t.me/AcademeForge" target="_blank" style="color: #ff4081; text-decoration: underline;">Join our Telegram group</a>
 🌟
     </marquee>
