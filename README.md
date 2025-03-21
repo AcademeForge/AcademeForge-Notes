@@ -398,7 +398,6 @@ window.onload = () => {
     };
 </script>
 
-    </style>
 </head>
 </body>
 </html>
