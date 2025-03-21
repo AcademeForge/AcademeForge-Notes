@@ -545,7 +545,7 @@ window.onload = () => {
                     botMsg.innerText = "You can find notes under the 'Access to Notes' section in your selected class.";
                 } else if (message.toLowerCase().includes("time table")) {
                     botMsg.innerText = "The timetable section is available under 'Regular' and 'Dummy' study plans.";
-                } else if (message.toLowerCase().includes("ast")) {
+                } else if (message.toLowerCase().includes("AST,AcademeForge scholars test")) {
                     botMsg.innerText = "AcademeForge Scholars Test (AST) details are available in the 'WordPress' website.";
                 } else {
                     botMsg.innerText = "Hii, I'm here to help! Ask about notes, timetable, AST, and more.";
