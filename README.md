@@ -397,6 +397,7 @@ window.onload = () => {
         showPage('login');
     };
 
+</script>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
