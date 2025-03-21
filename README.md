@@ -396,6 +396,7 @@ window.onload = () => {
     window.onload = () => {
         showPage('login');
     };
+</script>
 
 <html lang="en">
 <head>
@@ -566,6 +567,5 @@ window.onload = () => {
             showPage("login"); 
         };
     </script>
-
 </body>
 </html>
