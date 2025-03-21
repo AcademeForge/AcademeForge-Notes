@@ -334,8 +334,68 @@
 window.onload = () => {
     showPage('login'); // Ensure the login page is set as default
     document.getElementById('aboutUsButton').style.display = 'block'; // Show About Us button
-};
+}
+</script>
+<!-- Announcement Container -->
+<div id="announcementContainer" class="hidden">
+    <!-- Announcement Button -->
+    <button onclick="openAnnouncement()" class="option" style="background-color: #ff9800; color: white; width: 90%; margin-top: 20px;">
+        Announcement
+    </button>
 
+    <!-- Announcement Pop-up -->
+    <div id="announcementPopup" class="hidden" style="
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: #1e1e1e;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 15px rgba(255, 152, 0, 0.5);
+        z-index: 1000;
+        width: 90%;
+        max-width: 400px;
+        text-align: center;
+    ">
+        <h2 style="color: #ff9800;">📢 Announcement</h2>
+        <p>We are excited to start sharing materials from <strong>1st April</strong>! 🚀</p>
+        <p>Join our <a href="https://t.me/AcademeForge" target="_blank" style="color: #00e5ff;">Telegram Group</a> for updates.</p>
+        <button onclick="closeAnnouncement()" class="option" style="background-color: #ff9800; color: white; margin-top: 10px;">Close</button>
+    </div>
+</div>
+
+<!-- JavaScript for Announcement Pop-up -->
+<script>
+    function openAnnouncement() {
+        document.getElementById('announcementPopup').classList.remove('hidden');
+    }
+
+    function closeAnnouncement() {
+        document.getElementById('announcementPopup').classList.add('hidden');
+    }
+
+    function showPage(page) {
+        document.getElementById(`${currentPage}Container`).classList.add('hidden');
+        document.getElementById(`${page}Container`).classList.remove('hidden');
+        document.getElementById('backButton').style.display = (page !== 'login') ? 'block' : 'none';
+
+        // Show About Us & Announcement buttons only on login page
+        if (page === 'login') {
+            document.getElementById('aboutUsContainer').classList.remove('hidden');
+            document.getElementById('announcementContainer').classList.remove('hidden');
+        } else {
+            document.getElementById('aboutUsContainer').classList.add('hidden');
+            document.getElementById('announcementContainer').classList.add('hidden');
+        }
+
+        currentPage = page;
+    }
+
+    // Show buttons when the page initially loads
+    window.onload = () => {
+        showPage('login');
+    };
 </script>
 </body>
 </html>
