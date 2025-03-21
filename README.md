@@ -335,7 +335,7 @@ window.onload = () => {
     showPage('login'); // Ensure the login page is set as default
     document.getElementById('aboutUsButton').style.display = 'block'; // Show About Us button
 };
-<script>
+
 document.addEventListener("DOMContentLoaded", function() {
     // Check if the current page is the login page
     if (window.location.pathname.includes("login")) {
