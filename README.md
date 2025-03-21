@@ -411,6 +411,7 @@ window.onload = () => {
     font-size: 20px;
     cursor: pointer;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    display: none; /* Initially hidden */
 ">💬</button>
 
 <!-- Chatbox Window -->
@@ -428,47 +429,89 @@ window.onload = () => {
         📖 AcademeForge Assistant
     </div>
     <div id="chatbotMessages" style="padding: 10px; height: 200px; overflow-y: auto; color: white;"></div>
-    <input id="chatbotInput" type="text" placeholder="Ask something..." onkeypress="handleChat(event)" style="
-        width: 100%;
-        padding: 8px;
-        border: none;
-        border-radius: 0 0 10px 10px;
-        background-color: #333;
-        color: white;
-    ">
+    
+    <!-- Chat Input & Send Button -->
+    <div style="display: flex; border-radius: 0 0 10px 10px;">
+        <input id="chatbotInput" type="text" placeholder="Ask something..." style="
+            flex: 1;
+            padding: 8px;
+            border: none;
+            background-color: #333;
+            color: white;
+            border-radius: 0 0 0 10px;
+        ">
+        <button onclick="sendMessage()" style="
+            background-color: #6200ea;
+            color: white;
+            border: none;
+            padding: 8px;
+            border-radius: 0 0 10px 0;
+            cursor: pointer;
+        ">📩</button>
+    </div>
 </div>
 
 <!-- Chatbot Script -->
 <script>
     function toggleChatbot() {
         var chatbox = document.getElementById('chatbotContainer');
-        chatbox.style.display = (chatbox.style.display === 'none') ? 'block' : 'none';
+        chatbox.style.display = (chatbox.style.display === 'none' || chatbox.style.display === '') ? 'block' : 'none';
     }
 
-    function handleChat(event) {
+    function sendMessage() {
+        var inputField = document.getElementById('chatbotInput');
+        var input = inputField.value.trim().toLowerCase();
+        var chatbox = document.getElementById('chatbotMessages');
+
+        if (input === "") return; // Prevent empty messages
+
+        var responses = {
+            "notes": "You can find notes in the study material section of your class.",
+            "timetable": "The timetable is available under the 'Timetable' section after selecting your class.",
+            "ast": "AST (AcademeForge Scholars Test) is an exam for students from Class 1 to 10. Visit the AST section for details!",
+            "extra study material": "Extra study materials are available in the 'Extra Material' section.",
+            "about us": "AcademeForge is an educational platform founded by Devraj Kumar and co-founded by Aadi & Mandeep.",
+            "hello": "Hello! How can I assist you today?",
+            "hi": "Hi there! Need help?",
+            "bye": "Goodbye! Happy studying!"
+        };
+
+        var response = responses[input] || "I'm not sure about that. Try asking about 'Notes', 'Timetable', 'AST', or 'Extra Study Material'.";
+
+        chatbox.innerHTML += `<p><strong>You:</strong> ${input}</p>`;
+        chatbox.innerHTML += `<p><strong>Bot:</strong> ${response}</p>`;
+
+        inputField.value = ""; // Clear input field
+        chatbox.scrollTop = chatbox.scrollHeight; // Auto scroll to latest message
+    }
+
+    // Allow Enter key to send messages
+    document.getElementById('chatbotInput').addEventListener('keypress', function(event) {
         if (event.key === 'Enter') {
-            var input = document.getElementById('chatbotInput').value.toLowerCase();
-            var chatbox = document.getElementById('chatbotMessages');
+            sendMessage();
+        }
+    });
 
-            var responses = {
-                "notes": "You can find notes in the study material section of your class.",
-                "timetable": "The timetable is available under the 'Timetable' section after selecting your class.",
-                "ast": "AST (AcademeForge Scholars Test) is an exam for students from Class 1 to 10. Visit the AST section for details!",
-                "extra study material": "Extra study materials are available in the 'Extra Material' section.",
-                "about us": "AcademeForge is an educational platform founded by Devraj Kumar and co-founded by Aadi & Mandeep.",
-                "hello": "Hello! How can I assist you today?",
-                "hi": "Hi there! Need help?",
-                "bye": "Goodbye! Happy studying!"
-            };
+    // Show Chatbot Button ONLY on the Login Page
+    function showPage(page) {
+        document.getElementById("chatbotButton").style.display = (page === "login") ? "block" : "none";
+        document.getElementById("chatbotContainer").style.display = "none"; // Hide chatbox when changing pages
 
-            var response = responses[input] || "I'm not sure about that. Try asking about 'Notes', 'Timetable', 'AST', or 'Extra Study Material'.";
-            chatbox.innerHTML += "<p><strong>You:</strong> " + input + "</p>";
-            chatbox.innerHTML += "<p><strong>Bot:</strong> " + response + "</p>";
-
-            document.getElementById('chatbotInput').value = "";
-            chatbox.scrollTop = chatbox.scrollHeight;
+        // Ensure "About Us" & "Announcement" buttons are visible on login page
+        if (page === "login") {
+            document.getElementById('aboutUsContainer').classList.remove('hidden');
+            document.getElementById('announcementContainer').classList.remove('hidden');
+        } else {
+            document.getElementById('aboutUsContainer').classList.add('hidden');
+            document.getElementById('announcementContainer').classList.add('hidden');
         }
     }
+
+    // Ensure correct elements are visible when the page loads
+    window.onload = () => {
+        showPage("login"); 
+    };
 </script>
+
 </body>
 </html>
