@@ -452,9 +452,9 @@ window.onload = () => {
 
             var responses = {
                 "notes": "You can find notes in the study material section of your class.",
-                "timetable": "The timetable is available under the 'Timetable' section after selecting your class.",
-                "ast": "AST (AcademeForge Scholars Test) is an exam for students from Class 1 to 10. Visit the AST section for details!",
-                "extra study material": "Extra study materials are available in the 'Extra Material' section.",
+                "timetable": "The timetable is available under the 'Timetable' TG group, try asking in TG chat group.",
+                "ast": "AST (AcademeForge Scholars Test) is an exam for students from Class 1 to 10. Visit the WordPress website for details!",
+                "extra study material": "Extra study materials are available in the 'Extra Material' website.",
                 "about us": "AcademeForge is an educational platform founded by Devraj Kumar and co-founded by Aadi & Mandeep.",
                 "hello": "Hello! How can I assist you today?",
                 "hi": "Hi there! Need help?",
