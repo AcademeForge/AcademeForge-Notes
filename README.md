@@ -546,9 +546,9 @@ window.onload = () => {
                 } else if (message.toLowerCase().includes("time table")) {
                     botMsg.innerText = "The timetable section is available under 'Regular' and 'Dummy' study plans.";
                 } else if (message.toLowerCase().includes("ast")) {
-                    botMsg.innerText = "AcademeForge Scholars Test (AST) details are available in the 'AST' section.";
+                    botMsg.innerText = "AcademeForge Scholars Test (AST) details are available in the 'WordPress' website.";
                 } else {
-                    botMsg.innerText = "I'm here to help! Ask about notes, timetable, AST, and more.";
+                    botMsg.innerText = "Hii, I'm here to help! Ask about notes, timetable, AST, and more.";
                 }
 
                 chatMessages.appendChild(botMsg);
