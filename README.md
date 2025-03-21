@@ -470,7 +470,7 @@ window.onload = () => {
             "timetable": "The timetable is available under the 'Timetable' section after selecting your class.",
             "ast": "AST (AcademeForge Scholars Test) is an exam for students from Class 1 to 10. Visit the AST section for details!",
             "extra study material": "Extra study materials are available in the 'Extra Material' section.",
- "notes": "📚 You can find notes in the study material section of your class. Visit AcademeForge for more details!",
+    "notes": "📚 You can find notes in the study material section of your class. Visit AcademeForge for more details!",
             "timetable": "📅 The timetable is available under the 'Timetable' section after selecting your class.",
             "ast": "🎓 AST (AcademeForge Scholars Test) is an exam for students from Class 1 to 10. Visit the AST section for details!",
             "extra study material": "📖 Extra study materials are available in the 'Extra Material' section.",
@@ -495,7 +495,6 @@ window.onload = () => {
             "who is eligible for ast": "✅ Any student from Class 1 to 10 can appear for AST.",
             "how much is the registration fee for ast": "💰 AST registration fees are **₹70 for regular** and **₹100 for late registration**."
         };
-
             "about us": "AcademeForge is an educational platform founded by Devraj Kumar and co-founded by Aadi & Mandeep.",
             "hello": "Hello! How can I assist you today?",
             "hi": "Hi there! Need help?",
