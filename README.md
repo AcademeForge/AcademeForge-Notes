@@ -567,6 +567,143 @@ window.onload = () => {
             showPage("login"); 
         };
     </script>
+<!-- Study Planner Button -->
+<button id="planner-toggle" onclick="togglePlanner()">📅 Study Planner</button>
 
+<!-- Study Planner Pop-up -->
+<div id="planner-container">
+    <div id="planner-popup">
+        <h2>📖 Study Planner</h2>
+        <p>Select a study schedule:</p>
+
+        <button onclick="showSchedule('regular')">Regular (School)</button>
+        <button onclick="showSchedule('dummy')">Dummy (Home Study)</button>
+
+        <div id="study-schedule">
+            <h3 id="schedule-title"></h3>
+            <ul id="schedule-list"></ul>
+        </div>
+
+        <button onclick="togglePlanner()">Close</button>
+    </div>
+</div>
+
+<!-- CSS -->
+<style>
+    /* Study Planner Button */
+    #planner-toggle {
+        position: fixed;
+        bottom: 80px;
+        left: 20px;
+        background: #ff4081;
+        color: white;
+        border: none;
+        padding: 10px 15px;
+        border-radius: 20px;
+        cursor: pointer;
+        font-size: 16px;
+        box-shadow: 0 0 10px rgba(255, 64, 129, 0.5);
+        display: none; /* Hidden by default */
+    }
+
+    /* Study Planner Pop-up */
+    #planner-container {
+        display: none;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: #1e1e1e;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 15px rgba(0, 255, 255, 0.5);
+        z-index: 1000;
+        width: 90%;
+        max-width: 400px;
+        text-align: center;
+        color: white;
+    }
+
+    #study-schedule {
+        margin-top: 15px;
+        text-align: left;
+    }
+
+    button {
+        background: #ff4081;
+        border: none;
+        padding: 10px;
+        margin: 5px;
+        cursor: pointer;
+        color: white;
+        border-radius: 5px;
+    }
+
+    ul {
+        list-style-type: none;
+        padding: 0;
+    }
+
+    li {
+        background: #333;
+        padding: 5px;
+        margin: 5px 0;
+        border-radius: 5px;
+    }
+</style>
+
+<!-- JavaScript -->
+<script>
+    function togglePlanner() {
+        var planner = document.getElementById("planner-container");
+        planner.style.display = planner.style.display === "none" || planner.style.display === "" ? "block" : "none";
+    }
+
+    function showSchedule(type) {
+        var scheduleTitle = document.getElementById("schedule-title");
+        var scheduleList = document.getElementById("schedule-list");
+
+        if (type === "regular") {
+            scheduleTitle.innerText = "📚 Regular (School) Study Plan";
+            scheduleList.innerHTML = `
+                <li>8:00 AM - 2:00 PM: School</li>
+                <li>2:00 PM - 3:00 PM: Lunch & Rest</li>
+                <li>3:00 PM - 5:00 PM: Homework & Revision</li>
+                <li>5:00 PM - 6:00 PM: Break & Refresh</li>
+                <li>6:00 PM - 8:00 PM: Self-Study (Main Subjects)</li>
+                <li>8:00 PM - 9:00 PM: Dinner & Relax</li>
+                <li>9:00 PM - 10:30 PM: Practice Problems</li>
+                <li>10:30 PM - Sleep</li>
+            `;
+        } else {
+            scheduleTitle.innerText = "🏠 Dummy (Home Study) Plan";
+            scheduleList.innerHTML = `
+                <li>8:00 AM - 9:00 AM: Morning Revision</li>
+                <li>9:00 AM - 11:00 AM: Major Subject (Math/Physics)</li>
+                <li>11:00 AM - 11:30 AM: Break</li>
+                <li>11:30 AM - 1:00 PM: Concept Study</li>
+                <li>1:00 PM - 2:00 PM: Lunch</li>
+                <li>2:00 PM - 4:00 PM: Practice Problems</li>
+                <li>4:00 PM - 5:00 PM: Rest</li>
+                <li>5:00 PM - 7:00 PM: Mock Tests & PYQs</li>
+                <li>7:00 PM - 8:00 PM: Break</li>
+                <li>8:00 PM - 10:00 PM: Revision & Notes</li>
+                <li>10:00 PM - Sleep</li>
+            `;
+        }
+
+        document.getElementById("study-schedule").style.display = "block";
+    }
+
+    // Show Study Planner ONLY on login page
+    function showPage(page) {
+        document.getElementById("planner-toggle").style.display = (page === "login") ? "block" : "none";
+        document.getElementById("planner-container").style.display = "none";
+    }
+
+    window.onload = () => {
+        showPage("login"); 
+    };
+</script>
 </body>
 </html>
