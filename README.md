@@ -461,7 +461,7 @@ window.onload = () => {
                 "bye": "Goodbye! Happy studying!"
             };
 
-            var response = responses[input] || "I'm not sure about that. Try asking about 'Notes', 'Timetable', 'AST', or 'Extra Study Material'.";
+            var response = responses[input] || "I'm a small chatbox created by AcademeForge. I can only answer specific questions. Try asking about: Notes, Timetable, AST, Extra Study Material, or About Us";
             chatbox.innerHTML += "<p><strong>You:</strong> " + input + "</p>";
             chatbox.innerHTML += "<p><strong>Bot:</strong> " + response + "</p>";
 
