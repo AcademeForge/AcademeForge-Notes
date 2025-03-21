@@ -397,6 +397,60 @@ window.onload = () => {
         showPage('login');
     };
     </script>
+<!-- Chatbox Button -->
+<button id="chatbotButton" onclick="toggleChatbot()" style="
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #6200ea;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    font-size: 20px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    display: none; /* Initially hidden */
+">💬</button>
+
+<!-- Chatbox Window -->
+<div id="chatbotContainer" class="hidden" style="
+    position: fixed;
+    bottom: 80px;
+    right: 20px;
+    background-color: #1e1e1e;
+    width: 300px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    display: none;
+">
+    <div style="background-color: #6200ea; padding: 10px; color: white; text-align: center; border-radius: 10px 10px 0 0;">
+        📖 AcademeForge Assistant
+    </div>
+    <div id="chatbotMessages" style="padding: 10px; height: 200px; overflow-y: auto; color: white;"></div>
+    
+    <!-- Chat Input & Send Button -->
+    <div style="display: flex; border-radius: 0 0 10px 10px;">
+        <input id="chatbotInput" type="text" placeholder="Ask something..." style="
+            flex: 1;
+            padding: 8px;
+            border: none;
+            background-color: #333;
+            color: white;
+            border-radius: 0 0 0 10px;
+        ">
+        <button onclick="sendMessage()" style="
+            background-color: #6200ea;
+            color: white;
+            border: none;
+            padding: 8px;
+            border-radius: 0 0 10px 0;
+            cursor: pointer;
+        ">📩</button>
+    </div>
+</div>
+
 <!-- Chatbot Script -->
 <script>
     function toggleChatbot() {
@@ -423,21 +477,52 @@ window.onload = () => {
         };
 
         var response = responses[input] || "I'm not sure about that. Try asking about 'Notes', 'Timetable', 'AST', or 'Extra Study Material'.";
-        
-        chatbox.innerHTML += "<p><strong>You:</strong> " + input + "</p>";
-        chatbox.innerHTML += "<p><strong>Bot:</strong> " + response + "</p>";
+
+        chatbox.innerHTML += `<p><strong>You:</strong> ${input}</p>`;
+        chatbox.innerHTML += `<p><strong>Bot:</strong> ${response}</p>`;
 
         inputField.value = ""; // Clear input field
-        chatbox.scrollTop = chatbox.scrollHeight; // Auto-scroll to the latest message
+        chatbox.scrollTop = chatbox.scrollHeight; // Auto scroll to latest message
     }
 
-    // Add event listener for the "Enter" key
-    document.getElementById('chatbotInput').addEventListener("keypress", function(event) {
-        if (event.key === "Enter") {
+    // Allow Enter key to send messages
+    document.getElementById('chatbotInput').addEventListener('keypress', function(event) {
+        if (event.key === 'Enter') {
             sendMessage();
         }
     });
-</script>
 
+    // Ensure Chatbot Button is Only on the Login Page
+    function showPage(page) {
+        var chatbotButton = document.getElementById("chatbotButton");
+        var chatbotContainer = document.getElementById("chatbotContainer");
+        var aboutUsContainer = document.getElementById("aboutUsContainer");
+        var announcementContainer = document.getElementById("announcementContainer");
+
+        // Ensure these elements exist before modifying them
+        if (chatbotButton && chatbotContainer) {
+            chatbotButton.style.display = (page === "login") ? "block" : "none";
+            chatbotContainer.style.display = "none"; // Hide chatbox when changing pages
+        }
+
+        if (aboutUsContainer && announcementContainer) {
+            if (page === "login") {
+                aboutUsContainer.classList.remove('hidden');
+                announcementContainer.classList.remove('hidden');
+            } else {
+                aboutUsContainer.classList.add('hidden');
+                announcementContainer.classList.add('hidden');
+            }
+        }
+    }
+
+    // Ensure only chatbot elements are affected when the page loads
+    window.onload = function() {
+        var currentPage = document.body.getAttribute("data-page"); // Check if a data-page attribute is set
+        if (currentPage) {
+            showPage(currentPage);
+        }
+    };
+</script>
 </body>
 </html>
