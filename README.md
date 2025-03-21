@@ -550,6 +550,9 @@ window.onload = () => {
                 } else {
                     botMsg.innerText = "I'm here to help! Ask about notes, timetable, AST, and more.";
                 }
+else if (message.toLowerCase().includes("hii")) {
+                    botMsg.innerText = "Hii, How can I assist you today.";
+                }
 
                 chatMessages.appendChild(botMsg);
                 chatMessages.scrollTop = chatMessages.scrollHeight;
