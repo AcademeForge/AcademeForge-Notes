@@ -492,24 +492,36 @@ window.onload = () => {
         }
     });
 
-    // Show Chatbot Button ONLY on the Login Page
+    // Ensure Chatbot Button is Only on the Login Page
     function showPage(page) {
-        document.getElementById("chatbotButton").style.display = (page === "login") ? "block" : "none";
-        document.getElementById("chatbotContainer").style.display = "none"; // Hide chatbox when changing pages
+        var chatbotButton = document.getElementById("chatbotButton");
+        var chatbotContainer = document.getElementById("chatbotContainer");
+        var aboutUsContainer = document.getElementById("aboutUsContainer");
+        var announcementContainer = document.getElementById("announcementContainer");
 
-        // Ensure "About Us" & "Announcement" buttons are visible on login page
-        if (page === "login") {
-            document.getElementById('aboutUsContainer').classList.remove('hidden');
-            document.getElementById('announcementContainer').classList.remove('hidden');
-        } else {
-            document.getElementById('aboutUsContainer').classList.add('hidden');
-            document.getElementById('announcementContainer').classList.add('hidden');
+        // Ensure these elements exist before modifying them
+        if (chatbotButton && chatbotContainer) {
+            chatbotButton.style.display = (page === "login") ? "block" : "none";
+            chatbotContainer.style.display = "none"; // Hide chatbox when changing pages
+        }
+
+        if (aboutUsContainer && announcementContainer) {
+            if (page === "login") {
+                aboutUsContainer.classList.remove('hidden');
+                announcementContainer.classList.remove('hidden');
+            } else {
+                aboutUsContainer.classList.add('hidden');
+                announcementContainer.classList.add('hidden');
+            }
         }
     }
 
-    // Ensure correct elements are visible when the page loads
-    window.onload = () => {
-        showPage("login"); 
+    // Ensure only chatbot elements are affected when the page loads
+    window.onload = function() {
+        var currentPage = document.body.getAttribute("data-page"); // Check if a data-page attribute is set
+        if (currentPage) {
+            showPage(currentPage);
+        }
     };
 </script>
 
