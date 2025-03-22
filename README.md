@@ -59,11 +59,9 @@
         display: inline-block;
     }
 </style>
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AcademeForge</title>
+<meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+         <title>AcademeForge</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -80,7 +78,7 @@
             background: #1e1e1e;
             padding: 20px;
             border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+            box-shadow: 0 0 345px rgba(0, 255, 255, 0.5);
             text-align: center;
             width: 300px;
             transition: transform 0.3s ease;
@@ -88,7 +86,7 @@
         h2 {
             color: #ff4081;
         }
-        .option, .access-button, .back-button, button {
+        .option, .access-button, .back-button {
             background-color: #292929;
             color: white;
             padding: 12px;
@@ -100,7 +98,7 @@
             width: 90%;
             display: inline-block;
         }
-        .option:hover, .access-button:hover, .back-button:hover, button:hover {
+        .option:hover, .access-button:hover, .back-button:hover {
             background-color: #00e5ff;
             color: black;
         }
@@ -115,28 +113,25 @@
             z-index: 10;
             display: none;
         }
-        input {
-            display: block;
-            width: 85%;
-            margin: 10px auto;
-            padding: 10px;
-            border-radius: 5px;
-            border: 1px solid #fff;
-            background: #292929;
-            color: white;
-        }
     </style>
 </head>
 <body>
 
+<!-- Back Button -->
+<button class="back-button" id="backButton" onclick="goBack()">Back</button>
+
 <!-- Login Page -->
 <div class="container" id="loginContainer">
+        <marquee behavior="scroll" direction="left">
+            Welcome to AcademeForge – Building a strong foundation together!
+        </marquee>
     <h2>LOGIN</h2>
-    <input type="text" id="username" placeholder="Username: AF" autocomplete="off">
-    <input type="password" id="password" placeholder="Password: 2024" autocomplete="new-password">
+    <input type="text" id="username" placeholder="username : AF" />
+    <input type="password" id="password" placeholder="Password : 2024" />
     <button onclick="login()">Sign In</button>
-    <p id="errorMessage" style="color: red; display: none;">Incorrect Username or Password!</p>
 </div>
+
+
     
 <!-- Class Selection Page -->
 <div class="container hidden" id="classContainer">
