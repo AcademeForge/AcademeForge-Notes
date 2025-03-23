@@ -419,6 +419,7 @@ window.onload = () => {
     display: none;
 ">
     <h2 style="color: #3498db;">Social Profiles </h2>
+
     <div class="card" onclick="flipCard(this)" style="
         background-color: #3498db; 
         color: white; 
