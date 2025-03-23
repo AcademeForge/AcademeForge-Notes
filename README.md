@@ -126,8 +126,8 @@
             Welcome to AcademeForge – Building a strong foundation together!
         </marquee>
     <h2>LOGIN</h2>
-    <input type="text" id="username" placeholder="username : AF" />
-    <input type="password" id="password" placeholder="Password : 2024" />
+    <input type="text" id="username" placeholder="username : Auto-filled" />
+    <input type="password" id="password" placeholder="Password : Pre-filled" />
     <button onclick="login()">Sign In</button>
 </div>
 
