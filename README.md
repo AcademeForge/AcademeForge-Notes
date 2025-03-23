@@ -463,6 +463,7 @@ window.onload = () => {
     ">Close ❌</button>
 </div>
 
+<style>
 .flashcard {
     width: 100%;
     height: 100%;
@@ -504,6 +505,8 @@ window.onload = () => {
     color: black;
     transform: rotateY(180deg);
 }
+<style>
+
 <script>
     let flashcards = [
         { front: "Newton's 1st Law", back: "An object at rest stays at rest unless acted upon by an external force." },
