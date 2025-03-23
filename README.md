@@ -462,6 +462,7 @@ window.onload = () => {
         cursor: pointer;
     ">Close ❌</button>
 </div>
+
 .flashcard {
     width: 100%;
     height: 100%;
