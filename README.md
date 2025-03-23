@@ -472,5 +472,201 @@ window.onload = () => {
     }
 </script>
 
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AcademeForge</title>
+    <style>
+        /* General Page Styling */
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f4f4f4;
+        }
+
+        /* Container for Buttons */
+        .button-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Aligns buttons at the center */
+            margin-top: 20px;
+        }
+
+        /* Styling for Announcement & Flashcard Buttons */
+        .btn {
+            width: 200px;
+            padding: 12px;
+            margin: 8px;
+            font-size: 16px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+
+        /* Hover Effect */
+        .btn:hover {
+            background-color: #0056b3;
+        }
+
+        /* Chat Box Styling */
+        .chat-box {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 250px;
+            height: 300px;
+            background-color: white;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+            padding: 15px;
+            border-radius: 10px;
+        }
+
+        /* Popup Background */
+        .popup-bg {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Popup Box */
+        .popup-box {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            width: 80%;
+            max-width: 400px;
+        }
+
+        /* Close Button */
+        .close-btn {
+            background: red;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            margin-bottom: 10px;
+        }
+
+        /* Flashcards */
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .card {
+            width: 180px;
+            height: 120px;
+            perspective: 1000px;
+            cursor: pointer;
+        }
+
+        .card-inner {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            transform-style: preserve-3d;
+            transition: transform 0.5s;
+        }
+
+        .card.flipped .card-inner {
+            transform: rotateY(180deg);
+        }
+
+        .card-front, .card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            padding: 10px;
+        }
+
+        .card-front {
+            background-color: #3498db;
+            color: white;
+        }
+
+        .card-back {
+            background-color: #2ecc71;
+            color: white;
+            transform: rotateY(180deg);
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Button Section (Announcements + Flashcards) -->
+    <div class="button-container">
+        <button class="btn">Announcements</button>
+        <button class="btn" onclick="openPopup()">Quick Revision</button>
+    </div>
+
+    <!-- Chat Box -->
+    <div class="chat-box">
+        <p>Chat Here...</p>
+    </div>
+
+    <!-- Popup Window -->
+    <div class="popup-bg" id="popup">
+        <div class="popup-box">
+            <button class="close-btn" onclick="closePopup()">Close</button>
+            <h3>Quick Revision Cards</h3>
+            <div class="container">
+                <div class="card" onclick="flipCard(this)">
+                    <div class="card-inner">
+                        <div class="card-front">Newton's 1st Law</div>
+                        <div class="card-back">An object at rest stays at rest unless acted upon by an external force.</div>
+                    </div>
+                </div>
+
+                <div class="card" onclick="flipCard(this)">
+                    <div class="card-inner">
+                        <div class="card-front">Photosynthesis Formula</div>
+                        <div class="card-back">6CO₂ + 6H₂O → C₆H₁₂O₆ + 6O₂</div>
+                    </div>
+                </div>
+
+                <div class="card" onclick="flipCard(this)">
+                    <div class="card-inner">
+                        <div class="card-front">Pythagoras Theorem</div>
+                        <div class="card-back">a² + b² = c²</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function openPopup() {
+            document.getElementById('popup').style.display = 'flex';
+        }
+
+        function closePopup() {
+            document.getElementById('popup').style.display = 'none';
+        }
+
+        function flipCard(card) {
+            card.classList.toggle('flipped');
+        }
+    </script>
+
 </body>
 </html>
