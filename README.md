@@ -400,7 +400,7 @@ window.onload = () => {
     </script>
 <!-- Flashcard Button -->
 <button id="flashcardButton" class="option" onclick="openFlashcardPopup()" style="background-color: #3498db; color: white; width: 90%; margin-top: 20px;">
-    Quick Revision
+    Social Profiles
 </button>
 <!-- Flashcard Popup -->
 <div id="flashcardPopup" class="hidden" style="
@@ -418,7 +418,7 @@ window.onload = () => {
     text-align: center;
     display: none;
 ">
-    <h2 style="color: #3498db;">📚 Quick Revision</h2>
+    <h2 style="color: #3498db;">Social Profiles </h2>
     
     <div class="card" onclick="flipCard(this)" style="
         background-color: #3498db; 
@@ -428,8 +428,8 @@ window.onload = () => {
         border-radius: 5px;
         cursor: pointer;
     ">
-        <div class="card-front">Newton's 1st Law</div>
-        <div class="card-back" style="display: none;">An object at rest stays at rest unless acted upon by an external force.</div>
+        <div class="card-front">YouTube</div>
+        <div class="card-back" style="display: none;">Soon...</div>
     </div>
 
     <div class="card" onclick="flipCard(this)" style="
@@ -440,8 +440,8 @@ window.onload = () => {
         border-radius: 5px;
         cursor: pointer;
     ">
-        <div class="card-front">Photosynthesis Formula</div>
-        <div class="card-back" style="display: none;">6CO₂ + 6H₂O → C₆H₁₂O₆ + 6O₂</div>
+        <div class="card-front">Instagram</div>
+        <div class="card-back" style="display: none;">Soon...</div>
     </div>
 
     <button onclick="closeFlashcardPopup()" class="option" style="background-color: #3498db; color: white; margin-top: 10px;">Close</button>
