@@ -427,10 +427,8 @@ window.onload = () => {
         margin: 10px 0;
         border-radius: 5px;
         cursor: pointer;
-    ">
-    <div class="card-front">Telegram</div>
-    <div class="card-back" style="display: none;">
-      
+
+     ">
         <div class="card-front">YouTube</div>
         <div class="card-back" style="display: none;"><p>Join our <a href="https://youtube.com/@academeforgepro?si=d6ZmWYKcaFYCrspI" target="_blank" style="color: #00e5ff;">YouTube Channel</a> for updates.</p></div>
     </div>
