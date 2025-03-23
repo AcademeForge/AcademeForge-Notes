@@ -463,8 +463,7 @@ window.onload = () => {
     ">Close ❌</button>
 </div>
 
-<style>
-.flashcard {
+<style> .flashcard {
     width: 100%;
     height: 100%;
     cursor: pointer;
@@ -504,8 +503,7 @@ window.onload = () => {
     background-color: #f39c12;
     color: black;
     transform: rotateY(180deg);
-}
-<style>
+} <style>
 
 <script>
     let flashcards = [
