@@ -429,7 +429,7 @@ window.onload = () => {
         cursor: pointer;
     ">
         <div class="card-front">YouTube</div>
-        <div class="card-back" style="display: none;">Soon...</div>
+        <div class="card-back" style="display: none;"><p>Join our <a href="https://youtube.com/@academeforgepro?si=d6ZmWYKcaFYCrspI" target="_blank" style="color: #00e5ff;">YouTube Channel</a> for updates.</p></div>
     </div>
 
     <div class="card" onclick="flipCard(this)" style="
@@ -441,7 +441,7 @@ window.onload = () => {
         cursor: pointer;
     ">
         <div class="card-front">Instagram</div>
-        <div class="card-back" style="display: none;">Soon...</div>
+        <div class="card-back" style="display: none;"><p>Follow us on <a href="https://www.instagram.com/academeforgee?igsh=MWYzNjAwMDgxbWYyMQ==" target="_blank" style="color: #00e5ff;">Instagram</a> for updates.</p></div>
     </div>
 
     <button onclick="closeFlashcardPopup()" class="option" style="background-color: #3498db; color: white; margin-top: 10px;">Close</button>
