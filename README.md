@@ -430,17 +430,7 @@ window.onload = () => {
     ">
     <div class="card-front">Telegram</div>
     <div class="card-back" style="display: none;">
-        <p>Join our <a href="https://t.me/AcademeForge" target="_blank" style="color: #00e5ff;">Telegram Group</a> for updates.</p>
-    </div>
-
-    <div class="card" onclick="flipCard(this)" style="
-        background-color: #3498db; 
-        color: white; 
-        padding: 10px; 
-        margin: 10px 0;
-        border-radius: 5px;
-        cursor: pointer;
-    ">
+      
         <div class="card-front">YouTube</div>
         <div class="card-back" style="display: none;"><p>Join our <a href="https://youtube.com/@academeforgepro?si=d6ZmWYKcaFYCrspI" target="_blank" style="color: #00e5ff;">YouTube Channel</a> for updates.</p></div>
     </div>
