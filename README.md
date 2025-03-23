@@ -398,10 +398,21 @@ window.onload = () => {
         showPage('login');
     };
     </script>
+
 <!-- Flashcard Button -->
-<button id="flashcardButton" class="option" onclick="openFlashcardPopup()" style="background-color: #3498db; color: white; width: 90%; margin-top: 20px;">
-    Quick Revision
+<button id="flashcardButton" class="option" onclick="openFlashcardPopup()" style="
+    background-color: #3498db; 
+    color: white; 
+    width: 90%; 
+    margin-top: 20px; 
+    font-size: 16px; 
+    font-weight: bold;
+    border-radius: 8px;
+    transition: 0.3s;
+">
+    🚀 Quick Revision
 </button>
+
 <!-- Flashcard Popup -->
 <div id="flashcardPopup" class="hidden" style="
     position: fixed;
@@ -417,38 +428,95 @@ window.onload = () => {
     max-width: 400px;
     text-align: center;
     display: none;
+    overflow: hidden;
 ">
     <h2 style="color: #3498db;">📚 Quick Revision</h2>
-    
-    <div class="card" onclick="flipCard(this)" style="
-        background-color: #3498db; 
-        color: white; 
-        padding: 10px; 
-        margin: 10px 0;
-        border-radius: 5px;
-        cursor: pointer;
-    ">
-        <div class="card-front">Newton's 1st Law</div>
-        <div class="card-back" style="display: none;">An object at rest stays at rest unless acted upon by an external force.</div>
+
+    <!-- Flashcard Container -->
+    <div id="flashcardContainer" style="position: relative; width: 100%; height: 150px; perspective: 1000px;">
+        <div class="flashcard" onclick="flipCard(this)">
+            <div class="flashcard-inner">
+                <div class="flashcard-front">Newton's 1st Law</div>
+                <div class="flashcard-back">An object at rest stays at rest unless acted upon by an external force.</div>
+            </div>
+        </div>
     </div>
 
-    <div class="card" onclick="flipCard(this)" style="
+    <button onclick="nextFlashcard()" style="
         background-color: #3498db; 
         color: white; 
-        padding: 10px; 
-        margin: 10px 0;
+        margin-top: 10px;
+        padding: 8px 15px;
         border-radius: 5px;
+        border: none;
         cursor: pointer;
-    ">
-        <div class="card-front">Photosynthesis Formula</div>
-        <div class="card-back" style="display: none;">6CO₂ + 6H₂O → C₆H₁₂O₆ + 6O₂</div>
-    </div>
+    ">Next ➡</button>
 
-    <button onclick="closeFlashcardPopup()" class="option" style="background-color: #3498db; color: white; margin-top: 10px;">Close</button>
+    <button onclick="closeFlashcardPopup()" class="option" style="
+        background-color: #e74c3c; 
+        color: white; 
+        margin-top: 10px;
+        padding: 8px 15px;
+        border-radius: 5px;
+        border: none;
+        cursor: pointer;
+    ">Close ❌</button>
 </div>
+.flashcard {
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    position: absolute;
+    transform-style: preserve-3d;
+    transition: transform 0.6s;
+}
+
+.flashcard-inner {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+}
+
+.flashcard-front, .flashcard-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    padding: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.flashcard-front {
+    background-color: #3498db;
+    color: white;
+}
+
+.flashcard-back {
+    background-color: #f39c12;
+    color: black;
+    transform: rotateY(180deg);
+}
 <script>
+    let flashcards = [
+        { front: "Newton's 1st Law", back: "An object at rest stays at rest unless acted upon by an external force." },
+        { front: "Newton's 2nd Law", back: "Force = Mass × Acceleration (F = ma)." },
+        { front: "Newton's 3rd Law", back: "For every action, there is an equal and opposite reaction." },
+        { front: "Photosynthesis Formula", back: "6CO₂ + 6H₂O → C₆H₁₂O₆ + 6O₂" },
+        { front: "Pythagoras Theorem", back: "a² + b² = c² in a right-angled triangle." }
+    ];
+
+    let currentCard = 0;
+
     function openFlashcardPopup() {
         document.getElementById('flashcardPopup').style.display = 'block';
+        loadFlashcard();
     }
 
     function closeFlashcardPopup() {
@@ -456,37 +524,24 @@ window.onload = () => {
     }
 
     function flipCard(card) {
-        var front = card.querySelector(".card-front");
-        var back = card.querySelector(".card-back");
-        
-        if (back.style.display === "none") {
-            front.style.display = "none";
-            back.style.display = "block";
-        } else {
-            front.style.display = "block";
-            back.style.display = "none";
-        }
+        card.style.transform = (card.style.transform === "rotateY(180deg)") ? "rotateY(0deg)" : "rotateY(180deg)";
     }
 
-    function showPage(page) {
-        document.getElementById(`${currentPage}Container`).classList.add('hidden');
-        document.getElementById(`${page}Container`).classList.remove('hidden');
-        document.getElementById('backButton').style.display = (page !== 'login') ? 'block' : 'none';
+    function loadFlashcard() {
+        let cardContainer = document.getElementById("flashcardContainer");
+        cardContainer.innerHTML = `
+            <div class="flashcard" onclick="flipCard(this)">
+                <div class="flashcard-inner">
+                    <div class="flashcard-front">${flashcards[currentCard].front}</div>
+                    <div class="flashcard-back">${flashcards[currentCard].back}</div>
+                </div>
+            </div>
+        `;
+    }
 
-        // Show elements only on login view
-        if (page === 'login') {
-            document.getElementById('aboutUsContainer').classList.remove('hidden');
-            document.getElementById('announcementContainer').classList.remove('hidden');
-            document.getElementById('flashcardButton').style.display = 'block'; 
-            document.getElementById('flashcardPopup').style.display = 'none';  
-        } else {
-            document.getElementById('aboutUsContainer').classList.add('hidden');
-            document.getElementById('announcementContainer').classList.add('hidden');
-            document.getElementById('flashcardButton').style.display = 'none';  
-            document.getElementById('flashcardPopup').style.display = 'none';  
-        }
-
-        currentPage = page;
+    function nextFlashcard() {
+        currentCard = (currentCard + 1) % flashcards.length;
+        loadFlashcard();
     }
 </script>
 
