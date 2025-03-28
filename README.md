@@ -565,5 +565,11 @@ window.onload = () => {
     }
 </script>
 
+<!-- Footer -->
+    <footer>
+        <p>&copy; 2025 AcademeForge. All rights reserved.</p>
+    </footer>
+</script>
+
 </body>
 </html>
