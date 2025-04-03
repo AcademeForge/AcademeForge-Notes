@@ -3,7 +3,7 @@
 <!-- Moving Banner -->
 <div class="banner-container">
     <marquee behavior="scroll" direction="left">
-        🌟 🚀 New on AcademeForge! | 💬 Chatbox Assistant – Get quick answers on Notes, Timetable, AST & more! | 📢 Announcement Box – Stay updated with the latest news! 🎉
+        🌟 🚀 10 April Class 9 & 10 all notes will be updated. 
     <a href="https://t.me/AcademeForge" target="_blank" style="color: #ff4081; text-decoration: underline;">Join our Telegram group</a>
 🌟
     </marquee>
@@ -360,7 +360,7 @@ window.onload = () => {
         text-align: center;
     ">
         <h2 style="color: #ff9800;">📢 Announcement</h2>
-        <p>We are excited to start sharing materials from <strong>1st April</strong>! 🚀</p>
+        <p>We are excited to start sharing materials from <strong>10 April</strong>! 🚀</p>
         <p>Join our <a href="https://t.me/AcademeForge" target="_blank" style="color: #00e5ff;">Telegram Group</a> for updates.</p>
         <button onclick="closeAnnouncement()" class="option" style="background-color: #ff9800; color: white; margin-top: 10px;">Close</button>
     </div>
