@@ -53,15 +53,16 @@
 <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js"></script>
 
 <script>
-  // Firebase configuration (replace with your own Firebase project's details)
-  const firebaseConfig = {
-    apiKey: "YOUR_API_KEY",
-    authDomain: "YOUR_AUTH_DOMAIN",
-    projectId: "YOUR_PROJECT_ID",
-    storageBucket: "YOUR_STORAGE_BUCKET",
-    messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
-    appId: "YOUR_APP_ID"
-  };
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+const firebaseConfig = {
+  apiKey: "AIzaSyBZMPqG7xCOyzgGbVnCV94JevpyTwh3G4Q",
+  authDomain: "academeforge-b6409.firebaseapp.com",
+  projectId: "academeforge-b6409",
+  storageBucket: "academeforge-b6409.firebasestorage.app",
+  messagingSenderId: "420482899377",
+  appId: "1:420482899377:web:b9e88888b25cea6e2e3190",
+  measurementId: "G-Q97TYR3NP2"
+};
 
   // Initialize Firebase
   const app = firebase.initializeApp(firebaseConfig);
