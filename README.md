@@ -3,7 +3,7 @@
 <!-- Moving Banner -->
 <div class="banner-container">
     <marquee behavior="scroll" direction="left">
-        🌟 🚀 10 April Class 9 & 10 all notes will be updated. 
+        Stay Tuned For more updates 
     <a href="https://t.me/AcademeForge" target="_blank" style="color: #ff4081; text-decoration: underline;">Join our Telegram group</a>
 🌟
     </marquee>
@@ -123,7 +123,7 @@
 <!-- Login Page -->
 <div class="container" id="loginContainer">
         <marquee behavior="scroll" direction="left">
-            Welcome to AcademeForge – Building a strong foundation together!
+            Welcome to AcademeForge – Something Out Of The Box 🎁!
         </marquee>
     <h2>LOGIN</h2>
     <input type="text" id="username" placeholder="username : Auto-filled" />
