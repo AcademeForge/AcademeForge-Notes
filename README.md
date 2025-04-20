@@ -7,6 +7,7 @@
     <a href="https://t.me/AcademeForge" target="_blank" style="color: #ff4081; text-decoration: underline;">Join our Telegram group</a>
 🌟
     </marquee>
+<meta name="google-site-verification" content="F1L0xfSoJ09Jp0SjvlmTnzkWK_fuYyhBw36QvRdDGwM" />
 </div>
 <!-- Logo -->
 <div class="logo-container">
