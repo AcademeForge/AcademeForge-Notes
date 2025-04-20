@@ -362,7 +362,7 @@ window.onload = () => {
         text-align: center;
     ">
         <h2 style="color: #ff9800;">📢 Announcement</h2>
-        <p>We are excited to start sharing materials from <strong>10 April</strong>! 🚀</p>
+        <p>"AcademeForge Scholars Test (AST) 2025 registrations open soon for <strong>Classes 1 to 10</strong>! 🚀</p>
         <p>Join our <a href="https://t.me/AcademeForge" target="_blank" style="color: #00e5ff;">Telegram Group</a> for updates.</p>
         <button onclick="closeAnnouncement()" class="option" style="background-color: #ff9800; color: white; margin-top: 10px;">Close</button>
     </div>
