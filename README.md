@@ -400,6 +400,43 @@ window.onload = () => {
         showPage('login');
     };
     </script>
+<!-- Button -->
+<button id="aboutBtn" style="padding: 10px 20px; background-color: #007bff; color: white; border: none; border-radius: 5px; cursor: pointer;">
+  About Website
+</button>
+
+<!-- Popup Modal -->
+<div id="aboutModal" style="display: none; position: fixed; z-index: 999; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.6);">
+  <div style="background: white; margin: 10% auto; padding: 20px; width: 80%; max-width: 500px; border-radius: 10px; position: relative;">
+    <span id="closeBtn" style="position: absolute; top: 10px; right: 15px; font-size: 24px; cursor: pointer;">&times;</span>
+    
+    <h2>About AcademeForge Notes</h2>
+    <p>
+      AcademeForge Notes is a free and student-friendly platform designed to help students in Classes 9 and 10 prepare better for their exams. We provide chapter-wise CBSE notes, quick revision material, and exam-ready concepts in an easy-to-understand format.
+    </p>
+    <p>
+      Whether you're looking for <strong>Class 9 Science notes</strong>, <strong>Class 10 Maths revision PDFs</strong>, or <strong>important questions for board exams</strong>, you’ll find everything here.
+    </p>
+    <p>
+      Our goal is to empower students with the right resources at the right time—without distractions. More classes and features are coming soon!
+    </p>
+  </div>
+</div>
+
+<!-- JavaScript to handle popup -->
+<script>
+  const aboutBtn = document.getElementById('aboutBtn');
+  const aboutModal = document.getElementById('aboutModal');
+  const closeBtn = document.getElementById('closeBtn');
+
+  aboutBtn.onclick = () => aboutModal.style.display = 'block';
+  closeBtn.onclick = () => aboutModal.style.display = 'none';
+  window.onclick = (e) => {
+    if (e.target === aboutModal) {
+      aboutModal.style.display = 'none';
+    }
+  };
+</script>
 <!-- Flashcard Button -->
 <button id="flashcardButton" class="option" onclick="openFlashcardPopup()" style="background-color: #3498db; color: white; width: 90%; margin-top: 20px;">
     Social Profiles
@@ -566,42 +603,6 @@ window.onload = () => {
         }
     }
 
-<!-- Button -->
-<button id="aboutBtn" style="padding: 10px 20px; background-color: #007bff; color: white; border: none; border-radius: 5px; cursor: pointer;">
-  About Website
-</button>
-
-<!-- Popup Modal -->
-<div id="aboutModal" style="display: none; position: fixed; z-index: 999; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.6);">
-  <div style="background: white; margin: 10% auto; padding: 20px; width: 80%; max-width: 500px; border-radius: 10px; position: relative;">
-    <span id="closeBtn" style="position: absolute; top: 10px; right: 15px; font-size: 24px; cursor: pointer;">&times;</span>
-    
-    <h2>About AcademeForge Notes</h2>
-    <p>
-      AcademeForge Notes is a free and student-friendly platform designed to help students in Classes 9 and 10 prepare better for their exams. We provide chapter-wise CBSE notes, quick revision material, and exam-ready concepts in an easy-to-understand format.
-    </p>
-    <p>
-      Whether you're looking for <strong>Class 9 Science notes</strong>, <strong>Class 10 Maths revision PDFs</strong>, or <strong>important questions for board exams</strong>, you’ll find everything here.
-    </p>
-    <p>
-      Our goal is to empower students with the right resources at the right time—without distractions. More classes and features are coming soon!
-    </p>
-  </div>
-</div>
-
-<!-- JavaScript to handle popup -->
-<script>
-  const aboutBtn = document.getElementById('aboutBtn');
-  const aboutModal = document.getElementById('aboutModal');
-  const closeBtn = document.getElementById('closeBtn');
-
-  aboutBtn.onclick = () => aboutModal.style.display = 'block';
-  closeBtn.onclick = () => aboutModal.style.display = 'none';
-  window.onclick = (e) => {
-    if (e.target === aboutModal) {
-      aboutModal.style.display = 'none';
-    }
-  };
 </script>
 
 </body>
