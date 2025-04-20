@@ -33,106 +33,95 @@
     }
 </style>
 
-<!-- Your existing login form here -->
-<div class="login-container">
-    <!-- Login form content -->
-</div>
 
-<!-- CSS for styling the banner -->
-<style>
-    .banner-container {
-        background-color: #ffcc00; /* Background color */
-        padding: 10px;
-        color: #000; /* Text color */
-        font-size: 16px;
-        font-weight: bold;
-        text-align: center;
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        z-index: 9999;
-        box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Shadow effect */
-    }
-
-    marquee {
-        white-space: nowrap;
-        overflow: hidden;
-        display: inline-block;
-    }
-</style>
-<meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-         <title>AcademeForge</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #121212;
-            color: white;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
-        .container {
-            background: #1e1e1e;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 345px rgba(0, 255, 255, 0.5);
-            text-align: center;
-            width: 300px;
-            transition: transform 0.3s ease;
-        }
-        h2 {
-            color: #ff4081;
-        }
-        .option, .access-button, .back-button {
-            background-color: #292929;
-            color: white;
-            padding: 12px;
-            margin: 8px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background 0.3s ease;
-            width: 90%;
-            display: inline-block;
-        }
-        .option:hover, .access-button:hover, .back-button:hover {
-            background-color: #00e5ff;
-            color: black;
-        }
-        .hidden {
-            display: none;
-        }
-        .back-button {
-            position: fixed;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 10;
-            display: none;
-        }
-    </style>
-</head>
-<body>
-
-<!-- Back Button -->
-<button class="back-button" id="backButton" onclick="goBack()">Back</button>
-
-<!-- Login Page -->
 <div class="container" id="loginContainer">
-        <marquee behavior="scroll" direction="left">
-            Welcome to AcademeForge – Something Out Of The Box 🎁!
-        </marquee>
-    <h2>LOGIN</h2>
-    <input type="text" id="username" placeholder="username : Auto-filled" />
-    <input type="password" id="password" placeholder="Password : Pre-filled" />
-    <button onclick="login()">Sign In</button>
+  <marquee behavior="scroll" direction="left">
+    Welcome to AcademeForge – Something Out Of The Box!
+  </marquee>
+  <h2>LOGIN</h2>
+  <input type="email" id="email" placeholder="Enter your Gmail" class="animate-input" />
+  <button onclick="sendOtp()">Send OTP</button>
+  <div id="otpSection" style="display:none;">
+    <input type="text" id="otp" placeholder="Enter OTP" class="animate-input" />
+    <button onclick="verifyOtp()">Verify OTP</button>
+  </div>
+  <p id="error"></p>
 </div>
 
+<!-- Firebase SDKs -->
+<script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js"></script>
+
+<script>
+  // Firebase configuration (replace with your own Firebase project's details)
+  const firebaseConfig = {
+    apiKey: "YOUR_API_KEY",
+    authDomain: "YOUR_AUTH_DOMAIN",
+    projectId: "YOUR_PROJECT_ID",
+    storageBucket: "YOUR_STORAGE_BUCKET",
+    messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
+    appId: "YOUR_APP_ID"
+  };
+
+  // Initialize Firebase
+  const app = firebase.initializeApp(firebaseConfig);
+  const auth = firebase.auth();
+
+  function sendOtp() {
+    const email = document.getElementById("email").value;
+    const error = document.getElementById("error");
+
+    if (!email) {
+      error.style.display = 'block';
+      error.innerText = "Please enter your Gmail!";
+      return;
+    }
+
+    // Create a phone number (for testing purposes, use a number linked with your Firebase)
+    const phoneNumber = "+1234567890"; // Dummy number for Firebase testing
+
+    // Send OTP
+    const appVerifier = new firebase.auth.RecaptchaVerifier('sendOtp', {
+      size: 'invisible',
+      callback: function(response) {
+        // reCAPTCHA solved - can proceed with OTP sending
+      }
+    });
+
+    auth.signInWithPhoneNumber(phoneNumber, appVerifier)
+      .then((confirmationResult) => {
+        window.confirmationResult = confirmationResult;
+        document.getElementById("otpSection").style.display = "block";
+        error.style.display = 'none';
+      })
+      .catch((error) => {
+        error.style.display = 'block';
+        error.innerText = "Error sending OTP. Please try again!";
+      });
+  }
+
+  function verifyOtp() {
+    const otp = document.getElementById("otp").value;
+    const error = document.getElementById("error");
+
+    if (!otp) {
+      error.style.display = 'block';
+      error.innerText = "Please enter OTP!";
+      return;
+    }
+
+    window.confirmationResult.confirm(otp)
+      .then((result) => {
+        const user = result.user;
+        alert("Login Successful!");
+        // Redirect or load the user dashboard
+      })
+      .catch((error) => {
+        error.style.display = 'block';
+        error.innerText = "Invalid OTP. Please try again!";
+      });
+  }
+</script
 
     
 <!-- Class Selection Page -->
@@ -571,3 +560,101 @@ window.onload = () => {
 
 </body>
 </html>
+
+
+
+
+
+
+
+
+<div class="container" id="loginContainer">
+  <marquee behavior="scroll" direction="left">
+    Welcome to AcademeForge – Something Out Of The Box!
+  </marquee>
+  <h2>LOGIN</h2>
+  <input type="email" id="email" placeholder="Enter your Gmail" class="animate-input" />
+  <button onclick="sendOtp()">Send OTP</button>
+  <div id="otpSection" style="display:none;">
+    <input type="text" id="otp" placeholder="Enter OTP" class="animate-input" />
+    <button onclick="verifyOtp()">Verify OTP</button>
+  </div>
+  <p id="error"></p>
+</div>
+
+<!-- Firebase SDKs -->
+<script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js"></script>
+
+<script>
+  // Firebase configuration (replace with your own Firebase project's details)
+  const firebaseConfig = {
+    apiKey: "YOUR_API_KEY",
+    authDomain: "YOUR_AUTH_DOMAIN",
+    projectId: "YOUR_PROJECT_ID",
+    storageBucket: "YOUR_STORAGE_BUCKET",
+    messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
+    appId: "YOUR_APP_ID"
+  };
+
+  // Initialize Firebase
+  const app = firebase.initializeApp(firebaseConfig);
+  const auth = firebase.auth();
+
+  function sendOtp() {
+    const email = document.getElementById("email").value;
+    const error = document.getElementById("error");
+
+    if (!email) {
+      error.style.display = 'block';
+      error.innerText = "Please enter your Gmail!";
+      return;
+    }
+
+    // Create a phone number (for testing purposes, use a number linked with your Firebase)
+    const phoneNumber = "+1234567890"; // Dummy number for Firebase testing
+
+    // Send OTP
+    const appVerifier = new firebase.auth.RecaptchaVerifier('sendOtp', {
+      size: 'invisible',
+      callback: function(response) {
+        // reCAPTCHA solved - can proceed with OTP sending
+      }
+    });
+
+    auth.signInWithPhoneNumber(phoneNumber, appVerifier)
+      .then((confirmationResult) => {
+        window.confirmationResult = confirmationResult;
+        document.getElementById("otpSection").style.display = "block";
+        error.style.display = 'none';
+      })
+      .catch((error) => {
+        error.style.display = 'block';
+        error.innerText = "Error sending OTP. Please try again!";
+      });
+  }
+
+  function verifyOtp() {
+    const otp = document.getElementById("otp").value;
+    const error = document.getElementById("error");
+
+    if (!otp) {
+      error.style.display = 'block';
+      error.innerText = "Please enter OTP!";
+      return;
+    }
+
+    window.confirmationResult.confirm(otp)
+      .then((result) => {
+        const user = result.user;
+        alert("Login Successful!");
+        // Redirect or load the user dashboard
+      })
+      .catch((error) => {
+        error.style.display = 'block';
+        error.innerText = "Invalid OTP. Please try again!";
+      });
+  }
+</script>
+
+
