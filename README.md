@@ -75,34 +75,45 @@
             align-items: center;
             height: 100vh;
         }
-        #loginContainer button {
-            width: 100%;
-            padding: 10px;
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-
-        #loginContainer button:hover {
-            background-color: #45a049;
-        }
-
-        marquee {
-            font-size: 18px;
-            font-weight: bold;
-            z-index: 10; /* Lower z-index to be behind the sidebar */
-        }
-
-        /* Footer text */
-        .footer {
-            margin-top: 30px;
-            font-size: 14px;
+        .container {
+            background: #1e1e1e;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 345px rgba(0, 255, 255, 0.5);
             text-align: center;
-            color: #aaa;
+            width: 300px;
+            transition: transform 0.3s ease;
         }
-
+        h2 {
+            color: #ff4081;
+        }
+        .option, .access-button, .back-button {
+            background-color: #292929;
+            color: white;
+            padding: 12px;
+            margin: 8px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            width: 90%;
+            display: inline-block;
+        }
+        .option:hover, .access-button:hover, .back-button:hover {
+            background-color: #00e5ff;
+            color: black;
+        }
+        .hidden {
+            display: none;
+        }
+        .back-button {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 10;
+            display: none;
+        }
     </style>
 </head>
 <body
