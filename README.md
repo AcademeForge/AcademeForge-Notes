@@ -53,12 +53,11 @@
         z-index: 9999;
         box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Shadow effect */
     }
-
-    marquee {
-        white-space: nowrap;
-        overflow: hidden;
-        display: inline-block;
-    }
+       marquee {
+            font-size: 18px;
+            font-weight: bold;
+            z-index: 10; /* Lower z-index to be behind the sidebar */
+        }
 </style>
 <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
