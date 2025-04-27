@@ -64,7 +64,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
          <title>AcademeForge</title>
     <style>
-        body {
+         {
             font-family: Arial, sans-serif;
             background-color: #121212;
             color: white;
@@ -116,7 +116,7 @@
         }
     </style>
 </head>
-<body
+<body>
 
 <!-- Back Button -->
 <button class="back-button" id="backButton" onclick="goBack()">Back</button>
