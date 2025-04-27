@@ -75,48 +75,37 @@
             align-items: center;
             height: 100vh;
         }
-        .container {
-            background: #1e1e1e;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 345px rgba(0, 255, 255, 0.5);
-            text-align: center;
-            width: 300px;
-            transition: transform 0.3s ease;
-        }
-        h2 {
-            color: #ff4081;
-        }
-        .option, .access-button, .back-button {
-            background-color: #292929;
+        #loginContainer button {
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
             color: white;
-            padding: 12px;
-            margin: 8px;
             border: none;
-            border-radius: 5px;
+            border-radius: 4px;
             cursor: pointer;
-            transition: background 0.3s ease;
-            width: 90%;
-            display: inline-block;
         }
-        .option:hover, .access-button:hover, .back-button:hover {
-            background-color: #00e5ff;
-            color: black;
+
+        #loginContainer button:hover {
+            background-color: #45a049;
         }
-        .hidden {
-            display: none;
+
+        marquee {
+            font-size: 18px;
+            font-weight: bold;
+            z-index: 10; /* Lower z-index to be behind the sidebar */
         }
-        .back-button {
-            position: fixed;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 10;
-            display: none;
+
+        /* Footer text */
+        .footer {
+            margin-top: 30px;
+            font-size: 14px;
+            text-align: center;
+            color: #aaa;
         }
+
     </style>
 </head>
-<body>
+<body
 
 <!-- Back Button -->
 <button class="back-button" id="backButton" onclick="goBack()">Back</button>
