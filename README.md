@@ -116,7 +116,7 @@
         }
     </style>
 </head>
-<body>
+
 
 <!-- Back Button -->
 <button class="back-button" id="backButton" onclick="goBack()">Back</button>
