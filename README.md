@@ -10,28 +10,7 @@
     </marquee>
 
 </div>
-<!-- Logo -->
-<div class="logo-container">
-    <a href="https://ibb.co/23qH49sJ" target="_blank">
-        <img src="https://i.ibb.co/k2KvC79Z/IMG-20250320-164334-559.jpg" alt="AcademeForge Logo">
-    </a>
-</div>
 
-<style>
-    /* Logo Styling */
-    .logo-container {
-        position: fixed;
-        top: 120px; /* Adjust this to position it under the banner */
-        Right: 10px; /* Positions the logo on the Right side */
-        z-index: 9997;
-    }
-
-    .logo-container img {
-        height: 40px; /* Reduced size */
-        width: auto; 
-        border-radius: 5px;
-    }
-</style>
 <!-- Your existing login form here -->
 <div class="login-container">
     <!-- Login form content -->
