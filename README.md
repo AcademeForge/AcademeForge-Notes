@@ -1,4 +1,3 @@
-
 <html lang="en">
 <head>
     <meta name="google-site-verification" content="F1L0xfSoJ09Jp0SjvlmTnzkWK_fuYyhBw36QvRdDGwM" />
@@ -96,6 +95,31 @@
             z-index: 10;
         }
 
+        /* Class & Subject Selection Styling */
+        .option {
+            margin: 15px;
+            padding: 20px;
+            background-color: #2c2c2c;
+            color: white;
+            border-radius: 10px;
+            font-size: 18px;
+            text-align: center;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s ease, background-color 0.3s ease;
+        }
+
+        .option:hover {
+            transform: scale(1.05);
+            background-color: #00e5ff;
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
         /* Mobile Friendly Styles */
         @media (max-width: 768px) {
             body {
@@ -109,6 +133,11 @@
 
             .neumorphic-button {
                 font-size: 14px;
+            }
+
+            .option {
+                width: 80%;
+                margin: 10px 0;
             }
         }
     </style>
@@ -131,9 +160,6 @@
     <button class="neumorphic-button" onclick="continueAsGuest()">Continue as Guest</button>
 </div>
 
-<!-- Back Button -->
-<button class="back-button" id="backButton" onclick="goBack()" style="display: none;">Back</button>
-
 <!-- Class Selection Page -->
 <div class="container hidden" id="classContainer" style="display: none;">
     <h2>Select Your Class</h2>
@@ -153,7 +179,6 @@
     <div id="subjectsList"></div>
 </div>
 
-
 <!-- JavaScript to Open and Close Pop-up -->
 <script>
     let currentPage = 'login';
@@ -162,7 +187,6 @@
     function showPage(page) {
         document.getElementById(`${currentPage}Container`).style.display = 'none';
         document.getElementById(`${page}Container`).style.display = 'block';
-        document.getElementById('backButton').style.display = (page !== 'login') ? 'block' : 'none';
         currentPage = page;
     }
 
@@ -248,19 +272,6 @@
             `;
         }
         showPage('subject');
-    }
-
-    function goBack() {
-        if (currentPage === 'subject') showPage('class');
-        else if (currentPage === 'class') showPage('login');
-    }
-
-    function openAboutUs() {
-        document.getElementById('aboutUsPopup').classList.remove('hidden');
-    }
-
-    function closeAboutUs() {
-        document.getElementById('aboutUsPopup').classList.add('hidden');
     }
 
     window.onload = () => {
