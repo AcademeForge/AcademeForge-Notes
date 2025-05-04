@@ -122,14 +122,69 @@
 <!-- Back Button -->
 <button class="back-button" id="backButton" onclick="goBack()">Back</button>
 
-<!-- Login Page -->
-<div class="container" id="loginContainer">
-    <marquee behavior="scroll" direction="left">
-        Welcome to AcademeForge – Something Out Of The Box 🎁!
-    </marquee>
-    <h2>LOGIN</h2>
-    <button class="access-button" onclick="continueAsGuest()">Continue as Guest</button>
-</div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Neumorphic Login</title>
+  <style>
+    body {
+      background: #d3d8e8;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    .neumorphic {
+      background: #e0e5ec;
+      border-radius: 20px;
+      box-shadow: 10px 10px 20px #a3b1c6, -10px -10px 20px #ffffff;
+    }
+
+    .neumorphic-card {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 30px;
+      width: 300px;
+      text-align: center;
+    }
+
+    .neumorphic-input {
+      margin: 10px 0;
+      padding: 10px;
+      width: 100%;
+      border: none;
+      outline: none;
+      font-size: 16px;
+    }
+
+    .neumorphic-button {
+      margin-top: 15px;
+      padding: 10px;
+      width: 100%;
+      border: none;
+      cursor: pointer;
+      font-size: 16px;
+      transition: 0.3s;
+    }
+
+    .neumorphic-button:hover {
+      box-shadow: inset 10px 10px 20px #a3b1c6, inset -10px -10px 20px #ffffff;
+    }
+  </style>
+</head>
+<body>
+  <div class="neumorphic neumorphic-card">
+    <h1>Login</h1>
+    <input type="text" class="neumorphic neumorphic-input" placeholder="Username" />
+    <input type="password" class="neumorphic neumorphic-input" placeholder="Password" />
+    <button class="neumorphic neumorphic-button">Continue as Guest</button>
+  </div>
+</body>
+
 
 <!-- Class Selection Page -->
 <div class="container hidden" id="classContainer">
