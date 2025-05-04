@@ -2,7 +2,7 @@
 <head>
     <meta name="google-site-verification" content="F1L0xfSoJ09Jp0SjvlmTnzkWK_fuYyhBw36QvRdDGwM" />
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <title>AcademeForge</title>
 
     <!-- Styling for the entire page -->
@@ -124,10 +124,11 @@
         @media (max-width: 768px) {
             body {
                 padding: 10px;
+                overflow: auto;
             }
 
             .neumorphic {
-                width: 100%;
+                width: 90%;
                 padding: 20px;
             }
 
@@ -138,10 +139,7 @@
             .option {
                 width: 80%;
                 margin: 10px 0;
-            }
-
-            .container {
-                flex-direction: column;
+                font-size: 16px;
             }
         }
     </style>
@@ -165,7 +163,7 @@
 </div>
 
 <!-- Class Selection Page -->
-<div class="container" id="classContainer" style="display: none;">
+<div class="container hidden" id="classContainer" style="display: none;">
     <h2>Select Your Class</h2>
     <div class="option" onclick="selectClass(1)">Class 1</div>
     <div class="option" onclick="selectClass(2)">Class 2</div>
@@ -178,7 +176,7 @@
 </div>
 
 <!-- Subjects Page -->
-<div class="container" id="subjectContainer" style="display: none;">
+<div class="container hidden" id="subjectContainer" style="display: none;">
     <h2>Subjects</h2>
     <div id="subjectsList"></div>
 </div>
