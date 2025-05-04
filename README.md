@@ -118,7 +118,6 @@
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            transition: opacity 0.5s ease;
         }
 
         /* Mobile Friendly Styles */
@@ -139,6 +138,10 @@
             .option {
                 width: 80%;
                 margin: 10px 0;
+            }
+
+            .container {
+                flex-direction: column;
             }
         }
     </style>
@@ -162,7 +165,7 @@
 </div>
 
 <!-- Class Selection Page -->
-<div class="container hidden" id="classContainer" style="display: none;">
+<div class="container" id="classContainer" style="display: none;">
     <h2>Select Your Class</h2>
     <div class="option" onclick="selectClass(1)">Class 1</div>
     <div class="option" onclick="selectClass(2)">Class 2</div>
@@ -175,7 +178,7 @@
 </div>
 
 <!-- Subjects Page -->
-<div class="container hidden" id="subjectContainer" style="display: none;">
+<div class="container" id="subjectContainer" style="display: none;">
     <h2>Subjects</h2>
     <div id="subjectsList"></div>
 </div>
@@ -266,4 +269,19 @@
         const links = subjectLinks[cls] || {};
         for (const [subject, link] of Object.entries(links)) {
             subjectsList.innerHTML += `
-                <div class
+                <div class="option">
+                    ${subject}
+                    <button class="access-button" onclick="window.open('${link}', '_blank')">Access Notes</button>
+                </div>
+            `;
+        }
+        showPage('subject');
+    }
+
+    window.onload = () => {
+        showPage('login');
+    };
+</script>
+
+</body>
+</html>
