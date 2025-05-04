@@ -109,6 +109,13 @@
 <div class="container hidden" id="classContainer">
     <h2>Select Your Class</h2>
     <div class="option" onclick="selectClass(1)">Class 1</div>
+    <div class="option" onclick="selectClass(2)">Class 2</div>
+    <div class="option" onclick="selectClass(3)">Class 3</div>
+    <div class="option" onclick="selectClass(4)">Class 4</div>
+    <div class="option" onclick="selectClass(5)">Class 5</div>
+    <div class="option" onclick="selectClass(6)">Class 6</div>
+    <div class="option" onclick="selectClass(7)">Class 7</div>
+    <div class="option" onclick="selectClass(8)">Class 8</div>
     <div class="option" onclick="selectClass(9)">Class 9</div>
     <div class="option" onclick="selectClass(10)">Class 10</div>
     <div class="option" onclick="selectClass(11)">Class 11</div>
