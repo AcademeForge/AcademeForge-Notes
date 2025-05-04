@@ -118,6 +118,7 @@
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
+            transition: opacity 0.5s ease;
         }
 
         /* Mobile Friendly Styles */
@@ -265,19 +266,4 @@
         const links = subjectLinks[cls] || {};
         for (const [subject, link] of Object.entries(links)) {
             subjectsList.innerHTML += `
-                <div class="option">
-                    ${subject}
-                    <button class="access-button" onclick="window.open('${link}', '_blank')">Access Notes</button>
-                </div>
-            `;
-        }
-        showPage('subject');
-    }
-
-    window.onload = () => {
-        showPage('login');
-    };
-</script>
-
-</body>
-</html>
+                <div class
