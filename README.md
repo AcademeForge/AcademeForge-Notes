@@ -1,46 +1,24 @@
 <html lang="en">
 <head>
-<meta name="google-site-verification" content="F1L0xfSoJ09Jp0SjvlmTnzkWK_fuYyhBw36QvRdDGwM" />
-<!-- Moving Banner -->
-<div class="banner-container">
-    <marquee behavior="scroll" direction="left">
-        Stay Tuned For more updates 
-    <a href="https://t.me/AcademeForge" target="_blank" style="color: #ff4081; text-decoration: underline;">Join our Telegram group</a>
-🌟
-    </marquee>
+    <meta name="google-site-verification" content="F1L0xfSoJ09Jp0SjvlmTnzkWK_fuYyhBw36QvRdDGwM" />
+    <!-- Moving Banner -->
+    <div class="banner-container">
+        <marquee behavior="scroll" direction="left">
+            Stay Tuned For more updates 
+            <a href="https://t.me/AcademeForge" target="_blank" style="color: #ff4081; text-decoration: underline;">Join our Telegram group</a> 🌟
+        </marquee>
+    </div>
 
-</div>
+    <!-- Your existing login form here -->
+    <div class="login-container">
+        <!-- Login form content -->
+    </div>
 
-<!-- Your existing login form here -->
-<div class="login-container">
-    <!-- Login form content -->
-</div>
-
-<!-- CSS for styling the banner -->
-<style>
-    .banner-container {
-        background-color: #ffcc00; /* Background color */
-        padding: 10px;
-        color: #000; /* Text color */
-        font-size: 16px;
-        font-weight: bold;
-        text-align: center;
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        z-index: 9999;
-        box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Shadow effect */
-    }
-       marquee {
-            font-size: 18px;
-            font-weight: bold;
-            z-index: 10; /* Lower z-index to be behind the sidebar */
-        }
-</style>
-<meta charset="UTF-8" />
+    <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-         <title>AcademeForge</title>
+    <title>AcademeForge</title>
+
+    <!-- Styling for the entire page -->
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -77,7 +55,7 @@
             width: 90%;
             display: inline-block;
         }
-        .option:hover, .access-button:hover, .back-button:hover {
+        .access-button:hover {
             background-color: #00e5ff;
             color: black;
         }
@@ -92,9 +70,29 @@
             z-index: 10;
             display: none;
         }
+        .banner-container {
+            background-color: #ffcc00;
+            padding: 10px;
+            color: #000;
+            font-size: 16px;
+            font-weight: bold;
+            text-align: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 9999;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        marquee {
+            font-size: 18px;
+            font-weight: bold;
+            z-index: 10;
+        }
     </style>
 </head>
 <body>
+
 <!-- Back Button -->
 <button class="back-button" id="backButton" onclick="goBack()">Back</button>
 
@@ -104,13 +102,13 @@
         Welcome to AcademeForge – Something Out Of The Box 🎁!
     </marquee>
     <h2>LOGIN</h2>
-    <button onclick="continueAsGuest()">Continue as Guest</button>
+    <button class="access-button" onclick="continueAsGuest()">Continue as Guest</button>
 </div>
-
 
 <!-- Class Selection Page -->
 <div class="container hidden" id="classContainer">
     <h2>Select Your Class</h2>
+    <div class="option" onclick="selectClass(1)">Class 1</div>
     <div class="option" onclick="selectClass(9)">Class 9</div>
     <div class="option" onclick="selectClass(10)">Class 10</div>
     <div class="option" onclick="selectClass(11)">Class 11</div>
