@@ -105,6 +105,16 @@
     <button class="access-button" onclick="continueAsGuest()">Continue as Guest</button>
 </div>
 
+<script>
+    // Existing script code...
+
+    function continueAsGuest() {
+        showPage('class');
+    }
+
+    // Rest of your script...
+</script>
+
 <!-- Class Selection Page -->
 <div class="container hidden" id="classContainer">
     <h2>Select Your Class</h2>
