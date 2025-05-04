@@ -121,15 +121,12 @@
 
 <!-- Login Page -->
 <div class="container" id="loginContainer">
-        <marquee behavior="scroll" direction="left">
-            Welcome to AcademeForge – Something Out Of The Box 🎁!
-        </marquee>
+    <marquee behavior="scroll" direction="left">
+        Welcome to AcademeForge – Something Out Of The Box 🎁!
+    </marquee>
     <h2>LOGIN</h2>
-    <input type="text" id="username" placeholder="username : Auto-filled" />
-    <input type="password" id="password" placeholder="Password : Pre-filled" />
-    <button onclick="login()">Sign In</button>
+    <button onclick="continueAsGuest()">Continue as Guest</button>
 </div>
-
 
 
 <!-- Class Selection Page -->
