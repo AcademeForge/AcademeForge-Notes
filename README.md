@@ -337,32 +337,7 @@ window.onload = () => {
 <div id="announcementContainer" class="hidden">
     <!-- Announcement Button -->
     <button onclick="openAnnouncement()" class="option" style="background-color: #ff9800; color: white; width: 90%; margin-top: 20px;">
-        Announcement
-    </button>
-
-    <!-- Announcement Pop-up -->
-    <div id="announcementPopup" class="hidden" style="
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        background-color: #1e1e1e;
-        padding: 20px;
-        border-radius: 10px;
-        box-shadow: 0 0 15px rgba(255, 152, 0, 0.5);
-        z-index: 1000;
-        width: 90%;
-        max-width: 400px;
-        text-align: center;
-    ">
-        <h2 style="color: #ff9800;">📢 Announcement</h2>
-        <p>AcademeForge Scholars Test (AST) 2025 registrations open soon for <strong>Classes 1 to 10</strong>! 🚀</p>
-        <p>Join our <a href="https://t.me/AcademeForge" target="_blank" style="color: #00e5ff;">Telegram Group</a> for updates.</p>
-        <button onclick="closeAnnouncement()" class="option" style="background-color: #ff9800; color: white; margin-top: 10px;">Close</button>
-    </div>
-</div>
-
-
+        
 <!-- Chatbox Button -->
 <button id="chatbotButton" onclick="toggleChatbot()" style="
     position: fixed;
