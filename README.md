@@ -1,4 +1,3 @@
-
 <html lang="en">
 <head>
     <meta name="google-site-verification" content="F1L0xfSoJ09Jp0SjvlmTnzkWK_fuYyhBw36QvRdDGwM" />
@@ -22,53 +21,59 @@
             overflow: hidden;
         }
 
-        .container {
-            background: #1e1e1e;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 345px rgba(0, 255, 255, 0.5);
+        /* Neumorphic Login Box */
+        .neumorphic {
+            background: #e0e5ec;
+            border-radius: 20px;
+            box-shadow: 10px 10px 20px #a3b1c6, -10px -10px 20px #ffffff;
+            padding: 30px;
+            width: 300px;
             text-align: center;
-            width: 100%;
-            max-width: 320px;
-            transition: transform 0.3s ease;
-            margin-top: 20px;
         }
 
-        h2 {
+        .neumorphic h1 {
+            font-size: 28px;
             color: #ff4081;
+            margin-bottom: 20px;
         }
 
-        .option, .access-button, .back-button {
-            background-color: #292929;
-            color: white;
-            padding: 12px;
-            margin: 8px;
+        .neumorphic-input {
+            margin: 10px 0;
+            padding: 10px;
+            width: 100%;
             border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background 0.3s ease;
-            width: 90%;
-            display: inline-block;
+            border-radius: 8px;
+            font-size: 16px;
+            background: #e0e5ec;
+            box-shadow: inset 5px 5px 10px #a3b1c6, inset -5px -5px 10px #ffffff;
+            transition: box-shadow 0.3s ease;
         }
 
-        .access-button:hover {
+        .neumorphic-input:focus {
+            box-shadow: inset 5px 5px 10px #a3b1c6, inset -5px -5px 10px #ffffff, 0 0 8px rgba(0, 255, 255, 0.7);
+            outline: none;
+        }
+
+        .neumorphic-button {
+            margin-top: 15px;
+            padding: 10px;
+            width: 100%;
+            border: none;
+            border-radius: 8px;
             background-color: #00e5ff;
-            color: black;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            box-shadow: inset 5px 5px 10px #a3b1c6, inset -5px -5px 10px #ffffff;
+            transition: box-shadow 0.3s ease;
         }
 
-        .hidden {
-            display: none;
+        .neumorphic-button:hover {
+            box-shadow: inset 10px 10px 20px #a3b1c6, inset -10px -10px 20px #ffffff;
+            background-color: #ff4081;
         }
 
-        .back-button {
-            position: fixed;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 10;
-            display: none;
-        }
-
+        /* Banner Section */
         .banner-container {
             background-color: #ffcc00;
             padding: 10px;
@@ -95,15 +100,13 @@
             body {
                 padding: 10px;
             }
-            .container {
+
+            .neumorphic {
                 width: 100%;
-                padding: 15px;
+                padding: 20px;
             }
-            .option, .access-button, .back-button {
-                width: 100%;
-                font-size: 14px;
-            }
-            .banner-container {
+
+            .neumorphic-button {
                 font-size: 14px;
             }
         }
@@ -119,71 +122,18 @@
     </marquee>
 </div>
 
+<!-- Neumorphic Login Box -->
+<div class="neumorphic">
+    <h1>Login</h1>
+    <input type="text" class="neumorphic-input" placeholder="Username" />
+    <input type="password" class="neumorphic-input" placeholder="Password" />
+    <button class="neumorphic-button">Continue as Guest</button>
+</div>
+
+
 <!-- Back Button -->
 <button class="back-button" id="backButton" onclick="goBack()">Back</button>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Neumorphic Login</title>
-  <style>
-    body {
-      background: #d3d8e8;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    }
-
-    .neumorphic {
-      background: #e0e5ec;
-      border-radius: 20px;
-      box-shadow: 10px 10px 20px #a3b1c6, -10px -10px 20px #ffffff;
-    }
-
-    .neumorphic-card {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      padding: 30px;
-      width: 300px;
-      text-align: center;
-    }
-
-    .neumorphic-input {
-      margin: 10px 0;
-      padding: 10px;
-      width: 100%;
-      border: none;
-      outline: none;
-      font-size: 16px;
-    }
-
-    .neumorphic-button {
-      margin-top: 15px;
-      padding: 10px;
-      width: 100%;
-      border: none;
-      cursor: pointer;
-      font-size: 16px;
-      transition: 0.3s;
-    }
-
-    .neumorphic-button:hover {
-      box-shadow: inset 10px 10px 20px #a3b1c6, inset -10px -10px 20px #ffffff;
-    }
-  </style>
-</head>
-<body>
-  <div class="neumorphic neumorphic-card">
-    <h1>Login</h1>
-    <input type="text" class="neumorphic neumorphic-input" placeholder="Username" />
-    <input type="password" class="neumorphic neumorphic-input" placeholder="Password" />
-    <button class="neumorphic neumorphic-button">Continue as Guest</button>
-  </div>
-</body>
 
 
 <!-- Class Selection Page -->
