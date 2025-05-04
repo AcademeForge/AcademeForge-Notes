@@ -1,3 +1,4 @@
+
 <html lang="en">
 <head>
     <meta name="google-site-verification" content="F1L0xfSoJ09Jp0SjvlmTnzkWK_fuYyhBw36QvRdDGwM" />
@@ -123,21 +124,18 @@
 </div>
 
 <!-- Neumorphic Login Box -->
-<div class="neumorphic">
+<div class="neumorphic" id="loginContainer">
     <h1>Login</h1>
     <input type="text" class="neumorphic-input" placeholder="Username" />
     <input type="password" class="neumorphic-input" placeholder="Password" />
-    <button class="neumorphic-button">Continue as Guest</button>
+    <button class="neumorphic-button" onclick="continueAsGuest()">Continue as Guest</button>
 </div>
 
-
 <!-- Back Button -->
-<button class="back-button" id="backButton" onclick="goBack()">Back</button>
-
-
+<button class="back-button" id="backButton" onclick="goBack()" style="display: none;">Back</button>
 
 <!-- Class Selection Page -->
-<div class="container hidden" id="classContainer">
+<div class="container hidden" id="classContainer" style="display: none;">
     <h2>Select Your Class</h2>
     <div class="option" onclick="selectClass(1)">Class 1</div>
     <div class="option" onclick="selectClass(2)">Class 2</div>
@@ -150,7 +148,7 @@
 </div>
 
 <!-- Subjects Page -->
-<div class="container hidden" id="subjectContainer">
+<div class="container hidden" id="subjectContainer" style="display: none;">
     <h2>Subjects</h2>
     <div id="subjectsList"></div>
 </div>
@@ -192,8 +190,8 @@
     let selectedClass = null;
 
     function showPage(page) {
-        document.getElementById(`${currentPage}Container`).classList.add('hidden');
-        document.getElementById(`${page}Container`).classList.remove('hidden');
+        document.getElementById(`${currentPage}Container`).style.display = 'none';
+        document.getElementById(`${page}Container`).style.display = 'block';
         document.getElementById('backButton').style.display = (page !== 'login') ? 'block' : 'none';
         currentPage = page;
     }
@@ -298,67 +296,6 @@
     window.onload = () => {
         showPage('login');
     };
-</script>
-<!-- About Us Container -->
-<div id="aboutUsContainer" class="hidden">
-    <!-- About Us Button -->
-    <button onclick="openAboutUs()" class="option" style="background-color: #ff4081; color: white; width: 90%; margin-top: 20px;">
-        About Us
-    </button>
-
-    <!-- About Us Pop-up -->
-    <div id="aboutUsPopup" class="hidden" style="
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        background-color: #1e1e1e;
-        padding: 20px;
-        border-radius: 10px;
-        box-shadow: 0 0 15px rgba(0, 255, 255, 0.5);
-        z-index: 1000;
-        width: 90%;
-        max-width: 400px;
-        text-align: center;
-    ">
-        <h2 style="color: #ff4081;">About the Team</h2>
-        <p><strong>Devraj Kumar</strong> – Founder & CEO</p>
-        <p><strong>Mandeep Boot Jolakiya</strong> – Co-Founder & CEO</p>
-        <h3 style="color: #00e5ff;">Special Thanks:</h3>
-        <p>We extend our heartfelt gratitude to <strong>Ujjwal</strong>, <strong>Amrit</strong>, <strong>Palak</strong>, <strong>Aadhar Bhattacharya</strong> and <strong>Bhuvam</strong> for their invaluable support in managing our community. Your contributions have made a significant impact!</p>
-        <button onclick="closeAboutUs()" class="option" style="background-color: #ff4081; color: white; margin-top: 10px;">Close</button>
-    </div>
-</div>
-
-<!-- JavaScript to Open and Close Pop-up -->
-<script>
-    function openAboutUs() {
-        document.getElementById('aboutUsPopup').classList.remove('hidden');
-    }
-
-    function closeAboutUs() {
-        document.getElementById('aboutUsPopup').classList.add('hidden');
-    }
-
-    function showPage(page) {
-        document.getElementById(`${currentPage}Container`).classList.add('hidden');
-        document.getElementById(`${page}Container`).classList.remove('hidden');
-        document.getElementById('backButton').style.display = (page !== 'login') ? 'block' : 'none';
-
-        // Show "About Us" button only on login page
-        if (page === 'login') {
-            document.getElementById('aboutUsContainer').classList.remove('hidden');
-        } else {
-            document.getElementById('aboutUsContainer').classList.add('hidden');
-        }
-
-        currentPage = page;
-    }
-// Show About Us button when the page initially loads
-window.onload = () => {
-    showPage('login'); // Ensure the login page is set as default
-    document.getElementById('aboutUsButton').style.display = 'block'; // Show About Us button
-}
 </script>
 
 </body>
