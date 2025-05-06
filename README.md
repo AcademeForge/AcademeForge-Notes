@@ -328,7 +328,42 @@ window.onload = () => {
 }  
 </script>
 
-<div class="container" id="loginContainer">
+<!-- Chat Box (Visible only on Login Page) -->
+<div id="chatBox" style="
+    position: fixed;
+    bottom: 80px;
+    right: 20px;
+    background-color: #1e1e1e;
+    border: 2px solid #00e5ff;
+    border-radius: 10px;
+    width: 300px;
+    padding: 10px;
+    display: block;
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+    z-index: 999;
+">
+    <div style="font-weight: bold; color: #ff4081; margin-bottom: 8px;">Chat with us</div>
+    <textarea placeholder="Type your message..." style="
+        width: 100%;
+        height: 60px;
+        background-color: #292929;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        resize: none;
+        padding: 5px;
+    "></textarea>
+    <button style="
+        margin-top: 8px;
+        background-color: #00e5ff;
+        color: black;
+        border: none;
+        border-radius: 5px;
+        padding: 8px;
+        width: 100%;
+        cursor: pointer;
+    ">Send</button>
+</div>
 
 <!-- Chatbox Button -->
 <button id="chatbotButton" onclick="toggleChatbot()" style="
@@ -427,6 +462,21 @@ window.onload = () => {
             chatbox.scrollTop = chatbox.scrollHeight;
         }
     }
+function showPage(page) {
+    document.getElementById(`${currentPage}Container`).classList.add('hidden');
+    document.getElementById(`${page}Container`).classList.remove('hidden');
+    document.getElementById('backButton').style.display = (page !== 'login') ? 'block' : 'none';
+    
+    // Show/hide chat box based on page
+    const chatBox = document.getElementById('chatBox');
+    if (page === 'login') {
+        chatBox.style.display = 'block';
+    } else {
+        chatBox.style.display = 'none';
+    }
+
+    currentPage = page;
+}
 </script>
 
 </div>
