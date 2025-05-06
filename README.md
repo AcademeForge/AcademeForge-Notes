@@ -328,9 +328,6 @@ window.onload = () => {
 }  
 </script>
 
-
-<div class="container" id="loginContainer">
-
 <!-- Chatbox Button -->
 <button id="chatbotButton" onclick="toggleChatbot()" style="
     position: fixed;
